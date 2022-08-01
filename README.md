@@ -55,8 +55,6 @@ Sample code:
         
         
         Sample output:
-        
-        
-        ![image](https://user-images.githubusercontent.com/75112014/182064183-22f22246-a98d-4bc9-b811-34e4182100af.png)
+        ![output](https://user-images.githubusercontent.com/75112014/182064357-d0202675-63c0-48dd-92af-0ecd838ab6c9.png)
 
         
