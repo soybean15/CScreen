@@ -43,6 +43,13 @@ public class Main{
         textBox1.place(screen);
         textBox2.place(screen);
 
+        Box box = new Box(12,2,33,7);
+        box.place(screen);
+
+        Label label = new Label(13,3);
+        label.setText("Sample Label inside Box");
+        label.place(screen);
+
 
         screen.displayScreen();
 
