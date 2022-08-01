@@ -41,7 +41,11 @@ public class TextBox extends Box{
 
                     if(j>start && j<end-1){
                         if(this.text.length()>0){
+                            if(k >=text.length()){
+                                continue;
+                            }
                             screen[i][j] = text.charAt(k++);
+
                         }
 
                     }else{

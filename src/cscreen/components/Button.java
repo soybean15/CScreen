@@ -17,7 +17,7 @@ public class Button extends Components implements Resizable{
 
     }
 
-    void setText(String text){
+    public void setText(String text){
         this.text = text;
     }
     public String getText(){
@@ -59,7 +59,12 @@ public class Button extends Components implements Resizable{
 
                     if(j>start && j<end-1){
                         if(this.text.length()>0){
+                            if(k >=text.length()){
+                                continue;
+                            }
+
                             screen[i][j] = text.charAt(k++);
+
                         }
 
                     }else{
@@ -82,6 +87,8 @@ public class Button extends Components implements Resizable{
     public void setHeight(int height) {
         this.height=height;
     }
+
+
 }
 
 
