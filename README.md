@@ -1,6 +1,8 @@
 # CScreen
 
 Sample code:
+
+
         //create Screen
         Screen screen = new Screen();
         screen.setDimension(20,40);
