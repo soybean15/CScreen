@@ -13,7 +13,6 @@ public class TextBox extends Box{
         super(r, c);
     }
 
-
     public void setText(String text){
         this.text = text;
     }
