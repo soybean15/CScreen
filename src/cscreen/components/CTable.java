@@ -7,9 +7,8 @@ import java.util.Arrays;
 public class CTable {
     char[][] screen;
 
-    private String[] list;
-    private String[] columnHeader;
-    private String title="Sample title";
+    private final String[] list;
+    private final String[] columnHeader;
     Position pos;
     int[] spaces;
 
