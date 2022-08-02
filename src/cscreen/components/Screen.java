@@ -152,7 +152,7 @@ public class Screen {
         }
     }
 
-    public void displayScreen(){
+    public void display(){
         for (char[] chars : screen) {
             for (char aChar : chars) {
                 System.out.print(aChar);

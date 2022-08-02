@@ -7,22 +7,20 @@ public class Main{
 
     public static void main(String[] args){
 
-        Screen screen = new Screen(20,40, true);
-        screen.displayScreen();
+      String[] arr ={"123456789","21","1321","13123123"};
 
-        Button button = new Button(4,2,"Button");
-        button.place(screen);
+      System.out.println("With width and title");
+      CList list = new CList(arr,30);
+      list.addCounter();
+      list.setTitle("Sample title",Position.CENTER);
+      list.display();
 
-        Box box  = new Box(7,2,20,5);
-        box.place(screen);
-
-        TextBox textBox = new TextBox(12,2);
-        textBox.setHeight(4);
-        textBox.setText("Sample Text ");
-        textBox.place(screen);
+      String[] arr2 ={"Hello there","Come with me if you want to live","Meow","Are you lookin at me?","You shall not passA"};
+      System.out.println("No width and title");
+      CList list2 = new CList(arr2,0);
+      list2.display();
 
 
-        screen.displayScreen();
 
     }
 }
