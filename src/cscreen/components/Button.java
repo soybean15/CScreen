@@ -6,6 +6,8 @@ public class Button extends Components implements Resizable{
     private int width;
     private int height;
 
+
+
     public Button(int r, int c, String text){
         this.r = r;
         this.c=c;
@@ -49,11 +51,8 @@ public class Button extends Components implements Resizable{
 
                 if(i==r || i==(r+2)){
 
-                    if(j==start || j ==end-1){
-                        screen[i][j] = '+';
-                    }else{
-                        screen[i][j] = '-';
-                    }
+                    screen[i][j] = this.horizontal;
+
                 }
                 if(i==(r+1)){
 
@@ -68,12 +67,18 @@ public class Button extends Components implements Resizable{
                         }
 
                     }else{
-                        screen[i][j]= '|';
+                        screen[i][j]= this.vertical;
                     }
 
                 }
             }
         }
+
+        //corners
+        screen[r][start] = corners[0];
+        screen[r][end-1] = corners[1];
+        screen[r+2][start]= corners[2];
+        screen[r+2][end-1] = corners[3];
 
     }
 

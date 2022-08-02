@@ -2,8 +2,8 @@ package cscreen.components;
 
 public class Box extends Components implements Resizable{
 
-    int width;
-    private int height;
+    protected int width;
+    protected int height;
     public Box(int r, int c, int width, int height){
         this.r = r;
         this.c=c;
@@ -35,22 +35,25 @@ public class Box extends Components implements Resizable{
 
         for(int i=r; i<r+height; i++ ){
 
-            for(int j=start, k=0; j<end; j++){
+            for(int j=start; j<end; j++){
 
                 if(i==r || i==(r+(height-1))){
 
-                    if(j==start || j ==end-1){
-                        screen[i][j] = '+';
-                    }else{
-                        screen[i][j] = '-';
-                    }
+                    screen[i][j] = this.horizontal;
+
                 }else{
                     if(j==start || j ==end-1){
-                        screen[i][j] = '|';
+                        screen[i][j] = this.vertical;
                     }
                 }
             }
         }
+
+        //corners
+        screen[r][start] = corners[0];
+        screen[r][end-1] = corners[1];
+        screen[r+(height-1)][start]= corners[2];
+        screen[r+(height-1)][end-1] = corners[3];
 
     }
 

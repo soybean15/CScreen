@@ -2,6 +2,9 @@ package cscreen.components;
 
 public class TextBox extends Box{
     String text="";
+
+    //┌,┐,└,┘
+    char[] corners ={'┌','┐','└','┘'};
     public TextBox(int r, int c, int width, int height) {
         super(r, c, width, height);
     }
@@ -14,6 +17,7 @@ public class TextBox extends Box{
     public void setText(String text){
         this.text = text;
     }
+
 
     @Override
     public void place(Screen sc){
@@ -29,14 +33,20 @@ public class TextBox extends Box{
             }
             end = (c+width)+2;
         }
-        for(int i=r; i<r+3; i++ ){
+        for(int i=r; i<r+height; i++ ){
 
             for(int j=start, k=0; j<end; j++){
 
-                if(i==r || i==(r+2)){
-                        screen[i][j] = '-';
+                if(i==r || i==r+(height-1)){
+                        screen[i][j] = this.horizontal;
 
                 }
+                else{
+                    if(j==start || j ==end-1){
+                        screen[i][j]= this.vertical;
+                    }
+                }
+
                 if(i==(r+1)){
 
                     if(j>start && j<end-1){
@@ -48,13 +58,17 @@ public class TextBox extends Box{
 
                         }
 
-                    }else{
-                        screen[i][j]= '|';
                     }
 
                 }
+
             }
         }
+        //corners
+        screen[r][start] = corners[0];
+        screen[r][end-1] = corners[1];
+        screen[r+(height-1)][start]= corners[2];
+        screen[r+(height-1)][end-1] = corners[3];
 
     }
 }
