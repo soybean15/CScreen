@@ -24,7 +24,7 @@ public class CTable {
         this.columnHeader =columnHeader;
         int len = arr.length;
         if(columnHeader!=null){
-            len = arr.length+3;
+            len = arr.length+2;
         }
         this.list = new String[arr.length+1];
 
@@ -132,11 +132,11 @@ public class CTable {
     private void generateScreen(){
 
         int start =0;
-        int end = end= screen.length-1;
+        int end = screen.length-1;
         int idx = 1;
         if(columnHeader!=null){
             start = 2;
-            end= screen.length-2;
+
 
         }
 
