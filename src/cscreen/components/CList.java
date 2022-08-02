@@ -117,9 +117,13 @@ public class CList {
                 screen[1][i]=this.title.charAt(j++);
 
             }
+            //├┤
             for(int i=1; i<width-1;i++){
                 screen[2][i]=this.horizontal;
             }
+            screen[2][0]='├';
+            screen[2][width-1]='┤';
+
 
         }
     }

@@ -7,18 +7,21 @@ public class Main{
 
     public static void main(String[] args){
 
-      String[] arr ={"123456789","21","1321","13123123"};
+      String[][] arr = {{"Marilyn Monroe", "21", "March", "1993"},
+              {"Robert De Niro", "22", "August", "1945"},
+              {"Malcolm X", "23", "June", "1944"},
+              {"Mohammad Ali", "24", "March", "1970"}
+      };
 
-      System.out.println("With width and title");
-      CList list = new CList(arr,30);
-      list.addCounter();
-      list.setTitle("Sample title",Position.CENTER);
-      list.display();
 
-      String[] arr2 ={"Hello there","Come with me if you want to live","Meow","Are you lookin at me?","You shall not passA"};
-      System.out.println("No width and title");
-      CList list2 = new CList(arr2,0);
-      list2.display();
+      CTable table = new CTable(null,arr);
+      table.display();
+
+
+      String[] header = {"Name", "Id", "Month", "Year"};
+      CTable table2 = new CTable(header,arr);
+      table2.display();
+
 
 
 
