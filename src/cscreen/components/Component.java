@@ -7,8 +7,7 @@ abstract class Components{
 
     protected char horizontal = '┈';
     protected char vertical = '│';
-    //╭ 	╮ 	╯
-    //	╰
+
     char[] corners = {'╭','╮','╰','╯'};
 
 

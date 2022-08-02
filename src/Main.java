@@ -16,7 +16,9 @@ public class Main{
         Box box  = new Box(7,2,20,5);
         box.place(screen);
 
-        TextBox textBox = new TextBox(12,2,20,5);
+        TextBox textBox = new TextBox(12,2);
+        textBox.setHeight(4);
+        textBox.setText("Sample Text ");
         textBox.place(screen);
 
 

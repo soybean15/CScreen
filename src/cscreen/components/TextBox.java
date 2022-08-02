@@ -4,10 +4,12 @@ public class TextBox extends Box{
     String text="";
 
     //┌,┐,└,┘
+
+    private int height = 3;
     char[] corners ={'┌','┐','└','┘'};
-    public TextBox(int r, int c, int width, int height) {
-        super(r, c, width, height);
-    }
+//    public TextBox(int r, int c, int width, int height) {
+//        super(r, c, width, height);
+//    }
 
     public TextBox(int r, int c) {
         super(r, c);
@@ -15,6 +17,14 @@ public class TextBox extends Box{
 
     public void setText(String text){
         this.text = text;
+    }
+
+    @Override
+    public void setHeight(int height){
+        if(height<4){
+            height=3;
+        }
+        this.height = height;
     }
 
 
