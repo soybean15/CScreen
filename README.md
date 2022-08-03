@@ -8,6 +8,7 @@ C-Screen features:
         
 Sample code:
         
+        ```
         Screen screen = new Screen(20,40,true);
         screen.addTitle("Sample Screen",Position.START);
         screen.display();
@@ -18,6 +19,7 @@ Sample code:
         -height - height of screen
         -hasBorder - add inner border if true
         */
+        ```
                 
 Sample output:
         
