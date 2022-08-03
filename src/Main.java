@@ -45,10 +45,10 @@ public class Main{
               {"s930","Sundae","10","30.00"},
       };
 
-      String[] header = {"Id","Product","QTY","Price"};
+      String[] header = {"Id","Product","Quantity","Price"};
 
-      CTable table = new CTable(header, menu);
-
+      CTable table = new CTable(null, menu);
+      table.hasSeparator(true);
       table.display();
 
     }

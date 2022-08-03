@@ -2,6 +2,9 @@ package cscreen.components;
 
 import cscreen.classes.Position;
 
+import java.security.SecureRandom;
+import java.util.Arrays;
+
 
 public class CTable extends CList {
 
@@ -40,11 +43,38 @@ public class CTable extends CList {
 
     }
 
+
+    void print2d(String [][] arr){
+        for (String[] str:arr){
+            System.out.println(str[1]);
+        }
+    }
+    String[][] copy (String[][] arr){
+        String[][] newArr = new String[arr.length+1][arr[0].length];
+
+        for(int i = 1; i<newArr.length;i++){
+            for (int j = 0;j<newArr[i].length;j++){
+                newArr[i][j]=arr[i-1][j];
+
+            }
+
+        }
+        newArr[0] = columnHeader;
+
+
+
+
+        return newArr;
+    }
+
     void init(){
         int len = this.list2D.length+2;
         if (columnHeader != null) {
-            len = this.list2D.length + 4;
+            this.list2D = copy(this.list2D);
+            len = this.list2D.length + 3;
+
         }
+        print2d(list2D);
 
         int colSize = combineRow(this.list2D) + 1;
         this.screen = new char[len][colSize];
@@ -60,12 +90,14 @@ public class CTable extends CList {
         this.list2D =arr;
         this.hasSeparator =hasSeparator;
         this.pos=pos;
-        this.list = new String[arr.length + 1];
+        this.list = new String[arr.length +1 ];
 
 
     }
 
     public void display() {
+
+
 
         generateScreen();
 
@@ -80,10 +112,12 @@ public class CTable extends CList {
 
     // void gene
     void printArr() {
+        int idx=0;
         for (String str : list) {
             //   if(str!=null){
-            System.out.println(str);
+            System.out.println("index"+idx+str);
             // }
+            idx++;
 
         }
     }
@@ -97,7 +131,7 @@ public class CTable extends CList {
         spaces = getMaxByColumn(arr);
 
         int max = 0;
-        int idx = 1;
+        int idx = 0;
 
 
         if (columnHeader != null) {
@@ -130,6 +164,9 @@ public class CTable extends CList {
             list[idx] = line;
             idx++;
         }
+        System.out.println(Arrays.toString(list[1].toCharArray()));
+
+        printArr();
 
         return list[1].length();
 
@@ -156,16 +193,16 @@ public class CTable extends CList {
                 }
 
             } else {
-
+                screen[1][i] = str.charAt(j++);
                 if (screen[1][i] == this.vertical) {
                     screen[2][i] = '┼';
                     screen[0][i] = '┬';
                 } else {
                     screen[2][i] = this.horizontal;
                 }
-                if(i < str.length()){
-                    screen[1][i] = str.charAt(j++);
-                }
+
+
+
 
 
 
@@ -178,12 +215,14 @@ public class CTable extends CList {
     private void generateScreen() {
         init();
 
+        printArr();
+
         int start = 0;
         int end = screen.length - 1;
-        int idx = 1;
+        int idx = 0;
         if (columnHeader != null) {
             start = 2;
-
+             idx = 1;
 
         }
 
@@ -210,6 +249,7 @@ public class CTable extends CList {
                         if (k > str.length() - 1) {
                             continue;
                         }
+
                         screen[i][j] = str.charAt(k++);
 
                     }
@@ -233,7 +273,7 @@ public class CTable extends CList {
         screen[screen.length - 1][screen[0].length - 1] = '╯';
 
         if (columnHeader != null) {
-            addColumnHeader(list[0] );
+            addColumnHeader(list[0] +" ");
         }
 
 
@@ -284,7 +324,7 @@ public class CTable extends CList {
             return end(str,len+2);
         }
 
-        return start(str,len);
+        return start(str,len+2);
     }
 
 }
