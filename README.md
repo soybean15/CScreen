@@ -7,8 +7,10 @@ C-Screen features:
 1. Screen: a framelike interface where you can put multiple components.
         
 Sample code:
+
+```java
         
-        ```java
+        
         Screen screen = new Screen(20,40,true);
         screen.addTitle("Sample Screen",Position.START);
         screen.display();
@@ -19,7 +21,7 @@ Sample code:
         -height - height of screen
         -hasBorder - add inner border if true
         */
-        ```
+```
                 
 Sample output:
         
