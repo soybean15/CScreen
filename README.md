@@ -125,6 +125,8 @@ Sample output:
 
 Sample code:
 
+
+```java
       Screen screen = new Screen(20,40,true);
       screen.addTitle("Sample Screen",Position.START);
 
@@ -140,6 +142,8 @@ Sample code:
 
       //display screen
       screen.display();
+      
+```
       
       
 Sample output:
