@@ -1,5 +1,7 @@
 C-screen is a text-base UI on java console, you can now easily design your console program using c-screen with the help of several components.
 
+download here: https://github.com/soybean15/CScreen/tree/master/CScreen_jar
+
 C-Screen features:
 
 1. Screen: a framelike interface where you can put multiple components.
@@ -11,7 +13,7 @@ Sample code:
         screen.display();
         
         
-        /*the 3 parameters on the constructor are the following width
+        /*the 3 parameters on the constructor are the following:
         -width - width of screen
         -height - height of screen
         -position - this is for title position
@@ -22,7 +24,9 @@ Sample output:
 ![image](https://user-images.githubusercontent.com/75112014/182511031-ec59293c-8cd0-4297-8e9a-47abb9dfba84.png)
 
 
-2. Box: a rectangular component you can out inside the Screen.
+
+
+2. Box: a rectangular component you can Put inside the Screen.
 
 Sample code:
 
@@ -72,6 +76,8 @@ Sample output:
 
       
       
+      
+      
 4. Label : String you can put inside the screen.
 
 Sample code:
@@ -94,6 +100,9 @@ Sample output:
 
 
 ![image](https://user-images.githubusercontent.com/75112014/182512590-daee429e-7923-496c-9374-8b92a2e0f0e4.png)
+
+
+
 
 
 
@@ -126,6 +135,8 @@ Sample output:
 
 
 
+
+
 6. CList: component to help your list looks more neat
 
 
@@ -149,6 +160,8 @@ Sample output:
 
 
 ![image](https://user-images.githubusercontent.com/75112014/182513912-44e21a6e-f15f-4d87-b86d-621d3dbe6637.png)
+
+
 
 
 
