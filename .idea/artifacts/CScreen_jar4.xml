@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="CScreen:jar4">
+    <output-path>$PROJECT_DIR$/out/artifacts/CScreen_jar4</output-path>
+    <root id="archive" name="CScreen.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="CScreen" />
+    </root>
+  </artifact>
+</component>

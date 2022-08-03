@@ -156,13 +156,18 @@ public class CTable extends CList {
                 }
 
             } else {
-                screen[1][i] = str.charAt(j++);
+
                 if (screen[1][i] == this.vertical) {
                     screen[2][i] = '┼';
                     screen[0][i] = '┬';
                 } else {
                     screen[2][i] = this.horizontal;
                 }
+                if(i < str.length()){
+                    screen[1][i] = str.charAt(j++);
+                }
+
+
 
             }
 
@@ -228,7 +233,7 @@ public class CTable extends CList {
         screen[screen.length - 1][screen[0].length - 1] = '╯';
 
         if (columnHeader != null) {
-            addColumnHeader(list[0] + " ");
+            addColumnHeader(list[0] );
         }
 
 
