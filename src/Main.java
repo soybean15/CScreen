@@ -2,54 +2,70 @@ import cscreen.classes.Position;
 import cscreen.components.*;
 
 
-public class Main{
+public class Main {
 
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
 
-     Screen screen = new Screen(18,40);
+        Screen screen = new Screen(19, 40, true);
+        screen.setTitle("Menu");
+        Box box = new Box(3, 5);
+        box.setWidth(28);
+        box.setHeight(5);
 
-     Box box = new Box(3,5);
-     box.setWidth(28);
-     box.setHeight(5);
+        Label label = new Label(4, 6);
+        label.setText("      WELCOME TO KFC");
+        label.place(screen);
 
-     Label label = new Label(4,6);
-     label.setText("      WELCOME TO KFC");
-     label.place(screen);
+        Label label2 = new Label(6, 6);
+        label2.setText("    How can I help you?");
+        label2.place(screen);
 
-      Label label2 = new Label(6,6);
-      label2.setText("    How can I help you?");
-      label2.place(screen);
+        Button button1 = new Button(8, 13, "[V]iew Menu");
+        button1.place(screen);
 
-      Button button1 = new Button(8,13,"[V]iew Menu");
-      button1.place(screen);
+        Button button2 = new Button(11, 13, "  [O]rder  ");
+        button2.place(screen);
 
-      Button button2 = new Button(11,13,"  [O]rder  ");
-      button2.place(screen);
-
-      Button button3 = new Button(14,13,"  [E]xit   ");
-      button3.place(screen);
-
-
-      box.place(screen);
-
-      screen.display();
+        Button button3 = new Button(14, 13, "  [E]xit   ");
+        button3.place(screen);
 
 
-      String[][] menu = {
-              {"f011","Fries","10","70.00"},
-              {"b212","Burger","10","30.00"},
-              {"sp01","Spagetti","30","60.00"},
-              {"fc11","Fried Chicken","10","110.00"},
-              {"s930","Sundae","10","30.00"},
-      };
+        box.place(screen);
 
-      String[] header = {"Id","Product","Quantity","Price"};
+        screen.display();
 
-      CTable table = new CTable(null, menu);
-      table.hasSeparator(true);
-      table.display();
+
+        String[][] menu = {
+                {"f011", "Fries", "10", "70.00"},
+                {"b212", "Burger", "10", "30.00"},
+                {"sp01", "Spagetti", "30", "60.00"},
+                {"fc11", "Fried Chicken", "10", "110.00"},
+                {"s930", "Sundae", "10", "30.00"},
+                {"s930", "Sundae", "10", "30.00"},
+        };
+
+        System.out.println("View Menu:");
+
+        String[] header = {"Id", "Product Name", "Quantity", "Price"};
+
+        CTable table = new CTable(header, menu);
+        table.setAlignment(Position.CENTER);
+        table.hasSeparator(true);
+        table.display();
+
+        String[] list1 = {"Banana", "Apple", "Potato", "Orange"};
+
+        CList cList1 = new CList(list1, 30);
+        cList1.setTitle("Fruits", Position.CENTER);
+        cList1.display();
+
+
+        String[] list2 = {"Apple", "Apple", "Potato", "Orange"};
+        CList cList2 = new CList(list2, 0);
+        cList2.setTitle("Fruits", Position.START);
+        cList2.display();
 
     }
 }

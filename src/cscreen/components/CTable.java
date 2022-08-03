@@ -74,7 +74,7 @@ public class CTable extends CList {
             len = this.list2D.length + 3;
 
         }
-        print2d(list2D);
+
 
         int colSize = combineRow(this.list2D) + 1;
         this.screen = new char[len][colSize];
@@ -164,9 +164,7 @@ public class CTable extends CList {
             list[idx] = line;
             idx++;
         }
-        System.out.println(Arrays.toString(list[1].toCharArray()));
 
-        printArr();
 
         return list[1].length();
 
@@ -215,7 +213,6 @@ public class CTable extends CList {
     private void generateScreen() {
         init();
 
-        printArr();
 
         int start = 0;
         int end = screen.length - 1;

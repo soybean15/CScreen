@@ -108,8 +108,13 @@ public class CList {
                 end =this.title.length()+1;
 
             }else if(pos == Position.CENTER) {
-
                 start = Math.abs(((screen[0].length - this.title.length()) / 2)- 2)+1;
+
+                if(this.title.length()>screen[0].length){
+                    start = Math.abs(((screen[0].length - this.title.length()) / 2)- 2);
+                }
+
+
 
                 end = start+this.title.length();
 
