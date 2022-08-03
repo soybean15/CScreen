@@ -3,9 +3,9 @@ package cscreen.components;
 import cscreen.classes.Position;
 
 public class CList {
-    char[][] screen;
+    protected char[][] screen;
 
-    private String[] list;
+    protected String[] list;
 
     private String title="";
     Position pos;
@@ -14,10 +14,11 @@ public class CList {
 
     protected int width;
 
+
     char[] corners = {'╭','╮','╰','╯'};
 
 
-    public CList( String arr[],int width) {
+    public CList(String[] arr, int width) {
         list = arr;
 
        this.width=width;
@@ -25,7 +26,12 @@ public class CList {
 
     }
 
+    protected CList() {
+
+    }
+
     private void generateScreen(){
+
 
         int start =0;
         if(width>getMax(this.list)){
@@ -140,7 +146,7 @@ public class CList {
         }
     }
 
-    private int getMax(String[] arr){
+    protected int getMax(String[] arr){
         int max = arr[0].length();
 
         for (String str:arr){
