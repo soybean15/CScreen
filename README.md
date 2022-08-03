@@ -206,7 +206,7 @@ Sample code:
 
       String[] header = {"Name", "Id", "Month", "Year"};
 
-      CTable table2 = new CTable(header,arr,Position.START);
+      CTable table2 = new CTable(header,arr);
       table2.hasSeparator(true);
       table2.setAlignment(Position.CENTER);
       table2.display();
