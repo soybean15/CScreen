@@ -200,7 +200,7 @@ Sample code:
       };
 
 
-      CTable table = new CTable(null,arr,Position.START);
+      CTable table = new CTable(null,arr);
       table.display();
 
 
