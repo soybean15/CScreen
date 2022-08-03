@@ -9,13 +9,22 @@ public class CList {
 
     private String title="";
     Position pos;
-    protected char horizontal = '┈';
-    protected char vertical = '│';
+  ///  protected char horizontal = '┈';
+//    protected char vertical = '│';
+//
+//    protected int width;
+//
+//
+//    char[] corners = {'╭','╮','╰','╯'};
+
+
+    protected char horizontal = '-';
+    protected char vertical = '|';
 
     protected int width;
 
 
-    char[] corners = {'╭','╮','╰','╯'};
+    char[] corners = {'+','+','+','+'};
 
 
     public CList(String[] arr, int width) {
@@ -81,10 +90,10 @@ public class CList {
             }
         }
         //corners
-        screen[0][0] ='╭';
-        screen[0][screen[0].length-1] = '╮';
-        screen[screen.length-1][0]='╰';
-        screen[screen.length-1][screen[0].length-1] = '╯';
+        screen[0][0] ='+';
+        screen[0][screen[0].length-1] = '+';
+        screen[screen.length-1][0]='+';
+        screen[screen.length-1][screen[0].length-1] = '+';
         if(title.length()>0) addTitle();
     }
 
@@ -132,8 +141,8 @@ public class CList {
             for(int i=1; i<width-1;i++){
                 screen[2][i]=this.horizontal;
             }
-            screen[2][0]='├';
-            screen[2][width-1]='┤';
+            screen[2][0]='+';
+            screen[2][width-1]='+';
 
 
         }

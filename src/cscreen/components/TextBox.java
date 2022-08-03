@@ -6,7 +6,7 @@ public class TextBox extends Box{
     //┌,┐,└,┘
 
     private int height = 3;
-    char[] corners ={'┌','┐','└','┘'};
+   // char[] corners ={'┌','┐','└','┘'};
 //    public TextBox(int r, int c, int width, int height) {
 //        super(r, c, width, height);
 //    }

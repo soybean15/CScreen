@@ -94,12 +94,14 @@ public class Screen {
                 //outer border
                 if (i == 0 || i == screen.length - 1) {
 
-                        screen[i][j] = '┄';
+                        //screen[i][j] = '┄';
+                    screen[i][j] = '-';
 
 
                 } else {
                     if (j == 0 || j == screen[i].length - 1) {
-                        screen[i][j] = '│';
+                        //screen[i][j] = '│';
+                        screen[i][j] = '|';
                     }
                 }
 
@@ -108,7 +110,8 @@ public class Screen {
                 if (hasBorder) {
                     if (i == 2 || i == screen.length - 2) {
                         if (j > 0 && j < screen[i].length - 1) {
-                                screen[i][j] = '┄';
+                               // screen[i][j] = '┄';
+                            screen[i][j] = '-';
 
                         }
 
@@ -116,7 +119,8 @@ public class Screen {
                     } else {
                         if (i > 1 && i < screen.length - 1) {
                             if (j == 1 || j == screen[i].length - 2) {
-                                screen[i][j] = '┊';
+                                //screen[i][j] = '┊';
+                                screen[i][j] = '|';
                             }
                         }
 
@@ -128,19 +132,33 @@ public class Screen {
             }
         }
 
-        //corners
-        screen[0][0] ='╭';
-        screen[0][screen[0].length-1] = '╮';
-        screen[screen.length-1][0]='╰';
-        screen[screen.length-1][screen[0].length-1] = '╯';
+//        //corners
+//        screen[0][0] ='╭';
+//        screen[0][screen[0].length-1] = '╮';
+//        screen[screen.length-1][0]='╰';
+//        screen[screen.length-1][screen[0].length-1] = '╯';
+//
+//        if(hasBorder){
+//            //corners
+//            screen[2][1] ='╭';
+//            screen[2][screen[0].length-2] = '╮';
+//            screen[screen.length-2][1]='╰';
+//            screen[screen.length-2][screen[0].length-2] = '╯';
+//        }
+
+        screen[0][0] ='+';
+        screen[0][screen[0].length-1] = '+';
+        screen[screen.length-1][0]='+';
+        screen[screen.length-1][screen[0].length-1] = '+';
 
         if(hasBorder){
             //corners
-            screen[2][1] ='╭';
-            screen[2][screen[0].length-2] = '╮';
-            screen[screen.length-2][1]='╰';
-            screen[screen.length-2][screen[0].length-2] = '╯';
+            screen[2][1] ='+';
+            screen[2][screen[0].length-2] = '+';
+            screen[screen.length-2][1]='+';
+            screen[screen.length-2][screen[0].length-2] = '+';
         }
+
 
     }
 

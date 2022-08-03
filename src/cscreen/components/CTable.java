@@ -18,7 +18,6 @@ public class CTable extends CList {
     protected int width;
     private boolean hasSeparator;
 
-    char[] corners = {'╭', '╮', '╰', '╯'};
 
     public CTable(String[] columnHeader, String[][] arr) {
         super();
@@ -185,16 +184,16 @@ public class CTable extends CList {
             if (i == 0 || i == str.length() - 1) {
                 screen[1][i] = this.vertical;
                 if (i == 0) {
-                    screen[2][i] = '├';
+                    screen[2][i] = '+';
                 } else {
-                    screen[2][i] = '┤';
+                    screen[2][i] = '+';
                 }
 
             } else {
                 screen[1][i] = str.charAt(j++);
                 if (screen[1][i] == this.vertical) {
-                    screen[2][i] = '┼';
-                    screen[0][i] = '┬';
+                    screen[2][i] = '+';
+                    screen[0][i] = '+';
                 } else {
                     screen[2][i] = this.horizontal;
                 }
@@ -236,7 +235,7 @@ public class CTable extends CList {
                     screen[i][j] = this.horizontal;
                     if (i == screen.length - 1) {
                         if (screen[screen.length - 2][j] == this.vertical) {
-                            screen[i][j] = '┴';
+                            screen[i][j] = '+';
                         }
                     }
 
@@ -257,17 +256,17 @@ public class CTable extends CList {
                 }
                 if (i == 1) {
                     if (screen[i][j] == this.vertical) {
-                        screen[0][j] = '┬';
+                        screen[0][j] = '+';
                     }
                 }
 
             }
         }
         //corners
-        screen[0][0] = '╭';
-        screen[0][screen[0].length - 1] = '╮';
-        screen[screen.length - 1][0] = '╰';
-        screen[screen.length - 1][screen[0].length - 1] = '╯';
+        screen[0][0] = '+';
+        screen[0][screen[0].length - 1] = '+';
+        screen[screen.length - 1][0] = '+';
+        screen[screen.length - 1][screen[0].length - 1] = '+';
 
         if (columnHeader != null) {
             addColumnHeader(list[0] +" ");
