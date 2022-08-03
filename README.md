@@ -8,7 +8,7 @@ C-Screen features:
         
 Sample code:
         
-        ```
+        ```java
         Screen screen = new Screen(20,40,true);
         screen.addTitle("Sample Screen",Position.START);
         screen.display();
