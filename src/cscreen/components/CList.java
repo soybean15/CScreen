@@ -90,10 +90,10 @@ public class CList {
             }
         }
         //corners
-        screen[0][0] ='+';
-        screen[0][screen[0].length-1] = '+';
-        screen[screen.length-1][0]='+';
-        screen[screen.length-1][screen[0].length-1] = '+';
+        screen[0][0] =corners[0];
+        screen[0][screen[0].length-1] = corners[0];
+        screen[screen.length-1][0]=corners[0];
+        screen[screen.length-1][screen[0].length-1] =corners[0];
         if(title.length()>0) addTitle();
     }
 
