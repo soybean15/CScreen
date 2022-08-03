@@ -1,5 +1,7 @@
 C-screen is a text-base UI on java console, you can now easily design your console program using c-screen with the help of several components.
 
+download here: https://github.com/soybean15/CScreen/tree/master/CScreen_jar
+
 C-Screen features:
 
 1. Screen: a framelike interface where you can put multiple components.
