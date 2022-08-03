@@ -16,7 +16,7 @@ Sample code:
         /*the 3 parameters on the constructor are the following:
         -width - width of screen
         -height - height of screen
-        -position - this is for title position
+        -hasBorder - add inner border if true
         */
                 
 Sample output:
