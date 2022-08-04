@@ -6,7 +6,7 @@ C-Screen features:
 
 1. Screen: a framelike interface where you can put multiple components.
         
-Sample code:
+###Sample code:
 
 ```java
         
