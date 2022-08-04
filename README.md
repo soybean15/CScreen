@@ -223,7 +223,7 @@ _Since Box-window is not working on default on some OS, I added a method where y
 
 
 
-**7. CTable**: easiest way to show your data on console, just pass your 2d array then BAAAM!!! instant table.
+**7. CTable**: easiest way to output your data on console, just pass your 2d array and you got yourself a neat and instant table.
 
 **Sample code:**
 
@@ -283,7 +283,7 @@ _Update table without calling the constructor_
                 {"f011", "Fries", "10", "70.00"},
                 {"b212", "Burger", "10", "30.00"},
         };
-        //update table update or pass a new 2d array
+        //uupdate or pass a new 2d array
         table.update(menu2);
         table.display();
 ```
