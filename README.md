@@ -256,7 +256,44 @@ _Since Box-window is not working on default on some OS, I added a method where y
 ![image](https://user-images.githubusercontent.com/75112014/182514176-64f2a6d9-5bac-402d-8d7d-18e5bf9192a1.png)
 
 
+_Update table without calling the constructor_
 
+
+**Sample code**
+
+    ```java
+         String[][] menu = {
+                {"f011", "Fries", "10", "70.00"},
+                {"b212", "Burger", "10", "30.00"},
+                {"sp01", "Spagetti", "30", "60.00"},
+                {"fc11", "Fried Chicken", "10", "110.00"},
+                {"s930", "Sundae", "10", "30.00"},
+                {"s930", "Sundae", "10", "30.00"},
+        };
+        System.out.println("View Menu:");
+
+        String[] header = {"Id", "Product Name", "Quantity", "Price"};
+
+        CTable table = new CTable(header, menu);
+        table.useBoxSet();
+        table.setAlignment(Position.CENTER);
+        table.hasSeparator(true);
+        table.display();
+
+        String[][] menu2 = {
+                {"f011", "Fries", "10", "70.00"},
+                {"b212", "Burger", "10", "30.00"},
+        };
+        //update table update or pass a new 2d array
+        table.update(menu2);
+        table.display();
+    
+    ```
+**Sample output:**
+ 
+ ![image](https://user-images.githubusercontent.com/75112014/182774925-b48c68c7-1c63-4bc6-be64-a0f6a71d3b7f.png)
+
+ 
 _Hope you like it..enjoy._
 
 
