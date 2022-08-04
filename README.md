@@ -4,7 +4,7 @@ _download here:_ https://github.com/soybean15/CScreen/tree/master/CScreen_jar
 
 _Update as of August 4 2022, 1:20pm_
 
-_Since there are some conflict using Box-window on some OS I added a method where you can choose between normal character and box-window character_
+_Since there are some conflict using Box-window on some OS, I added a method where you can choose between normal character and box-window character_
 
 **Normal Characters:**
 ```java
