@@ -1,12 +1,12 @@
-C-screen is a text-base UI on java console, you can now easily design your console program using c-screen with the help of several components.
+**C-screen** is a text-base UI on java console, you can now easily design your console program using c-screen with the help of several components.
 
-download here: https://github.com/soybean15/CScreen/tree/master/CScreen_jar
+_download here:_ https://github.com/soybean15/CScreen/tree/master/CScreen_jar
 
-C-Screen features:
+**C-Screen features:
 
-1. Screen: a framelike interface where you can put multiple components.
+**1. Screen**: a framelike interface where you can put multiple components.
         
-###Sample code:
+**Sample code:**
 
 ```java
         
@@ -23,16 +23,16 @@ C-Screen features:
         */
 ```
                 
-Sample output:
+**Sample output:**
         
 ![image](https://user-images.githubusercontent.com/75112014/182511031-ec59293c-8cd0-4297-8e9a-47abb9dfba84.png)
 
 
 
 
-2. Box: a rectangular component you can Put inside the Screen.
+**2. Box:** a rectangular component you can Put inside the Screen.
 
-Sample code:
+**Sample code:**
 
 
 ```java
@@ -51,14 +51,14 @@ Sample code:
       
 ```
       
-Sample output:
+**Sample output:**
 
 ![image](https://user-images.githubusercontent.com/75112014/182512062-a3f041f9-9071-47e0-a934-bdf03e145f27.png)
 
 
-3.TextBox: A box component with String inside
+**3.TextBox:** A box component with String inside
 
-Sample code:
+**Sample code:**
 
 ```java
         
@@ -80,7 +80,7 @@ Sample code:
 ```
 
 
-Sample output:
+**Sample output:**
   
   
 ![image](https://user-images.githubusercontent.com/75112014/182512666-f2a78982-07ca-43b7-baee-4b997efb1afc.png)
@@ -89,9 +89,9 @@ Sample output:
       
       
       
-4. Label : String you can put inside the screen.
+**4. Label** : String you can put inside the screen.
 
-Sample code:
+**Sample code:**
 
 ```java
 
@@ -111,7 +111,7 @@ Sample code:
  ```
   
   
-Sample output:
+**Sample output:**
 
 
 ![image](https://user-images.githubusercontent.com/75112014/182512590-daee429e-7923-496c-9374-8b92a2e0f0e4.png)
@@ -121,9 +121,9 @@ Sample output:
 
 
 
-5. Button: Buttonlike component which is good to have if you have multiple option in your code.
+**5. Button:** Buttonlike component which is good to have if you have multiple option in your code.
 
-Sample code:
+**Sample code:**
 
 
 ```java
@@ -146,7 +146,7 @@ Sample code:
 ```
       
       
-Sample output:
+**Sample output:**
 
 
 ![image](https://user-images.githubusercontent.com/75112014/182513091-be1fa938-c97b-4975-b293-65a8ae5c2654.png)
@@ -156,7 +156,7 @@ Sample output:
 
 
 
-6. CList: component to help your list looks more neat
+**6. CList**: component to help your list looks more neat
 
 
 Sample code:
@@ -178,7 +178,7 @@ Sample code:
 
 ```
 
-Sample output:
+**Sample output:**
 
 
 ![image](https://user-images.githubusercontent.com/75112014/182513912-44e21a6e-f15f-4d87-b86d-621d3dbe6637.png)
@@ -187,9 +187,9 @@ Sample output:
 
 
 
-7. CTable: easiest way to show your data on console, just pass your 2d array then BAAAM!!! instant table.
+**7. CTable**: easiest way to show your data on console, just pass your 2d array then BAAAM!!! instant table.
 
-Sample code:
+**Sample code:**
 
 ```java
 
@@ -214,14 +214,14 @@ Sample code:
 ```
 
 
-Sample output:
+**Sample output:**
 
 
 ![image](https://user-images.githubusercontent.com/75112014/182514176-64f2a6d9-5bac-402d-8d7d-18e5bf9192a1.png)
 
 
 
-Hope you like it..enjoy.
+_Hope you like it..enjoy._
 
 
 
