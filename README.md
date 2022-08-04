@@ -1,6 +1,6 @@
 **C-screen** is a text-base UI on java console, you can now easily design your console program using c-screen with the help of several components.
 
-_download here:_ https://github.com/soybean15/CScreen/tree/master/CScreen_jar
+_download here:_ https://github.com/soybean15/CScreen/releases
 
 _Update as of August 4 2022, 1:20pm_
 
@@ -223,30 +223,29 @@ _Since Box-window is not working on default on some OS, I added a method where y
 
 
 
-**7. CTable**: easiest way to show your data on console, just pass your 2d array then BAAAM!!! instant table.
+**7. CTable**: easiest way to output your data on console, just pass your 2d array and you got yourself a neat and instant table.
 
 **Sample code:**
 
 ```java
 
-      String[][] arr = {{"Marilyn Monroe", "21", "March", "1993"},
-              {"Robert De Niro", "22", "August", "1945"},
-              {"Malcolm X", "23", "June", "1944"},
-              {"Mohammad Ali", "24", "March", "1970"}
-      };
+          String[][] arr = {{"Marilyn Monroe", "21", "March", "1993"},
+                  {"Robert De Niro", "22", "August", "1945"},
+                  {"Malcolm X", "23", "June", "1944"},
+                  {"Mohammad Ali", "24", "March", "1970"}
+          };
 
 
-      CTable table = new CTable(null,arr);
-      table.display();
+          CTable table = new CTable(null,arr);
+          table.display();
 
 
-      String[] header = {"Name", "Id", "Month", "Year"};
+          String[] header = {"Name", "Id", "Month", "Year"};
 
-      CTable table2 = new CTable(header,arr);
-      table2.hasSeparator(true);
-      table2.setAlignment(Position.CENTER);
-      table2.display();
-      
+          CTable table2 = new CTable(header,arr);
+          table2.hasSeparator(true);
+          table2.setAlignment(Position.CENTER);
+          table2.display();
 ```
 
 
@@ -256,7 +255,45 @@ _Since Box-window is not working on default on some OS, I added a method where y
 ![image](https://user-images.githubusercontent.com/75112014/182514176-64f2a6d9-5bac-402d-8d7d-18e5bf9192a1.png)
 
 
+_Update table without calling the constructor_
 
+
+**Sample code**
+
+```java
+         String[][] menu = {
+                {"f011", "Fries", "10", "70.00"},
+                {"b212", "Burger", "10", "30.00"},
+                {"sp01", "Spagetti", "30", "60.00"},
+                {"fc11", "Fried Chicken", "10", "110.00"},
+                {"s930", "Sundae", "10", "30.00"},
+                {"s930", "Sundae", "10", "30.00"},
+        };
+        System.out.println("View Menu:");
+
+        String[] header = {"Id", "Product Name", "Quantity", "Price"};
+
+        CTable table = new CTable(header, menu);
+        table.useBoxSet();
+        table.setAlignment(Position.CENTER);
+        table.hasSeparator(true);
+        table.display();
+
+        String[][] menu2 = {
+                {"f011", "Fries", "10", "70.00"},
+                {"b212", "Burger", "10", "30.00"},
+        };
+        //uupdate or pass a new 2d array
+        table.update(menu2);
+        table.display();
+```
+
+
+**Sample output:**
+ 
+ ![image](https://user-images.githubusercontent.com/75112014/182774925-b48c68c7-1c63-4bc6-be64-a0f6a71d3b7f.png)
+
+ 
 _Hope you like it..enjoy._
 
 
