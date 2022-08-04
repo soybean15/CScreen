@@ -7,6 +7,9 @@ C-Screen features:
 1. Screen: a framelike interface where you can put multiple components.
         
 Sample code:
+
+```java
+        
         
         Screen screen = new Screen(20,40,true);
         screen.addTitle("Sample Screen",Position.START);
@@ -18,6 +21,7 @@ Sample code:
         -height - height of screen
         -hasBorder - add inner border if true
         */
+```
                 
 Sample output:
         
@@ -30,6 +34,8 @@ Sample output:
 
 Sample code:
 
+
+```java
       Screen screen = new Screen(20,40,true);
       screen.addTitle("Sample Screen",Position.START);     
 
@@ -43,6 +49,7 @@ Sample code:
       //display screen
       screen.display();
       
+```
       
 Sample output:
 
@@ -52,6 +59,8 @@ Sample output:
 3.TextBox: A box component with String inside
 
 Sample code:
+
+```java
         
       Screen screen = new Screen(20,40,true);
       screen.addTitle("Sample Screen",Position.START);
@@ -68,7 +77,9 @@ Sample code:
       //display screen
       screen.display();
       
-      
+```
+
+
 Sample output:
   
   
@@ -82,6 +93,8 @@ Sample output:
 
 Sample code:
 
+```java
+
       Screen screen = new Screen(20,40,true);
       screen.addTitle("Sample Screen",Position.START);
 
@@ -94,6 +107,8 @@ Sample code:
 
       //display screen
       screen.display();
+      
+ ```
   
   
 Sample output:
@@ -110,6 +125,8 @@ Sample output:
 
 Sample code:
 
+
+```java
       Screen screen = new Screen(20,40,true);
       screen.addTitle("Sample Screen",Position.START);
 
@@ -125,6 +142,8 @@ Sample code:
 
       //display screen
       screen.display();
+      
+```
       
       
 Sample output:
@@ -143,6 +162,7 @@ Sample output:
 Sample code:
 
 
+```java
       String[] list1 = {"Banana", "Apple", "Potato", "Orange"};
 
       CList cList1 = new CList(list1, 30);
@@ -155,6 +175,8 @@ Sample code:
       cList2.setTitle("Fruits",Position.START);
       cList2.display();
 
+
+```
 
 Sample output:
 
@@ -169,7 +191,7 @@ Sample output:
 
 Sample code:
 
-
+```java
 
       String[][] arr = {{"Marilyn Monroe", "21", "March", "1993"},
               {"Robert De Niro", "22", "August", "1945"},
@@ -178,17 +200,18 @@ Sample code:
       };
 
 
-      CTable table = new CTable(null,arr,Position.START);
+      CTable table = new CTable(null,arr);
       table.display();
 
 
       String[] header = {"Name", "Id", "Month", "Year"};
 
-      CTable table2 = new CTable(header,arr,Position.START);
+      CTable table2 = new CTable(header,arr);
       table2.hasSeparator(true);
       table2.setAlignment(Position.CENTER);
       table2.display();
-
+      
+```
 
 
 Sample output:
