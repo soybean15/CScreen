@@ -2,6 +2,41 @@
 
 _download here:_ https://github.com/soybean15/CScreen/tree/master/CScreen_jar
 
+_Update as of August 4 2022, 1:20pm
+_Since there are some conflict using _Box-window_ on some OS I added a method where you can choose between normal character and box-window character
+
+**Normal Characters:**
+```java
+    //normal character
+    Screen screen = new Screen(20,40,true);
+    //screen.useBoxSet();
+    screen.addTitle("Sample Screen",Position.START);
+    screen.display();
+    
+    /*
+    sample output
+    +--------------------------------------+
+    |Sample Screen                         |
+    |+------------------------------------+|
+    */
+```
+**Box-Window Characters:**
+```java
+    //box-window character
+    Screen screen = new Screen(20,40,true);
+    screen.useBoxSet();
+    screen.addTitle("Sample Screen",Position.START);
+    screen.display();
+    
+    /*
+    sample output
+    ╭┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈╮
+    │Sample Screen                         │
+    │╭┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈╮│
+
+    */
+```
+
 **C-Screen features:
 
 **1. Screen**: a framelike interface where you can put multiple components.
@@ -159,7 +194,7 @@ _download here:_ https://github.com/soybean15/CScreen/tree/master/CScreen_jar
 **6. CList**: component to help your list looks more neat
 
 
-Sample code:
+**Sample code:**
 
 
 ```java
