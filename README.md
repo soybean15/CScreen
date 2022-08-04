@@ -38,7 +38,7 @@ _Since Box-window is not working on default on some OS, I added a method where y
     */
 ```
 
-**C-Screen features:
+**C-Screen features:**
 
 **1. Screen**: a framelike interface where you can put multiple components.
         
