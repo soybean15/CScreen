@@ -1,6 +1,6 @@
 **C-screen** is a text-base UI on java console, you can now easily design your console program using c-screen with the help of several components.
 
-_download here:_ https://github.com/soybean15/CScreen/tags
+_download here:_ https://github.com/soybean15/CScreen/releases
 
 _Update as of August 4 2022, 1:20pm_
 
