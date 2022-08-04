@@ -3,6 +3,8 @@ package cscreen.components;
 public class TextBox extends Box{
     String text="";
 
+    char[][] screen;
+
     //┌,┐,└,┘
 
     private int height = 3;
@@ -27,10 +29,28 @@ public class TextBox extends Box{
         this.height = height;
     }
 
+    public void clear(){
+        int start = c;
+        int end = 0;
+        if(this.width ==0){
+            end = (c+text.length())+2;
+        }else {
+            if(width<text.length()){
+                text = text.substring(0, width);
+
+            }
+            end = (c+width)+2;
+        }
+
+        for (int i =start+1; i<end-1;i++){
+            screen[r+1][i]=' ';
+        }
+    }
+
 
     @Override
     public void place(Screen sc){
-        char[][] screen = sc.screen;
+        screen = sc.screen;
 
         charSets =sc.charSets;
 

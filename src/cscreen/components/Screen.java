@@ -189,13 +189,7 @@ public class Screen {
 
     }
 
-    void clearScreen(){
-        for(int i=2; i<screen.length-1; i++){
-            for(int j=2; j<screen[i].length-1; j++){
-                screen[i][j]=' ';
-            }
-        }
-    }
+
 
     public void display(){
 

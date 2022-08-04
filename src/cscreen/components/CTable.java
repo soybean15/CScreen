@@ -17,6 +17,10 @@ public class CTable extends CList {
     int[] spaces;
 
     private List<List<String>> list2D;
+    private List<List<String>> tempList2D;
+
+    private boolean onSearch;
+
 
 
     private boolean hasSeparator;
@@ -84,30 +88,37 @@ public class CTable extends CList {
 
     List<List<String>> copy (List<List<String>> arr){
         List<List<String>> newArr = new ArrayList<>();
-       // String[][] newArr = new String[arr.length+1][arr[0].length];
 
         newArr.add(Arrays.asList(columnHeader));
         newArr.addAll(arr);
-       // newArr[0] = columnHeader;
-//        for(int i = 1; i<arr.size();i++){
-//            for (int j = 0;j<newArr[i].length;j++){
-//                newArr[i][j]=arr[i-1][j];
-//
-//            }
-//
-//        }
+
 
         return newArr;
     }
 
     void init(){
-        int len = this.list2D.size()+2;
-        if (columnHeader != null) {
-            this.list2D = copy(this.list2D);
-            len = this.list2D.size() + 3;
 
+
+        if(!onSearch){
+
+            tempList2D = new ArrayList<>(this.list2D);
         }
-        int colSize = combineRow(this.list2D) + 1;
+
+        int len = this.tempList2D.size()+2;
+
+        if(!onSearch) {
+            if (columnHeader != null) {
+                this.tempList2D = copy(this.list2D);
+                len = this.tempList2D.size() + 3;
+
+            }
+        }else {
+            len = this.tempList2D.size() + 3;
+        }
+
+        onSearch = false;
+
+        int colSize = combineRow(tempList2D) + 1;
         this.screen = new char[len][colSize];
 
     }
@@ -132,6 +143,7 @@ public class CTable extends CList {
 
 
     private int combineRow(List<List<String>> arr) {
+        list = new ArrayList<>();
 
         char separator = charSets.vertical;
         if(!hasSeparator){
@@ -221,9 +233,7 @@ public class CTable extends CList {
         }
     }
 
-    public void addList(List<List<String>> arr){
-        this.list2D =arr;
-    }
+
 
     private void generateScreen() {
         init();
@@ -238,9 +248,12 @@ public class CTable extends CList {
 //
 //        }
 
+
         String str = "";
         for (int i = 0; i < screen.length; i++) {
             if (i > start && i < end) {
+
+
                 str = list.get(idx);
                 idx++;
 
@@ -377,4 +390,37 @@ public class CTable extends CList {
          list2D.get(row).set(column,str);
     }
 
+    public void addList(List<List<String>> arr){
+        if(this.list2D.get(0).get(0).equals(" ")){
+            this.list2D.remove(0);
+        }
+        this.list2D.addAll(arr);
+        //this.list2D= arr;
+    }
+
+
+    private List<List<String>>  findItem(int column, String item){
+        List<List<String>> newArr = new ArrayList<>();
+        for (int i=0;i<this.list2D.size();i++){
+            if(list2D.get(i).get(column).equals(item)){
+                newArr.add(list2D.get(i));
+            }
+        }
+        return newArr;
+
+    }
+    public void searchRow(int column, String item){
+
+       List<List<String>> newList = new ArrayList<>(findItem( column,  item));
+        if(!newList.isEmpty()){
+            tempList2D = new ArrayList<>(newList);
+            System.out.println(tempList2D.size()+" item(s) out of "+list2D.size()+" row(s) Found");
+            if (columnHeader != null) {
+                tempList2D = copy(tempList2D);
+            }
+            onSearch=true;
+        }else{
+            System.out.println("No item found");
+        }
+    }
 }
