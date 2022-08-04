@@ -5,66 +5,106 @@ import cscreen.classes.Position;
 import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
 import java.security.SecureRandom;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 
 public class CTable extends CList {
 
-    private final String[] columnHeader;
+    private String[] columnHeader;
     Position pos;
     int[] spaces;
 
-    private String[][] list2D;
+    private List<List<String>> list2D;
 
 
     private boolean hasSeparator;
 
+    private String[] createEmptyList(String[] arr){
+        String[] newArr = new String[arr.length];
+        Arrays.fill(newArr, " ");
+        return newArr;
+    }
 
-    public CTable(String[] columnHeader, String[][] arr) {
+    public CTable(String[] columnHeader){
         super();
+        this.columnHeader =columnHeader;
+        this.list2D=new ArrayList<>();
 
-        this.columnHeader = columnHeader;
-        this.list2D =arr;
+        if (columnHeader ==null){
+            this.list2D.add(Arrays.asList(" ", " ", " ", " "));
+        }else {
+            this.list2D.add(Arrays.asList(createEmptyList(columnHeader)));
+        }
 
-        this.list = new String[arr.length + 1];
+
+
+        this.list =new ArrayList<>();
 
     }
 
-    public CTable(String[] columnHeader, String[][] arr, Position pos) {
+
+    public CTable(String[] columnHeader, List<List<String>> arr) {
         super();
 
-        this.columnHeader = columnHeader;
+        this.columnHeader =columnHeader;
+
+        this.list2D =arr;
+
+        this.list =new ArrayList<>();
+
+    }
+
+    public CTable(String[] columnHeader,  List<List<String>> arr, Position pos) {
+        super();
+
+        this.columnHeader =columnHeader;
         this.list2D=arr;
 
         this.pos=pos;
-        this.list = new String[arr.length + 1];
+        this.list = new ArrayList<>();
 
 
     }
 
-    String[][] copy (String[][] arr){
-        String[][] newArr = new String[arr.length+1][arr[0].length];
 
-        for(int i = 1; i<newArr.length;i++){
-            for (int j = 0;j<newArr[i].length;j++){
-                newArr[i][j]=arr[i-1][j];
+    public CTable(String[] columnHeader, List<List<String>> arr, Position pos,boolean hasSeparator) {
+        super();
 
-            }
+        this.columnHeader =columnHeader;
 
-        }
-        newArr[0] = columnHeader;
-
+        this.list2D =arr;
+        this.hasSeparator =hasSeparator;
+        this.pos=pos;
+        this.list = new ArrayList<>();
 
 
+    }
+
+    List<List<String>> copy (List<List<String>> arr){
+        List<List<String>> newArr = new ArrayList<>();
+       // String[][] newArr = new String[arr.length+1][arr[0].length];
+
+        newArr.add(Arrays.asList(columnHeader));
+        newArr.addAll(arr);
+       // newArr[0] = columnHeader;
+//        for(int i = 1; i<arr.size();i++){
+//            for (int j = 0;j<newArr[i].length;j++){
+//                newArr[i][j]=arr[i-1][j];
+//
+//            }
+//
+//        }
 
         return newArr;
     }
 
     void init(){
-        int len = this.list2D.length+2;
+        int len = this.list2D.size()+2;
         if (columnHeader != null) {
             this.list2D = copy(this.list2D);
-            len = this.list2D.length + 3;
+            len = this.list2D.size() + 3;
 
         }
         int colSize = combineRow(this.list2D) + 1;
@@ -73,18 +113,7 @@ public class CTable extends CList {
     }
 
 
-    public CTable(String[] columnHeader, String[][] arr, Position pos,boolean hasSeparator) {
-        super();
 
-        this.columnHeader = columnHeader;
-
-        this.list2D =arr;
-        this.hasSeparator =hasSeparator;
-        this.pos=pos;
-        this.list = new String[arr.length +1 ];
-
-
-    }
 
     public void display() {
 
@@ -100,7 +129,9 @@ public class CTable extends CList {
     }
 
 
-    private int combineRow(String[][] arr) {
+
+
+    private int combineRow(List<List<String>> arr) {
 
         char separator = charSets.vertical;
         if(!hasSeparator){
@@ -122,29 +153,31 @@ public class CTable extends CList {
                 header = header + fline + separator;
 
             }
-            list[0] = header;
+            //list[0] = header;
 
+            list.add(header);
 
         }
 
 
-        for (int i = 0; i < arr.length; i++) {
+        for (int i = 0; i < arr.size(); i++) {
             String line = "";
-            max = Math.max(max, getMax(arr[i]));
-            for (int j = 0; j < arr[i].length; j++) {
+            max = Math.max(max, getMax(arr.get(i).toArray(new String[0])));
+            for (int j = 0; j < arr.get(i).size(); j++) {
                 int space = spaces[j];
-                String fline = alignedString(arr[i][j],space);
+                String fline = alignedString(arr.get(i).get(j),space);
                 line = line + fline +separator;
 
 
             }
 
-            list[idx] = line;
+            //list[idx] = line;
+            list.add(line);
             idx++;
         }
 
 
-        return list[1].length();
+        return list.get(0).length();
 
 
     }
@@ -188,6 +221,10 @@ public class CTable extends CList {
         }
     }
 
+    public void addList(List<List<String>> arr){
+        this.list2D =arr;
+    }
+
     private void generateScreen() {
         init();
 
@@ -195,16 +232,16 @@ public class CTable extends CList {
         int start = 0;
         int end = screen.length - 1;
         int idx = 0;
-        if (columnHeader != null) {
-            start = 2;
-             idx = 1;
-
-        }
+//        if (columnHeader != null) {
+//            start = 2;
+//            idx = 1;
+//
+//        }
 
         String str = "";
         for (int i = 0; i < screen.length; i++) {
             if (i > start && i < end) {
-                str = list[idx];
+                str = list.get(idx);
                 idx++;
 
             }
@@ -248,22 +285,22 @@ public class CTable extends CList {
         screen[screen.length - 1][screen[0].length - 1] =  charSets.corners[3];
 
         if (columnHeader != null) {
-            addColumnHeader(list[0] +" ");
+            addColumnHeader(list.get(0) +" ");
         }
 
 
     }
 
 
-    private int[] getMaxByColumn(String[][] arr) {
-        int[] arrMax = new int[arr[0].length];
+    private int[] getMaxByColumn(List<List<String>> arr) {
+        int[] arrMax = new int[arr.get(0).size()];
 
-        for (int j = 0; j < arr[0].length; j++) {
+        for (int j = 0; j < arr.get(0).size(); j++) {
 
-            String[] temp = new String[arr.length];
+            String[] temp = new String[arr.size()];
 
-            for (int i = 0; i < arr.length; i++) {
-                temp[i] = arr[i][j];
+            for (int i = 0; i < arr.size(); i++) {
+                temp[i] = arr.get(i).get(j);
             }
             arrMax[j] = getMax(temp);
         }
@@ -303,5 +340,41 @@ public class CTable extends CList {
     }
 
 
+
+
+
+
+
+
+
+    public void addRow(String[] row){
+        if(this.list2D.get(0).get(0).equals(" ")){
+            this.list2D.remove(0);
+        }
+        this.list2D.add(Arrays.asList(row));
+
+    }
+
+
+    public void removeRow(int index){
+        this.list2D.remove(index);
+        if(this.list2D.isEmpty()){
+            if (columnHeader ==null){
+                this.list2D.add(Arrays.asList(" ", " ", " ", " "));
+            }else {
+                this.list2D.add(Arrays.asList(createEmptyList(columnHeader)));
+            }
+        }
+    }
+
+    public String getCell(int row, int column){
+
+        return list2D.get(row).get(column);
+    }
+
+    public void setCell(int row, int column,String str){
+
+         list2D.get(row).set(column,str);
+    }
 
 }

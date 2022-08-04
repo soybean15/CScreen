@@ -4,11 +4,15 @@ import cscreen.classes.CharSets;
 import cscreen.classes.Position;
 import cscreen.classes.Symbol;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 
 public class CList {
     protected char[][] screen;
 
-    protected String[] list;
+    protected List<String> list;
 
     private String title="";
     Position pos;
@@ -19,7 +23,8 @@ public class CList {
 
     public CList(String[] arr, int width) {
         setCharSets(null);
-        list = arr;
+        List<String> temp = Arrays.asList(arr);
+        list =  new ArrayList<>(temp);
 
        this.width=width;
 
@@ -27,7 +32,10 @@ public class CList {
     }
 
 
-    protected CList() {
+    public CList() {
+
+        this.list = new ArrayList<>();
+        list.add("");
         setCharSets(null);
     }
 
@@ -40,19 +48,25 @@ public class CList {
     }
 
 
+
     private void generateScreen(){
+
+        if(this.title.length()>0){
+            this.width=title.length();
+        }
 
 
         int start =0;
-        if(width>getMax(this.list)){
+        if(width>getMax(this.list.toArray(new String[0]))){
             width=width+2;
         }else {
-            width= getMax(this.list)+2;
+
+            width= getMax(this.list.toArray(new String[0]))+2;
         }
 
 
 
-        int r = this.list.length+2;
+        int r = this.list.size()+2;
         if(title.length()>0){
 
             r+=2;
@@ -67,7 +81,7 @@ public class CList {
         String str="";
         for (int i = 0; i <screen.length;i++){
             if( i>start && i<screen.length-1){
-                str = list[idx];
+                str = list.get(idx);
                 idx++;
 
             }
@@ -107,6 +121,9 @@ public class CList {
     private void addTitle(){
         int start = 0;
         int end =0;
+
+
+
         if(this.title.length()>0){
             if(width-4 < this.title.length()){
                 this.title = this.title.substring(0,  screen[0].length-2);
@@ -118,10 +135,11 @@ public class CList {
                 end =this.title.length()+1;
 
             }else if(pos == Position.CENTER) {
-                start = Math.abs(((screen[0].length - this.title.length()) / 2)- 2)+1;
+                start = Math.abs(((screen[0].length - this.title.length()) / 2))+1;
 
-                if(this.title.length()>screen[0].length){
-                    start = Math.abs(((screen[0].length - this.title.length()) / 2)- 2);
+                if(this.title.length()+2>=screen[0].length){
+                    start = 1;
+
                 }
 
 
@@ -176,9 +194,34 @@ public class CList {
 
     public void addCounter(){
         int count = 1;
-        for (int i =0 ; i<list.length;i++){
-            this.list[i] = String.valueOf(count)+"."+this.list[i];
+        for (int i =0 ; i<list.size();i++){
+            this.list.set(i, String.valueOf(count)+"."+this.list.get(i));
             count++;
         }
+    }
+
+
+
+
+    public void addItem(String item){
+        if(this.list.get(0).equals("")){
+            this.list.remove(0);
+        }
+        this.list.add(item);
+    }
+
+    public String getItem(int index){
+        return this.list.get(index);
+    }
+
+    public void remove(int index){
+        this.list.remove(index);
+        if(list.isEmpty()){
+            list.add("");
+        }
+    }
+
+    public void set(int index, String item){
+        this.list.set(index,item);
     }
 }
