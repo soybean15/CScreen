@@ -45,9 +45,6 @@ public class Button extends Components implements Resizable{
             end = (c+width)+2;
         }
 
-        //int end = (c+text.length())+2;
-
-
         for(int i=r; i<r+3; i++ ){
 
             for(int j=start, k=0; j<end; j++){

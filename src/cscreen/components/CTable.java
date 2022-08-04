@@ -17,7 +17,6 @@ public class CTable extends CList {
     private String[][] list2D;
 
 
-    protected int width;
     private boolean hasSeparator;
 
 

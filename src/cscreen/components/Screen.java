@@ -5,7 +5,6 @@ import cscreen.classes.Position;
 import cscreen.classes.Symbol;
 
 public class Screen {
-    //char[][] screen = new char[20][40];
     char[][] screen;
 
 
@@ -135,18 +134,14 @@ public class Screen {
             for (int j = 0; j < screen[i].length; j++) {
                 screen[i][j] = ' ';
 
-                //outer border
                 if (i == 0 || i == screen.length - 1) {
 
-                        //screen[i][j] = '┄';
-                    //screen[i][j] = '-';
                     screen[i][j] = charSets.horizontal;
 
 
                 } else {
                     if (j == 0 || j == screen[i].length - 1) {
-                        //screen[i][j] = '│';
-                        //screen[i][j] = '|';
+
                         screen[i][j] = charSets.vertical;
                     }
                 }
@@ -156,8 +151,7 @@ public class Screen {
                 if (hasBorder) {
                     if (i == 2 || i == screen.length - 2) {
                         if (j > 0 && j < screen[i].length - 1) {
-                               // screen[i][j] = '┄';
-                            //screen[i][j] = '-';
+
                             screen[i][j] = charSets.horizontal;
 
                         }
@@ -166,8 +160,7 @@ public class Screen {
                     } else {
                         if (i > 1 && i < screen.length - 1) {
                             if (j == 1 || j == screen[i].length - 2) {
-                                //screen[i][j] = '┊';
-                                //screen[i][j] = '|';
+
                                 screen[i][j] =charSets.vertical;
                             }
                         }
@@ -179,20 +172,6 @@ public class Screen {
 
             }
         }
-
-//        //corners
-//        screen[0][0] ='╭';
-//        screen[0][screen[0].length-1] = '╮';
-//        screen[screen.length-1][0]='╰';
-//        screen[screen.length-1][screen[0].length-1] = '╯';
-//
-//        if(hasBorder){
-//            //corners
-//            screen[2][1] ='╭';
-//            screen[2][screen[0].length-2] = '╮';
-//            screen[screen.length-2][1]='╰';
-//            screen[screen.length-2][screen[0].length-2] = '╯';
-//        }
 
         screen[0][0] = charSets.corners[0];
         screen[0][screen[0].length-1] = charSets.corners[1];

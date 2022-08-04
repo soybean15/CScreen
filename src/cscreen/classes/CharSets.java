@@ -42,6 +42,7 @@ public class CharSets {
 
     public static CharSets getInstance(Symbol symbol){
         if (symbol == Symbol.NORMAL){
+
             return normalSetInstance();
         } else if (symbol==Symbol.BOXDRAWING) {
             return boxSetInstance();
@@ -54,19 +55,25 @@ public class CharSets {
     private static CharSets normalSetInstance(){
 
         if(charSetsInstance==null){
+
             charSetsInstance = new CharSets();
+
         }
+        charSetsInstance.isBox =false;
         charSetsInstance.normalSets();
         return charSetsInstance;
 
     }
 
     private static CharSets boxSetInstance(){
-        System.out.println("Box");
+
 
         if(charSetsInstance==null){
+
             charSetsInstance = new CharSets();
+
         }
+        charSetsInstance.isBox =true;
         charSetsInstance.boxSets();
         return charSetsInstance;
 

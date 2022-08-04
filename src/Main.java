@@ -9,6 +9,7 @@ public class Main {
     public static void main(String[] args) {
 
 
+
         Screen screen = new Screen(19, 40, true);
         screen.useBoxSet();
         screen.setTitle("Menu");
