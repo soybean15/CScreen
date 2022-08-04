@@ -227,7 +227,7 @@ _Since Box-window is not working on default on some OS, I added a method where y
 
 **Sample code:**
 
-    ```java
+```java
 
           String[][] arr = {{"Marilyn Monroe", "21", "March", "1993"},
                   {"Robert De Niro", "22", "August", "1945"},
@@ -246,8 +246,7 @@ _Since Box-window is not working on default on some OS, I added a method where y
           table2.hasSeparator(true);
           table2.setAlignment(Position.CENTER);
           table2.display();
-      
-    ```
+```
 
 
 **Sample output:**
@@ -261,7 +260,7 @@ _Update table without calling the constructor_
 
 **Sample code**
 
-    ```java
+```java
          String[][] menu = {
                 {"f011", "Fries", "10", "70.00"},
                 {"b212", "Burger", "10", "30.00"},
@@ -287,8 +286,9 @@ _Update table without calling the constructor_
         //update table update or pass a new 2d array
         table.update(menu2);
         table.display();
-    
-    ```
+```
+
+
 **Sample output:**
  
  ![image](https://user-images.githubusercontent.com/75112014/182774925-b48c68c7-1c63-4bc6-be64-a0f6a71d3b7f.png)
