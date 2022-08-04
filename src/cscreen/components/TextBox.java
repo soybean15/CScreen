@@ -31,6 +31,9 @@ public class TextBox extends Box{
     @Override
     public void place(Screen sc){
         char[][] screen = sc.screen;
+
+        charSets =sc.charSets;
+
         int start = c;
         int end = 0;
         if(this.width ==0){
@@ -47,12 +50,12 @@ public class TextBox extends Box{
             for(int j=start, k=0; j<end; j++){
 
                 if(i==r || i==r+(height-1)){
-                        screen[i][j] = this.horizontal;
+                        screen[i][j] = charSets.horizontal;
 
                 }
                 else{
                     if(j==start || j ==end-1){
-                        screen[i][j]= this.vertical;
+                        screen[i][j]= charSets.vertical;
                     }
                 }
 
@@ -74,10 +77,10 @@ public class TextBox extends Box{
             }
         }
         //corners
-        screen[r][start] = corners[0];
-        screen[r][end-1] = corners[1];
-        screen[r+(height-1)][start]= corners[2];
-        screen[r+(height-1)][end-1] = corners[3];
+        screen[r][start] = charSets.corners[0];
+        screen[r][end-1] = charSets.corners[1];
+        screen[r+(height-1)][start]= charSets.corners[2];
+        screen[r+(height-1)][end-1] = charSets.corners[3];
 
     }
 }

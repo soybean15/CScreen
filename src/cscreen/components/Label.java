@@ -4,12 +4,14 @@ public class Label extends Components{
     private String text="";
 
     public Label(int r, int c, String text){
+        super();
         this.r = r;
         this.c=c;
         this.text = text;
     }
 
     public Label(int r, int c){
+        super();
         this.r = r;
         this.c=c;
         this.text = text;

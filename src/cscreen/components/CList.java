@@ -1,6 +1,9 @@
 package cscreen.components;
 
+import cscreen.classes.CharSets;
 import cscreen.classes.Position;
+import cscreen.classes.Symbol;
+
 
 public class CList {
     protected char[][] screen;
@@ -9,25 +12,13 @@ public class CList {
 
     private String title="";
     Position pos;
-  ///  protected char horizontal = '┈';
-//    protected char vertical = '│';
-//
-//    protected int width;
-//
-//
-//    char[] corners = {'╭','╮','╰','╯'};
-
-
-    protected char horizontal = '-';
-    protected char vertical = '|';
 
     protected int width;
 
-
-    char[] corners = {'+','+','+','+'};
-
+    CharSets charSets;
 
     public CList(String[] arr, int width) {
+        setCharSets(null);
         list = arr;
 
        this.width=width;
@@ -35,9 +26,19 @@ public class CList {
 
     }
 
-    protected CList() {
 
+    protected CList() {
+        setCharSets(null);
     }
+
+    protected void setCharSets(Symbol symbol){
+        charSets = CharSets.getInstance(symbol);
+    }
+
+    public void useBoxSet(){
+        setCharSets(Symbol.BOXDRAWING);
+    }
+
 
     private void generateScreen(){
 
@@ -73,10 +74,10 @@ public class CList {
             for (int j=0, k=0; j<width; j++){
                 screen[i][j]=' ';
                 if(i==0 || i==screen.length-1){
-                    screen[i][j]= this.horizontal;
+                    screen[i][j]= charSets.horizontal;
                 }else{
                     if(j==0 || j==width-1){
-                        screen[i][j]= this.vertical;
+                        screen[i][j]= charSets.vertical;
                     }
 
                     if( j>0){
@@ -90,10 +91,10 @@ public class CList {
             }
         }
         //corners
-        screen[0][0] =corners[0];
-        screen[0][screen[0].length-1] = corners[0];
-        screen[screen.length-1][0]=corners[0];
-        screen[screen.length-1][screen[0].length-1] =corners[0];
+        screen[0][0] =charSets.corners[0];
+        screen[0][screen[0].length-1] = charSets.corners[1];
+        screen[screen.length-1][0]=charSets.corners[2];
+        screen[screen.length-1][screen[0].length-1] =charSets.corners[3];
         if(title.length()>0) addTitle();
     }
 
@@ -139,10 +140,10 @@ public class CList {
             }
             //├┤
             for(int i=1; i<width-1;i++){
-                screen[2][i]=this.horizontal;
+                screen[2][i]=charSets.horizontal;
             }
-            screen[2][0]='+';
-            screen[2][width-1]='+';
+            screen[2][0]=charSets.sideConnectors[0];
+            screen[2][width-1]=charSets.sideConnectors[1];
 
 
         }
@@ -150,11 +151,12 @@ public class CList {
 
     public void display(){
 
+
         generateScreen();
 
         for (int i = 0; i <screen.length;i++){
             for (int j=0; j<screen[0].length; j++) {
-                System.out.print(screen[i][j]);
+                charSets.printChar(screen[i][j]);
             }
             System.out.println();
         }

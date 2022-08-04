@@ -1,10 +1,14 @@
 package cscreen.components;
 
+import cscreen.classes.CharSets;
+import cscreen.classes.Symbol;
+
 public class Box extends Components implements Resizable{
 
     protected int width;
     protected int height;
     public Box(int r, int c, int width, int height){
+        super();
         this.r = r;
         this.c=c;
         this.width = width;
@@ -12,9 +16,13 @@ public class Box extends Components implements Resizable{
     }
 
     public Box(int r, int c){
+
+        super();
+
         this.r = r;
         this.c=c;
     }
+
 
     @Override
     public void setWidth(int width){
@@ -28,8 +36,9 @@ public class Box extends Components implements Resizable{
 
     @Override
     public void place(Screen sc){
-        char[][] screen = sc.screen;
 
+        char[][] screen = sc.screen;
+        charSets =sc.charSets;
         int start = c;
         int end = (c+width)+2;
 
@@ -39,21 +48,22 @@ public class Box extends Components implements Resizable{
 
                 if(i==r || i==(r+(height-1))){
 
-                    screen[i][j] = this.horizontal;
+
+                    screen[i][j] = charSets.horizontal;
 
                 }else{
                     if(j==start || j ==end-1){
-                        screen[i][j] = this.vertical;
+                        screen[i][j] = charSets.vertical;
                     }
                 }
             }
         }
 
         //corners
-        screen[r][start] = corners[0];
-        screen[r][end-1] = corners[1];
-        screen[r+(height-1)][start]= corners[2];
-        screen[r+(height-1)][end-1] = corners[3];
+        screen[r][start] = charSets.corners[0];
+        screen[r][end-1] = charSets.corners[1];
+        screen[r+(height-1)][start]= charSets.corners[2];
+        screen[r+(height-1)][end-1] = charSets.corners[3];
 
     }
 

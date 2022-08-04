@@ -9,11 +9,13 @@ public class Button extends Components implements Resizable{
 
 
     public Button(int r, int c, String text){
+        super();
         this.r = r;
         this.c=c;
         this.text = text;
     }
     public Button(int r, int c){
+        super();
         this.r = r;
         this.c=c;
 
@@ -29,6 +31,7 @@ public class Button extends Components implements Resizable{
     @Override
     public void place(Screen sc){
         char[][] screen = sc.screen;
+        charSets =sc.charSets;
 
         int start = c;
         int end = 0;
@@ -51,7 +54,7 @@ public class Button extends Components implements Resizable{
 
                 if(i==r || i==(r+2)){
 
-                    screen[i][j] = this.horizontal;
+                    screen[i][j] = charSets.horizontal;
 
                 }
                 if(i==(r+1)){
@@ -67,7 +70,7 @@ public class Button extends Components implements Resizable{
                         }
 
                     }else{
-                        screen[i][j]= this.vertical;
+                        screen[i][j]= charSets.vertical;
                     }
 
                 }
@@ -75,10 +78,10 @@ public class Button extends Components implements Resizable{
         }
 
         //corners
-        screen[r][start] = corners[0];
-        screen[r][end-1] = corners[1];
-        screen[r+2][start]= corners[2];
-        screen[r+2][end-1] = corners[3];
+        screen[r][start] = charSets.corners[0];
+        screen[r][end-1] = charSets.corners[1];
+        screen[r+2][start]= charSets.corners[2];
+        screen[r+2][end-1] = charSets.corners[3];
 
     }
 

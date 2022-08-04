@@ -2,6 +2,8 @@ package cscreen.components;
 
 import cscreen.classes.Position;
 
+import java.io.PrintStream;
+import java.nio.charset.StandardCharsets;
 import java.security.SecureRandom;
 import java.util.Arrays;
 
@@ -27,7 +29,6 @@ public class CTable extends CList {
 
         this.list = new String[arr.length + 1];
 
-
     }
 
     public CTable(String[] columnHeader, String[][] arr, Position pos) {
@@ -42,12 +43,6 @@ public class CTable extends CList {
 
     }
 
-
-    void print2d(String [][] arr){
-        for (String[] str:arr){
-            System.out.println(str[1]);
-        }
-    }
     String[][] copy (String[][] arr){
         String[][] newArr = new String[arr.length+1][arr[0].length];
 
@@ -73,8 +68,6 @@ public class CTable extends CList {
             len = this.list2D.length + 3;
 
         }
-
-
         int colSize = combineRow(this.list2D) + 1;
         this.screen = new char[len][colSize];
 
@@ -96,34 +89,21 @@ public class CTable extends CList {
 
     public void display() {
 
-
-
         generateScreen();
+        PrintStream out = new PrintStream(System.out,true, StandardCharsets.UTF_8);
 
         for (int i = 0; i < screen.length; i++) {
             for (int j = 0; j < screen[0].length; j++) {
-                System.out.print(screen[i][j]);
+                out.print(screen[i][j]);
             }
-            System.out.println();
+            out.println();
         }
     }
 
-
-    // void gene
-    void printArr() {
-        int idx=0;
-        for (String str : list) {
-            //   if(str!=null){
-            System.out.println("index"+idx+str);
-            // }
-            idx++;
-
-        }
-    }
 
     private int combineRow(String[][] arr) {
 
-        char separator = this.vertical;
+        char separator = charSets.vertical;
         if(!hasSeparator){
             separator = ' ';
         }
@@ -182,20 +162,20 @@ public class CTable extends CList {
 
         for (int i = 0, j = 0; i < str.length(); i++) {
             if (i == 0 || i == str.length() - 1) {
-                screen[1][i] = this.vertical;
+                screen[1][i] = charSets.vertical;
                 if (i == 0) {
-                    screen[2][i] = '+';
+                    screen[2][i] = charSets.sideConnectors[0];
                 } else {
-                    screen[2][i] = '+';
+                    screen[2][i] = charSets.sideConnectors[1];
                 }
 
             } else {
                 screen[1][i] = str.charAt(j++);
-                if (screen[1][i] == this.vertical) {
-                    screen[2][i] = '+';
-                    screen[0][i] = '+';
+                if (screen[1][i] == charSets.vertical) {
+                    screen[2][i] = charSets.sideConnectors[4];
+                    screen[0][i] = charSets.sideConnectors[2];
                 } else {
-                    screen[2][i] = this.horizontal;
+                    screen[2][i] = charSets.horizontal;
                 }
 
 
@@ -232,10 +212,10 @@ public class CTable extends CList {
             for (int j = 0, k = 0; j < screen[0].length; j++) {
                 screen[i][j] = ' ';
                 if (i == 0 || i == screen.length - 1) {
-                    screen[i][j] = this.horizontal;
+                    screen[i][j] = charSets.horizontal;
                     if (i == screen.length - 1) {
-                        if (screen[screen.length - 2][j] == this.vertical) {
-                            screen[i][j] = '+';
+                        if (screen[screen.length - 2][j] == charSets.vertical) {
+                            screen[i][j] = charSets.sideConnectors[3];
                         }
                     }
 
@@ -250,23 +230,23 @@ public class CTable extends CList {
 
                     }
                     if (j == 0 || j == screen[0].length - 1) {
-                        screen[i][j] = this.vertical;
+                        screen[i][j] = charSets.vertical;
                     }
 
                 }
                 if (i == 1) {
-                    if (screen[i][j] == this.vertical) {
-                        screen[0][j] = '+';
+                    if (screen[i][j] == charSets.vertical) {
+                        screen[0][j] =charSets.sideConnectors[2];
                     }
                 }
 
             }
         }
         //corners
-        screen[0][0] = corners[0];
-        screen[0][screen[0].length - 1] =  corners[0];
-        screen[screen.length - 1][0] =  corners[0];
-        screen[screen.length - 1][screen[0].length - 1] =  corners[0];
+        screen[0][0] = charSets.corners[0];
+        screen[0][screen[0].length - 1] =  charSets.corners[1];
+        screen[screen.length - 1][0] =  charSets.corners[2];
+        screen[screen.length - 1][screen[0].length - 1] =  charSets.corners[3];
 
         if (columnHeader != null) {
             addColumnHeader(list[0] +" ");
@@ -322,5 +302,7 @@ public class CTable extends CList {
 
         return start(str,len+2);
     }
+
+
 
 }
