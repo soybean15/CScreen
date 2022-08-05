@@ -199,17 +199,17 @@ _Since Box-window is not working on default on some OS, I added a method where y
 
 
 ```java
-      String[] list1 = {"Banana", "Apple", "Potato", "Orange"};
+        CList list = new CList();
+        list.useBoxSet();
+        list.setWidth(20);
+        list.setTitle("Fruits",Position.CENTER);
 
-      CList cList1 = new CList(list1, 30);
-      cList1.setTitle("Fruits",Position.CENTER);
-      cList1.display();
+        list.addItem("Apple");
+        list.addItem("Banana");
+        list.addItem("Mango");
+        list.addItem("Banana");
 
-
-      String[] list2 = {"Apple Button jeans boots with a fur", "Apple", "Potato", "Orange"};
-      CList cList2 = new CList(list2, 0);
-      cList2.setTitle("Fruits",Position.START);
-      cList2.display();
+        list.display();
 
 
 ```
@@ -217,7 +217,23 @@ _Since Box-window is not working on default on some OS, I added a method where y
 **Sample output:**
 
 
-![image](https://user-images.githubusercontent.com/75112014/182513912-44e21a6e-f15f-4d87-b86d-621d3dbe6637.png)
+![image](https://user-images.githubusercontent.com/75112014/182986520-7f5b1a4c-d022-417d-bf77-bb85eef9d985.png)
+
+
+**CList Functions**
+
+
+**setWidth(int width)** - setting with of rectangular border of list. If not set, it will base on the longest size of the String inside the list.
+
+**setTitle(String title,Position pos)** - Add title on the list, there are three choice for position _POSITION.START, POSITION.CENTER, POSITION.END_.
+
+**addItem(String item)** - add item on the list.
+
+**getItem(int index)** - get item on the list by index.
+
+**remove(int index)** - remove item on the list by index.
+
+**set(int index, String item)** - edit/update item by index.
 
 
 
@@ -229,70 +245,42 @@ _Since Box-window is not working on default on some OS, I added a method where y
 
 ```java
 
-          String[][] arr = {{"Marilyn Monroe", "21", "March", "1993"},
-                  {"Robert De Niro", "22", "August", "1945"},
-                  {"Malcolm X", "23", "June", "1944"},
-                  {"Mohammad Ali", "24", "March", "1970"}
-          };
-
-
-          CTable table = new CTable(null,arr);
-          table.display();
-
-
-          String[] header = {"Name", "Id", "Month", "Year"};
-
-          CTable table2 = new CTable(header,arr);
-          table2.hasSeparator(true);
-          table2.setAlignment(Position.CENTER);
-          table2.display();
-```
-
-
-**Sample output:**
-
-
-![image](https://user-images.githubusercontent.com/75112014/182514176-64f2a6d9-5bac-402d-8d7d-18e5bf9192a1.png)
-
-
-_Update table without calling the constructor_
-
-
-**Sample code**
-
-```java
-         String[][] menu = {
-                {"f011", "Fries", "10", "70.00"},
-                {"b212", "Burger", "10", "30.00"},
-                {"sp01", "Spagetti", "30", "60.00"},
-                {"fc11", "Fried Chicken", "10", "110.00"},
-                {"s930", "Sundae", "10", "30.00"},
-                {"s930", "Sundae", "10", "30.00"},
-        };
-        System.out.println("View Menu:");
-
-        String[] header = {"Id", "Product Name", "Quantity", "Price"};
-
-        CTable table = new CTable(header, menu);
+        CTable table = new CTable(header);
         table.useBoxSet();
         table.setAlignment(Position.CENTER);
         table.hasSeparator(true);
+        table.addRow(new String[]{"f011", "Fries", "10", "70.00"});
+        table.addRow(new String[]{"b212", "Burger", "10", "30.00"});
+        table.addRow(new String[]{"fc11", "Fried Chicken", "10", "110.00"});
+        table.addRow(new String[]{"f011", "Fries", "10", "70.00"});
+        table.addRow(new String[]{"s930", "Sundae", "10", "30.00"});
         table.display();
 
-        String[][] menu2 = {
-                {"f011", "Fries", "10", "70.00"},
-                {"b212", "Burger", "10", "30.00"},
-        };
-        //uupdate or pass a new 2d array
-        table.update(menu2);
-        table.display();
 ```
 
 
 **Sample output:**
- 
- ![image](https://user-images.githubusercontent.com/75112014/182774925-b48c68c7-1c63-4bc6-be64-a0f6a71d3b7f.png)
 
+
+![image](https://user-images.githubusercontent.com/75112014/182984096-ff349dd6-af0b-422b-a891-1474c0b3de6a.png)
+
+
+**CTable Functions**
+
+ 
+**addList(List<List<String>> arr)** - Add 2d array on CTable.
+    
+**addRow(String[] row)** - Add row inside the table.
+    
+**getRow(int index)** - get all the value of selected row, index is the position of desired row.
+    
+**getColumn(int index)** - get all the value of selected column, index is the position of desired column.
+    
+**removeRow(int index)** - remove selected row by index
+    
+**getCell(int row, int column)** - get cell item inside the table.
+    
+**setCell(int row, int column,String str)** - edit/update the selected cell in the table.
  
 _Hope you like it..enjoy._
 
