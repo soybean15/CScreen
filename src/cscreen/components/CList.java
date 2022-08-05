@@ -38,6 +38,12 @@ public class CList {
         list.add("");
         setCharSets(null);
     }
+    public CList(String[] arr) {
+        List<String> temp = Arrays.asList(arr);
+        this.list = new ArrayList<>(temp);
+        setCharSets(null);
+
+    }
 
     protected void setCharSets(Symbol symbol){
         charSets = CharSets.getInstance(symbol);
@@ -47,11 +53,16 @@ public class CList {
         setCharSets(Symbol.BOXDRAWING);
     }
 
+    public void setWidth(int width){
+        this.width =width;
+    }
+
 
 
     private void generateScreen(){
 
-        if(this.title.length()>0){
+
+        if(this.title.length()>0 && this.width <=title.length()){
             this.width=title.length();
         }
 

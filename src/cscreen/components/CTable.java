@@ -368,6 +368,17 @@ public class CTable extends CList {
 
     }
 
+    public List<String> getRow(int index){
+        return list2D.get(index);
+    }
+
+    public List<String> getColumn(int index){
+        List<String> newList = new ArrayList<>();
+        for (List<String> strings : list2D) {
+            newList.add(strings.get(index));
+        }
+        return newList;
+    }
 
     public void removeRow(int index){
         this.list2D.remove(index);

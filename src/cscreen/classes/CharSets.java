@@ -41,12 +41,15 @@ public class CharSets {
     }
 
     public static CharSets getInstance(Symbol symbol){
-        if (symbol == Symbol.NORMAL){
 
-            return normalSetInstance();
-        } else if (symbol==Symbol.BOXDRAWING) {
-            return boxSetInstance();
-        }
+            if (symbol == Symbol.NORMAL){
+
+                return normalSetInstance();
+            } else if (symbol==Symbol.BOXDRAWING) {
+                return boxSetInstance();
+            }
+
+
 
         return normalSetInstance();
     }
@@ -61,6 +64,7 @@ public class CharSets {
         }
         charSetsInstance.isBox =false;
         charSetsInstance.normalSets();
+
         return charSetsInstance;
 
     }
@@ -75,6 +79,7 @@ public class CharSets {
         }
         charSetsInstance.isBox =true;
         charSetsInstance.boxSets();
+
         return charSetsInstance;
 
     }

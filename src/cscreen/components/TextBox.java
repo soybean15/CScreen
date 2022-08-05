@@ -3,6 +3,8 @@ package cscreen.components;
 public class TextBox extends Box{
     String text="";
 
+    Screen sc;
+
     char[][] screen;
 
     //┌,┐,└,┘
@@ -18,7 +20,12 @@ public class TextBox extends Box{
     }
 
     public void setText(String text){
+
         this.text = text;
+        if(sc != null){
+            clear();
+            place(sc);
+        }
     }
 
     @Override
@@ -50,6 +57,7 @@ public class TextBox extends Box{
 
     @Override
     public void place(Screen sc){
+        this.sc=sc;
         screen = sc.screen;
 
         charSets =sc.charSets;
