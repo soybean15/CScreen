@@ -244,17 +244,29 @@ _Since Box-window is not working on default on some OS, I added a method where y
 **Sample code:**
 
 ```java
+String[] header = {"Id", "Product Name", "Quantity", "Price"};
 
-        CTable table = new CTable(header);
-        table.useBoxSet();
-        table.setAlignment(Position.CENTER);
-        table.hasSeparator(true);
-        table.addRow(new String[]{"f011", "Fries", "10", "70.00"});
-        table.addRow(new String[]{"b212", "Burger", "10", "30.00"});
-        table.addRow(new String[]{"fc11", "Fried Chicken", "10", "110.00"});
-        table.addRow(new String[]{"f011", "Fries", "10", "70.00"});
-        table.addRow(new String[]{"s930", "Sundae", "10", "30.00"});
-        table.display();
+CTable table = new CTable(header);
+table.useBoxSet();
+table.hasSeparator(true);
+table.addRow("f011", "Fries", "10", "70.00");
+table.addRow("b212", "Burger", "10", "30.00");
+table.addRow("fc11", "Fried Chicken", "10", "110.50");
+table.addRow("f011", "Fries", "10", "70.00");
+table.addRow("s930", "Sundae", "10", "30.00");
+
+table.setColumnAlignment(2,Position.CENTER);
+table.setColumnAlignment(3,Position.END);
+
+//print table
+table.display();
+
+int qtyTotal = table.getIntTotal(2);
+float priceTotal = table.getFloatTotal(3);
+
+System.out.println("Total Qty:"+qtyTotal);
+System.out.println("Total Price:"+priceTotal);
+
 
 ```
 
@@ -268,19 +280,25 @@ _Since Box-window is not working on default on some OS, I added a method where y
 **CTable Functions**
 
 
->   **addList(List<List<String>> arr)** - Add 2d array on CTable.
+>**addList(List<List<String>> arr)** - Add 2d array on CTable.
 >    
->   **addRow(String[] row)** - Add row inside the table.
+>**addRow(String[] row)** - Add row inside the table.
 >    
->   **getRow(int index)** - get all the value of selected row, index is the position of desired row.
+>**getRow(int index)** - get all the value of selected row, index is the position of desired row.
 >    
->   **getColumn(int index)** - get all the value of selected column, index is the position of desired column.
+>**getColumn(int index)** - get all the value of selected column, index is the position of desired column.
 >    
->   **removeRow(int index)** - remove selected row by index
+>**removeRow(int index)** - remove selected row by index
 >    
->  **getCell(int row, int column)** - get cell item inside the table.
+>**getCell(int row, int column)** - get cell item inside the table.
 >    
->  **setCell(int row, int column,String str)** - edit/update the selected cell in the table.
+>**setCell(int row, int column,String str)** - edit/update the selected cell in the table.
+>
+>**setColumnAlignment(int columnIndex, Position position)** - set column position by column index, Positions available _Position.START,Position.CENTER,Position.END.
+>
+>**getIntTotal(int columnIndex)** - get int total value of a column 
+>
+>**getFloatTotal(int columnIndex)** - get float total value of a column 
  
  
 _Hope you like it..enjoy._
