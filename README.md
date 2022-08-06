@@ -267,7 +267,7 @@ _Since Box-window is not working on default on some OS, I added a method where y
 
 **CTable Functions**
 
- 
+```
    **addList(List<List<String>> arr)** - Add 2d array on CTable.
     
    **addRow(String[] row)** - Add row inside the table.
@@ -281,6 +281,7 @@ _Since Box-window is not working on default on some OS, I added a method where y
    **getCell(int row, int column)** - get cell item inside the table.
     
    **setCell(int row, int column,String str)** - edit/update the selected cell in the table.
+ ```
  
 _Hope you like it..enjoy._
 
