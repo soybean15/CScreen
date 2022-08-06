@@ -149,8 +149,8 @@ public class CTable extends CList {
             for (int i = 0; i < columnHeader.length; i++) {
                 int space = spaces[i];
 
-              //  String fline = Utilities.alignedString( columnHeader[i],space,pos);
-                String fline = Utilities.alignedString(columnHeader[i], space, alignments.getOrDefault(i, null));
+                String fline = Utilities.alignedString( columnHeader[i],space,Position.CENTER);
+                //String fline = Utilities.alignedString(columnHeader[i], space, alignments.getOrDefault(i, null));
                 header = header + fline + separator;
 
             }
