@@ -1,3 +1,5 @@
+
+## C-Screen
 **C-screen** is a text-base UI on java console, you can now easily design your console program using c-screen with the help of several components.
 
 _download here:_ https://github.com/soybean15/CScreen/releases
@@ -38,7 +40,7 @@ _Since Box-window is not working on default on some OS, I added a method where y
     */
 ```
 
-**C-Screen components:**
+### C-Screen components:
 
 **1. Screen**: a framelike interface where you can put multiple components.
         
