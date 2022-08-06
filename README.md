@@ -344,7 +344,7 @@ System.out.println("Total Price:"+priceTotal);
 >**getIntTotal(int columnIndex)** - get int total value of a column 
 >
 >**getFloatTotal(int columnIndex)** - get float total value of a column 
->**findRows(int column, String text)** - find multiple rows inside the table. ```ex List<List<String>> findRows = tableName.findRows(columnToFind, "name to find");```
+>**findRows(int column, String text)** - find multiple rows inside the table. ```ex List<List<String>> findRows = tableName.findRows(whatColumnToLook, "What do you want to find");```
  
  
 _Hope you like it..enjoy._
