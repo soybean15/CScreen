@@ -2,13 +2,13 @@
 [How to use](#howtouse)<br/>
 [C-Screen](#cscreen)<br/>
 [Box-window and normal char](#boxwin)<br/>
-[Components](#components)<br/>
+[Components](#components)
 - [Screen](#screen)
 - [Box](#box)
 - [TextBox](#textbox)
 - [Label](#label)
 - [Button](#button)
-<br/>
+
 [CList](#clist)<br/>
 [CTable](#ctable)<br/>
 
