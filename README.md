@@ -38,7 +38,7 @@ _Since Box-window is not working on default on some OS, I added a method where y
     */
 ```
 
-**C-Screen features:**
+**C-Screen components:**
 
 **1. Screen**: a framelike interface where you can put multiple components.
         
@@ -236,6 +236,7 @@ list.display();
 
 
 
+##CTable
 
 
 **7. CTable**: easiest way to output your data on console, just pass your 2d array and you got yourself a neat and instant table.
