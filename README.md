@@ -268,7 +268,7 @@ list.display();
 
 >   **setWidth(int width)** - setting width of rectangular border of list. If not set, it will base on the longest size of the String inside the list.
 >
->   **setTitle(String title,Position pos)** - Add title on the list, there are three choice for position ```Position.START, Position.CENTER, Position.END```.
+>   **setTitle(String title,Position pos)** - Add title on the list, there are three available positions ```Position.START, Position.CENTER, Position.END```.
 >
 >   **addItem(String item)** - add item on the list.
 >
@@ -339,7 +339,7 @@ System.out.println("Total Price:"+priceTotal);
 >    
 >**setCell(int row, int column,String str)** - edit/update the selected cell in the table.
 >
->**setColumnAlignment(int columnIndex, Position position)** - set column position by column index, Positions available  ```Position.START,Position.CENTER,Position.END```.
+>**setColumnAlignment(int columnIndex, Position position)** - set column position by column index. Positions available  ```Position.START,Position.CENTER,Position.END```.
 >
 >**getIntTotal(int columnIndex)** - get int total value of a column 
 >
