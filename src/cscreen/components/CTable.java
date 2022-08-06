@@ -57,17 +57,6 @@ public class CTable extends CList {
 
     }
 
-    public CTable(String[] columnHeader,  List<List<String>> arr, Position pos) {
-        super();
-
-        this.columnHeader =columnHeader;
-        this.list2D=arr;
-
-        this.pos=pos;
-        this.list = new ArrayList<>();
-
-
-    }
 
 
     public CTable(String[] columnHeader, List<List<String>> arr, Position pos,boolean hasSeparator) {
@@ -336,30 +325,30 @@ public class CTable extends CList {
     }
 
 
-    private List<List<String>>  findItem(int column, String item){
+    public List<List<String>>  findRows(int column, String text){
         List<List<String>> newArr = new ArrayList<>();
         for (int i=0;i<this.list2D.size();i++){
-            if(list2D.get(i).get(column).equals(item)){
+            if(list2D.get(i).get(column).equals(text)){
                 newArr.add(list2D.get(i));
             }
         }
         return newArr;
 
     }
-    public void searchRow(int column, String item){
-
-       List<List<String>> newList = new ArrayList<>(findItem( column,  item));
-        if(!newList.isEmpty()){
-            tempList2D = new ArrayList<>(newList);
-            System.out.println(tempList2D.size()+" item(s) out of "+list2D.size()+" row(s) Found");
-            if (columnHeader != null) {
-                tempList2D = Utilities.addHeader(tempList2D,this.columnHeader);
-            }
-            onSearch=true;
-        }else{
-            System.out.println("No item found");
-        }
-    }
+//    public void searchRow(int column, String item){
+//
+//       List<List<String>> newList = new ArrayList<>(findItem( column,  item));
+//        if(!newList.isEmpty()){
+//            tempList2D = new ArrayList<>(newList);
+//            System.out.println(tempList2D.size()+" item(s) out of "+list2D.size()+" row(s) Found");
+//            if (columnHeader != null) {
+//                tempList2D = Utilities.addHeader(tempList2D,this.columnHeader);
+//            }
+//            onSearch=true;
+//        }else{
+//            System.out.println("No item found");
+//        }
+//    }
 
     public void setColumnAlignment(int columnIndex, Position position){
         alignments.put(columnIndex,position);

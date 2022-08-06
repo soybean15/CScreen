@@ -19,6 +19,7 @@ public class Main {
 //        Screen screen = new Screen(20, 40, true);//20 rows, 40column, hasBorder
 //        screen.useBoxSet();//use box-window char
 //        screen.setTitle("Student Info");
+
 //
 //        Label label1 = new Label(4,3);
 //        label1.setText("FirstName:");
@@ -60,7 +61,7 @@ public class Main {
 //        txtCourse.setWidth(23);
 //        txtCourse.place(screen);
 //
-//screen.display();
+//        screen.display();
 //
 //        CTable table = new CTable(new String[]{"Full Name","DOB","Age","Course"});
 //        table.useBoxSet();
@@ -108,20 +109,12 @@ public class Main {
 //        }
 
 
-        String[][] menu = {
-                {"f011", "Fries", "10", "70.00"},
-                {"b212", "Burger", "10", "30.00"},
-                {"sp01", "Spagetti", "30", "60.00"},
-                {"fc11", "Fried Chicken", "10", "110.00"},
-                {"s930", "Sundae", "10", "30.00"},
-                {"s930", "Sundae", "10", "30.00"},
-        };
         System.out.println("View Menu:");
 
         String[] header = {"Id", "Product Name", "Quantity", "Price"};
 
         CTable table = new CTable(header);
-        table.useBoxSet();
+      //  table.useBoxSet();
         table.hasSeparator(true);
         table.addRow("f011", "Fries", "10", "70.00");
         table.addRow("b212", "Burger", "10", "30.00");
@@ -129,13 +122,21 @@ public class Main {
         table.addRow("f011", "Fries", "10", "70.00");
         table.addRow("s930", "Sundae", "10", "30.00");
 
-
         table.setColumnAlignment(2,Position.CENTER);
-        table.setColumnAlignment(3,Position.CENTER);
+        table.setColumnAlignment(3,Position.END);
 
+        //print table
         table.display();
+
         int qtyTotal = table.getIntTotal(2);
         float priceTotal = table.getFloatTotal(3);
+
+        List<List<String >> findItem = table.findRows(0,"f011");
+
+        CTable foundItems = new CTable(header);
+       // foundItems.useBoxSet();
+        foundItems.addList(findItem);
+        foundItems.display();
 
         System.out.println("Total Qty:"+qtyTotal);
         System.out.println("Total Price:"+priceTotal);
@@ -162,6 +163,7 @@ public class Main {
         list.addItem("Banana");
 
        // list.display();
+
 
 
 

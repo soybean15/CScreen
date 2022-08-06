@@ -15,6 +15,8 @@ public class CharSets {
     public  char[] sideConnectors ;
 
     private boolean isBox;
+
+    private boolean isCalled;
     private final PrintStream out = new PrintStream(System.out,true, StandardCharsets.UTF_8);
 
     private  void normalSets(){
@@ -46,6 +48,7 @@ public class CharSets {
 
                 return normalSetInstance();
             } else if (symbol==Symbol.BOXDRAWING) {
+                System.out.println("box");
                 return boxSetInstance();
             }
 
@@ -61,9 +64,14 @@ public class CharSets {
 
             charSetsInstance = new CharSets();
 
+
         }
-        charSetsInstance.isBox =false;
-        charSetsInstance.normalSets();
+        if(!boxSetInstance().isCalled){
+            charSetsInstance.isBox =false;
+            charSetsInstance.normalSets();
+
+        }
+
 
         return charSetsInstance;
 
@@ -76,7 +84,10 @@ public class CharSets {
 
             charSetsInstance = new CharSets();
 
+
+
         }
+        charSetsInstance.isCalled = true;
         charSetsInstance.isBox =true;
         charSetsInstance.boxSets();
 
