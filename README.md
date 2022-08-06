@@ -1,13 +1,15 @@
 # Table of Contents
 [How to use](#howtouse)<br/>
-[Box-window and normal char](#boxwin)<br/>
 [C-Screen](#cscreen)<br/>
-- [Components](#components)<br/>
-- - [Screen](#components)
-- - [Box](#components)
-- - [TextBox](#components)
-- - [Label](#components)
-- - [Button](#components)
+[Box-window and normal char](#boxwin)<br/>
+[Components](#components)<br/>
+- [Screen](#screen)
+- [Box](#box)
+- [TextBox](#textbox)
+- [Label](#label)
+- [Button](#button)
+[CList](#clist)<br/>
+[CTable](#ctable)<br/>
 
 
 
@@ -28,6 +30,7 @@ step4: Finally create your first console UI. Enjoy!
 
 
 ## C-Screen
+<a name = "cscreen"/>
 **C-screen** is a text-base UI on java console, you can now easily design your console program using c-screen with the help of several components.
 
 
@@ -35,6 +38,7 @@ _Update as of August 4 2022, 1:20pm_
 
 _Since Box-window is not working on default on some OS, I added a method where you can choose between normal character and box-window character_
 
+<a name = "boxwin"/>
 **Normal Characters:**
 ```java
     //normal character
@@ -69,6 +73,9 @@ _Since Box-window is not working on default on some OS, I added a method where y
 
 ### C-Screen components:
 
+<a name = "components"/>
+<a name = "screen"/>
+
 **1. Screen**: a framelike interface where you can put multiple components.
         
 **Sample code:**
@@ -93,7 +100,7 @@ screen.display();
 
 
 
-
+<a name = "box"/>
 **2. Box:** a rectangular component you can Put inside the Screen.
 
 **Sample code:**
