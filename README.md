@@ -127,7 +127,7 @@ screen.display();
 
 ![image](https://user-images.githubusercontent.com/75112014/182512062-a3f041f9-9071-47e0-a934-bdf03e145f27.png)
 
-
+<a name = "textbox"/>
 **3.TextBox:** A box component with text inside
 
 **Sample code:**
@@ -160,7 +160,7 @@ screen.display();
       
       
       
-      
+<a name = "label"/> 
 **4. Label** : Text you can put inside the screen.
 
 **Sample code:**
@@ -192,7 +192,7 @@ screen.display();
 
 
 
-
+<a name = "button"/>
 **5. Button:** Buttonlike component which is good to have if you have multiple option in your code.
 
 **Sample code:**
@@ -226,7 +226,7 @@ screen.display();
 
 
 ## CList
-
+<a name = "clist"/>
 
 **CList**: component to help your list looks more presentable
 
@@ -274,7 +274,7 @@ list.display();
 
 
 # CTable
-
+<a name = "ctable"/>
 
 **CTable**: easiest way to output your data on console, just pass your 2d array and you got yourself a neat and instant table.
 
