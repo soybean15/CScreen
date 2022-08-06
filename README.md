@@ -1,3 +1,8 @@
+#Table of Contents
+[How to use](#howtouse)
+
+
+<a name = "howtouse"/>
 ## How to use
 step1: download jar file on this link.
 
