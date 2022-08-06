@@ -1,4 +1,4 @@
-# Table of Contents
+## Table of Contents
 [How to use](#howtouse)<br/>
 [C-Screen](#cscreen)<br/>
 [Box-window and normal char](#boxwin)<br/>
