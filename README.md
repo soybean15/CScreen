@@ -224,7 +224,7 @@ list.display();
 
 >   **setWidth(int width)** - setting width of rectangular border of list. If not set, it will base on the longest size of the String inside the list.
 >
->   **setTitle(String title,Position pos)** - Add title on the list, there are three choice for position ```java _Position.START, Position.CENTER, Position.END_.```
+>   **setTitle(String title,Position pos)** - Add title on the list, there are three choice for position > _Position.START, Position.CENTER, Position.END_.
 >
 >   **addItem(String item)** - add item on the list.
 >
