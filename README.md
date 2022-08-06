@@ -1,5 +1,9 @@
-#Table of Contents
+# Table of Contents
 [How to use](#howtouse)
+[Box-window and normal char](#boxwin)
+[C-Screen](#cscreen)
+[-Components](#components)
+[   -Screen](#components)
 
 
 <a name = "howtouse"/>
