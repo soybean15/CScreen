@@ -1,8 +1,14 @@
+## How to use
+step1: download jar file on this link.
+_download here:_ https://github.com/soybean15/CScreen/releases
+step2: Add jar file on your project.
+step3: Import the library. ```import cscreen.components.*;```
+step4: Finally create your first console UI. Enjoy!
+
 
 ## C-Screen
 **C-screen** is a text-base UI on java console, you can now easily design your console program using c-screen with the help of several components.
 
-_download here:_ https://github.com/soybean15/CScreen/releases
 
 _Update as of August 4 2022, 1:20pm_
 
@@ -94,7 +100,7 @@ screen.display();
 ![image](https://user-images.githubusercontent.com/75112014/182512062-a3f041f9-9071-47e0-a934-bdf03e145f27.png)
 
 
-**3.TextBox:** A box component with String inside
+**3.TextBox:** A box component with text inside
 
 **Sample code:**
 
@@ -127,7 +133,7 @@ screen.display();
       
       
       
-**4. Label** : String you can put inside the screen.
+**4. Label** : Text you can put inside the screen.
 
 **Sample code:**
 
