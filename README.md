@@ -294,7 +294,7 @@ System.out.println("Total Price:"+priceTotal);
 >    
 >**setCell(int row, int column,String str)** - edit/update the selected cell in the table.
 >
->**setColumnAlignment(int columnIndex, Position position)** - set column position by column index, Positions available ```_Position.START,Position.CENTER,Position.END.```
+>**setColumnAlignment(int columnIndex, Position position)** - set column position by column index, Positions available ```_Position.START,Position.CENTER,Position.END._```
 >
 >**getIntTotal(int columnIndex)** - get int total value of a column 
 >
