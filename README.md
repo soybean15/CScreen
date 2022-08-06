@@ -189,9 +189,10 @@ screen.display();
 
 
 
+## CList
 
 
-**6. CList**: component to help your list looks more presentable
+**CList**: component to help your list looks more presentable
 
 
 **Sample code:**
@@ -236,10 +237,10 @@ list.display();
 
 
 
-##CTable
+# CTable
 
 
-**7. CTable**: easiest way to output your data on console, just pass your 2d array and you got yourself a neat and instant table.
+**CTable**: easiest way to output your data on console, just pass your 2d array and you got yourself a neat and instant table.
 
 **Sample code:**
 
