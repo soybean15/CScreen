@@ -3,6 +3,7 @@ package cscreen.components;
 import cscreen.classes.CharSets;
 import cscreen.classes.Position;
 import cscreen.classes.Symbol;
+import cscreen.classes.Utilities;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -19,6 +20,8 @@ public class CList {
 
     protected int width;
 
+    boolean displayed;//check if display() has already called
+
     CharSets charSets;
 
     public CList(String[] arr, int width) {
@@ -30,7 +33,6 @@ public class CList {
 
 
     }
-
 
     public CList() {
 
@@ -68,11 +70,14 @@ public class CList {
 
 
         int start =0;
-        if(width>getMax(this.list.toArray(new String[0]))){
-            width=width+2;
-        }else {
+        if(!displayed){
+            if(width>Utilities.getMax(this.list.toArray(new String[0]))){
+                width=width+2;
+            }else {
 
-            width= getMax(this.list.toArray(new String[0]))+2;
+                width= Utilities.getMax(this.list.toArray(new String[0]))+2;
+            }
+            displayed=true;
         }
 
 
@@ -120,7 +125,7 @@ public class CList {
         screen[0][screen[0].length-1] = charSets.corners[1];
         screen[screen.length-1][0]=charSets.corners[2];
         screen[screen.length-1][screen[0].length-1] =charSets.corners[3];
-        if(title.length()>0) addTitle();
+
     }
 
     public void setTitle(String title,Position pos){
@@ -137,7 +142,7 @@ public class CList {
 
         if(this.title.length()>0){
             if(width-4 < this.title.length()){
-                this.title = this.title.substring(0,  screen[0].length-2);
+                this.title = this.title.substring(0, screen[0].length-2);
             }
 
             if (pos == Position.START) {
@@ -147,8 +152,8 @@ public class CList {
 
             }else if(pos == Position.CENTER) {
                 start = Math.abs(((screen[0].length - this.title.length()) / 2))+1;
-
                 if(this.title.length()+2>=screen[0].length){
+
                     start = 1;
 
                 }
@@ -180,8 +185,8 @@ public class CList {
 
     public void display(){
 
-
         generateScreen();
+        if(title.length()>0) addTitle();
 
         for (int i = 0; i <screen.length;i++){
             for (int j=0; j<screen[0].length; j++) {
@@ -191,17 +196,6 @@ public class CList {
         }
     }
 
-    protected int getMax(String[] arr){
-        int max = arr[0].length();
-
-        for (String str:arr){
-            int len = str.length();
-            if(max<len){
-                max=len;
-            }
-        }
-        return max;
-    }
 
     public void addCounter(){
         int count = 1;

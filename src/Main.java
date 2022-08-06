@@ -118,19 +118,29 @@ public class Main {
         };
         System.out.println("View Menu:");
 
-//        String[] header = {"Id", "Product Name", "Quantity", "Price"};
-//
-//        CTable table = new CTable(header);
-//        table.useBoxSet();
-//        table.setAlignment(Position.CENTER);
-//        table.hasSeparator(true);
-//        table.addRow(new String[]{"f011", "Fries", "10", "70.00"});
-//        table.addRow(new String[]{"b212", "Burger", "10", "30.00"});
-//        table.addRow(new String[]{"fc11", "Fried Chicken", "10", "110.00"});
-//        table.addRow(new String[]{"f011", "Fries", "10", "70.00"});
-//        table.addRow(new String[]{"s930", "Sundae", "10", "30.00"});
-//
-//        table.display();
+        String[] header = {"Id", "Product Name", "Quantity", "Price"};
+
+        CTable table = new CTable(header);
+        table.useBoxSet();
+        table.hasSeparator(true);
+        table.addRow("f011", "Fries", "10", "70.00");
+        table.addRow("b212", "Burger", "10", "30.00");
+        table.addRow("fc11", "Fried Chicken", "10", "110.50");
+        table.addRow("f011", "Fries", "10", "70.00");
+        table.addRow("s930", "Sundae", "10", "30.00");
+
+        table.setColumnAlignment(2,Position.CENTER);
+        table.setColumnAlignment(3,Position.END);
+
+        table.display();
+        int qtyTotal = table.getIntTotal(2);
+        float priceTotal = table.getIntTotal(3);
+
+        System.out.println("Total Qty:"+qtyTotal);
+        System.out.println("Total Price:"+priceTotal);
+
+
+
 //
 //
 //        List<String> productName =table.getColumn(1);
@@ -142,7 +152,7 @@ public class Main {
 
         CList list = new CList();
         list.useBoxSet();
-        list.setWidth(20);
+       // list.setWidth(20);
         list.setTitle("Fruits",Position.CENTER);
 
         list.addItem("Apple");
@@ -150,7 +160,10 @@ public class Main {
         list.addItem("Mango");
         list.addItem("Banana");
 
-        list.display();
+       // list.display();
+
+
+
 
 
     }

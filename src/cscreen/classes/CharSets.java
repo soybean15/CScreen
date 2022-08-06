@@ -15,7 +15,7 @@ public class CharSets {
     public  char[] sideConnectors ;
 
     private boolean isBox;
-    private PrintStream out = new PrintStream(System.out,true, StandardCharsets.UTF_8);
+    private final PrintStream out = new PrintStream(System.out,true, StandardCharsets.UTF_8);
 
     private  void normalSets(){
         horizontal = '-';
