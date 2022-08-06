@@ -1,5 +1,5 @@
 # Table of Contents
-[How to use](#howtouse)<br/>
+[### How to use](#howtouse)<br/>
 [Box-window and normal char](#boxwin)<br/>
 [C-Screen](#cscreen)<br/>
 [-Components](#components)<br/>
