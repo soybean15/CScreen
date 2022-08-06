@@ -33,7 +33,7 @@ step4: Finally create your first console UI. Enjoy!
 ## C-Screen
 <a name = "cscreen"/>
 
-**C-screen** is a text-base UI on java console, you can now easily design your console program using c-screen with the help of several components.
+**C-screen** is a text-base UI library on java console, you can now easily design your console program using c-screen with the help of several components.
 
 
 _Update as of August 4 2022, 1:20pm_
