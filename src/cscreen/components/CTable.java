@@ -150,7 +150,7 @@ public class CTable extends CList {
                 int space = spaces[i];
 
                 String fline = Utilities.alignedString( columnHeader[i],space,Position.CENTER);
-                //String fline = Utilities.alignedString(columnHeader[i], space, alignments.getOrDefault(i, null));
+
                 header = header + fline + separator;
 
             }
@@ -293,13 +293,6 @@ public class CTable extends CList {
 
     }
 
-//    public void addRow(String[] row){
-//        if(this.list2D.get(0).get(0).equals(" ")){
-//            this.list2D.remove(0);
-//        }
-//        this.list2D.add(Arrays.asList(row));
-//
-//    }
 
     public List<String> getRow(int index){
         return list2D.get(index);

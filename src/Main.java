@@ -129,12 +129,13 @@ public class Main {
         table.addRow("f011", "Fries", "10", "70.00");
         table.addRow("s930", "Sundae", "10", "30.00");
 
+
         table.setColumnAlignment(2,Position.CENTER);
-        table.setColumnAlignment(3,Position.END);
+        table.setColumnAlignment(3,Position.CENTER);
 
         table.display();
         int qtyTotal = table.getIntTotal(2);
-        float priceTotal = table.getIntTotal(3);
+        float priceTotal = table.getFloatTotal(3);
 
         System.out.println("Total Qty:"+qtyTotal);
         System.out.println("Total Price:"+priceTotal);
