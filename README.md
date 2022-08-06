@@ -223,15 +223,15 @@ _Since Box-window is not working on default on some OS, I added a method where y
 **CList Functions**
 
 
-    **setWidth(int width)** - setting width of rectangular border of list. If not set, it will base on the longest size of the String inside the list.
+   **setWidth(int width)** - setting width of rectangular border of list. If not set, it will base on the longest size of the String inside the list.
 
-    **setTitle(String title,Position pos)** - Add title on the list, there are three choice for position _POSITION.START, POSITION.CENTER, POSITION.END_.
+   **setTitle(String title,Position pos)** - Add title on the list, there are three choice for position _POSITION.START, POSITION.CENTER, POSITION.END_.
 
-    **addItem(String item)** - add item on the list.
+   **addItem(String item)** - add item on the list.
 
-    **getItem(int index)** - get item on the list by index.
+   **getItem(int index)** - get item on the list by index.
 
-    **remove(int index)** - remove item on the list by index.
+   **remove(int index)** - remove item on the list by index.
 
     **set(int index, String item)** - edit/update item by index.
 
@@ -268,19 +268,19 @@ _Since Box-window is not working on default on some OS, I added a method where y
 **CTable Functions**
 
  
-**addList(List<List<String>> arr)** - Add 2d array on CTable.
+   **addList(List<List<String>> arr)** - Add 2d array on CTable.
     
-**addRow(String[] row)** - Add row inside the table.
+   **addRow(String[] row)** - Add row inside the table.
     
-**getRow(int index)** - get all the value of selected row, index is the position of desired row.
+   **getRow(int index)** - get all the value of selected row, index is the position of desired row.
     
-**getColumn(int index)** - get all the value of selected column, index is the position of desired column.
+   **getColumn(int index)** - get all the value of selected column, index is the position of desired column.
     
-**removeRow(int index)** - remove selected row by index
+   **removeRow(int index)** - remove selected row by index
     
-**getCell(int row, int column)** - get cell item inside the table.
+   **getCell(int row, int column)** - get cell item inside the table.
     
-**setCell(int row, int column,String str)** - edit/update the selected cell in the table.
+   **setCell(int row, int column,String str)** - edit/update the selected cell in the table.
  
 _Hope you like it..enjoy._
 
