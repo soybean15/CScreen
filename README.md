@@ -224,16 +224,16 @@ _Since Box-window is not working on default on some OS, I added a method where y
 
 
 >   **setWidth(int width)** - setting width of rectangular border of list. If not set, it will base on the longest size of the String inside the list.
-
-   **setTitle(String title,Position pos)** - Add title on the list, there are three choice for position _POSITION.START, POSITION.CENTER, POSITION.END_.
-
-   **addItem(String item)** - add item on the list.
-
-   **getItem(int index)** - get item on the list by index.
-
-   **remove(int index)** - remove item on the list by index.
-
-   **set(int index, String item)** - edit/update item by index.<
+>
+>   **setTitle(String title,Position pos)** - Add title on the list, there are three choice for position _POSITION.START, POSITION.CENTER, POSITION.END_.
+>
+>   **addItem(String item)** - add item on the list.
+>
+>   **getItem(int index)** - get item on the list by index.
+>
+>   **remove(int index)** - remove item on the list by index.
+>
+>   **set(int index, String item)** - edit/update item by index.
 
 
 
