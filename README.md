@@ -47,16 +47,15 @@ _Since Box-window is not working on default on some OS, I added a method where y
 ```java
         
         
-        Screen screen = new Screen(20,40,true);
-        screen.addTitle("Sample Screen",Position.START);
-        screen.display();
+Screen screen = new Screen(20,40,true);
+screen.addTitle("Sample Screen",Position.START);
+screen.display();
         
-        
-        /*the 3 parameters on the constructor are the following:
-        -width - width of screen
-        -height - height of screen
-        -hasBorder - add inner border if true
-        */
+/*the 3 parameters on the constructor are the following:
+-width - width of screen
+-height - height of screen
+-hasBorder - add inner border if true
+*/
 ```
                 
 **Sample output:**
@@ -72,18 +71,19 @@ _Since Box-window is not working on default on some OS, I added a method where y
 
 
 ```java
-      Screen screen = new Screen(20,40,true);
-      screen.addTitle("Sample Screen",Position.START);     
 
-      Box box = new Box(3,3);
-      box.setHeight(5);
-      box.setWidth(30);
+Screen screen = new Screen(20,40,true);
+screen.addTitle("Sample Screen",Position.START);     
+
+Box box = new Box(3,3);
+box.setHeight(5);
+box.setWidth(30);
       
-      //place component inside the screen
-      box.place(screen);
+//place component inside the screen
+box.place(screen);
       
-      //display screen
-      screen.display();
+//display screen
+screen.display();
       
 ```
       
@@ -98,20 +98,20 @@ _Since Box-window is not working on default on some OS, I added a method where y
 
 ```java
         
-      Screen screen = new Screen(20,40,true);
-      screen.addTitle("Sample Screen",Position.START);
+Screen screen = new Screen(20,40,true);
+screen.addTitle("Sample Screen",Position.START);
 
 
-      TextBox textBox = new TextBox(3,3);
-      textBox.setText("Sample text");
-      textBox.setHeight(5);
-      textBox.setWidth(30);
+TextBox textBox = new TextBox(3,3);
+textBox.setText("Sample text");
+textBox.setHeight(5);
+textBox.setWidth(30);
 
-      //place component inside the screen
-      textBox.place(screen);
+//place component inside the screen
+textBox.place(screen);
 
-      //display screen
-      screen.display();
+//display screen
+screen.display();
       
 ```
 
@@ -131,18 +131,18 @@ _Since Box-window is not working on default on some OS, I added a method where y
 
 ```java
 
-      Screen screen = new Screen(20,40,true);
-      screen.addTitle("Sample Screen",Position.START);
+Screen screen = new Screen(20,40,true);
+screen.addTitle("Sample Screen",Position.START);
 
 
-      Label label = new Label(3,3);
-      label.setText("Sample Label");
+Label label = new Label(3,3);
+label.setText("Sample Label");
 
-      //place component inside the screen
-      label.place(screen);
+//place component inside the screen
+label.place(screen);
 
-      //display screen
-      screen.display();
+//display screen
+screen.display();
       
  ```
   
@@ -163,21 +163,20 @@ _Since Box-window is not working on default on some OS, I added a method where y
 
 
 ```java
-      Screen screen = new Screen(20,40,true);
-      screen.addTitle("Sample Screen",Position.START);
+Screen screen = new Screen(20,40,true);
+screen.addTitle("Sample Screen",Position.START);
 
-
-      Button button1 = new Button(3,3);
-      button1.setText("Button1");
-      //place component inside the screen
-      button1.place(screen);
+Button button1 = new Button(3,3);
+button1.setText("Button1");
+//place component inside the screen
+button1.place(screen);
       
-      Button button2 = new Button(6,3, "Button2");
-      //place component inside the screen
-      button2.place(screen);
+Button button2 = new Button(6,3, "Button2");
+//place component inside the screen
+button2.place(screen);
 
-      //display screen
-      screen.display();
+//display screen
+screen.display();
       
 ```
       
@@ -192,24 +191,24 @@ _Since Box-window is not working on default on some OS, I added a method where y
 
 
 
-**6. CList**: component to help your list looks more neat
+**6. CList**: component to help your list looks more presentable
 
 
 **Sample code:**
 
 
 ```java
-        CList list = new CList();
-        list.useBoxSet();
-        list.setWidth(20);
-        list.setTitle("Fruits",Position.CENTER);
+CList list = new CList();
+list.useBoxSet();
+list.setWidth(20);
+list.setTitle("Fruits",Position.CENTER);
 
-        list.addItem("Apple");
-        list.addItem("Banana");
-        list.addItem("Mango");
-        list.addItem("Banana");
+list.addItem("Apple");
+list.addItem("Banana");
+list.addItem("Mango");
+list.addItem("Banana");
 
-        list.display();
+list.display();
 
 
 ```
@@ -225,7 +224,7 @@ _Since Box-window is not working on default on some OS, I added a method where y
 
 >   **setWidth(int width)** - setting width of rectangular border of list. If not set, it will base on the longest size of the String inside the list.
 >
->   **setTitle(String title,Position pos)** - Add title on the list, there are three choice for position _POSITION.START, POSITION.CENTER, POSITION.END_.
+>   **setTitle(String title,Position pos)** - Add title on the list, there are three choice for position ```java _Position.START, Position.CENTER, Position.END_.```
 >
 >   **addItem(String item)** - add item on the list.
 >
@@ -274,7 +273,8 @@ System.out.println("Total Price:"+priceTotal);
 **Sample output:**
 
 
-![image](https://user-images.githubusercontent.com/75112014/182984096-ff349dd6-af0b-422b-a891-1474c0b3de6a.png)
+![image](https://user-images.githubusercontent.com/75112014/183237756-a8ac0d03-fb91-4257-b388-3505bd1547ae.png)
+
 
 
 **CTable Functions**
