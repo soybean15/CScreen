@@ -48,7 +48,7 @@ public class CharSets {
 
                 return normalSetInstance();
             } else if (symbol==Symbol.BOXDRAWING) {
-                System.out.println("box");
+
                 return boxSetInstance();
             }
 

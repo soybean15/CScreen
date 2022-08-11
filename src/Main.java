@@ -126,7 +126,7 @@ public class Main {
         table.setColumnAlignment(3,Position.END);
 
         //print table
-        table.display();
+      //  table.display();
 
         int qtyTotal = table.getIntTotal(2);
         float priceTotal = table.getFloatTotal(3);
@@ -136,12 +136,24 @@ public class Main {
         CTable foundItems = new CTable(header);
        // foundItems.useBoxSet();
         foundItems.addList(findItem);
-        foundItems.display();
+     //   foundItems.display();
 
         System.out.println("Total Qty:"+qtyTotal);
         System.out.println("Total Price:"+priceTotal);
 
 
+
+        String[][] arr = {
+                {"One", "Two","Three"},
+                {"One", "Two","Three"},
+                {"One", "Two","Three"},
+                {"One", "Two","Three"},
+        };
+        String[] h = {"1","2","3"};
+
+        CTable table3 = new CTable(arr,h);
+
+        table3.display();
 
 //
 //

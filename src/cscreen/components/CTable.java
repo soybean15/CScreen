@@ -5,10 +5,8 @@ import cscreen.classes.Utilities;
 
 import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 
 public class CTable extends CList {
@@ -28,7 +26,7 @@ public class CTable extends CList {
     private boolean hasSeparator;
 
 
-    public CTable(String[] columnHeader){
+    public CTable(String...columnHeader){
         super();
         this.columnHeader =columnHeader;
         this.list2D=new ArrayList<>();
@@ -46,7 +44,7 @@ public class CTable extends CList {
     }
 
 
-    public CTable(String[] columnHeader, List<List<String>> arr) {
+    public CTable(List<List<String>> arr, String...columnHeader) {
         super();
 
         this.columnHeader =columnHeader;
@@ -57,9 +55,24 @@ public class CTable extends CList {
 
     }
 
+    public CTable(String[][] arr, String...columnHeader) {
+        super();
+
+        this.columnHeader =columnHeader;
 
 
-    public CTable(String[] columnHeader, List<List<String>> arr, Position pos,boolean hasSeparator) {
+
+        this.list2D = Arrays.stream(arr)
+                .map(Arrays::asList).toList();
+
+        this.list =new ArrayList<>();
+
+    }
+
+
+
+
+    public CTable(List<List<String>> arr, Position pos, boolean hasSeparator, String...columnHeader) {
         super();
 
         this.columnHeader =columnHeader;
@@ -275,6 +288,7 @@ public class CTable extends CList {
 
 
     public void addRow(String...row){
+
         if(this.list2D.get(0).get(0).equals(" ")){
             this.list2D.remove(0);
         }
