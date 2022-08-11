@@ -33,7 +33,7 @@ step4: Finally create your first console UI. Enjoy!
 ## C-Screen
 <a name = "cscreen"/>
 
-**C-screen** is a text-base UI on java console, you can now easily design your console program using c-screen with the help of several components.
+**C-screen** is a text-base UI library on java console, you can now easily design your console program using c-screen with the help of cscreen components.
 
 
 _Update as of August 4 2022, 1:20pm_
@@ -344,6 +344,8 @@ System.out.println("Total Price:"+priceTotal);
 >**getIntTotal(int columnIndex)** - get int total value of a column 
 >
 >**getFloatTotal(int columnIndex)** - get float total value of a column 
+>
+>**findRows(int column, String text)** - find multiple rows inside the table. ```ex List<List<String>> findRows = tableName.findRows(column, "item to search");```
  
  
 _Hope you like it..enjoy._
