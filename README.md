@@ -290,22 +290,28 @@ list.display();
 ```java
 String[] header = {"Id", "Product Name", "Quantity", "Price"};
 
-CTable table = new CTable(header);
+CTable table = new CTable(header);//can also add 2d array/list on parameter
 table.useBoxSet();
 table.hasSeparator(true);
+
+//add row
 table.addRow("f011", "Fries", "10", "70.00");
 table.addRow("b212", "Burger", "10", "30.00");
 table.addRow("fc11", "Fried Chicken", "10", "110.50");
 table.addRow("f011", "Fries", "10", "70.00");
 table.addRow("s930", "Sundae", "10", "30.00");
 
+//center third column
 table.setColumnAlignment(2,Position.CENTER);
+//Aligned End fourth column
 table.setColumnAlignment(3,Position.END);
 
 //print table
 table.display();
 
+//get total of third column in int
 int qtyTotal = table.getIntTotal(2);
+//get total of fourth column in float
 float priceTotal = table.getFloatTotal(3);
 
 System.out.println("Total Qty:"+qtyTotal);
