@@ -290,7 +290,7 @@ list.display();
 ```java
 String[] header = {"Id", "Product Name", "Quantity", "Price"};
 
-CTable table = new CTable(header);//can also add 2d array/list on parameter
+CTable table = new CTable(header);//can also add 2d array/list on argument ex: new CTable(your2dArrayOrList, Header);
 table.useBoxSet();
 table.hasSeparator(true);
 
