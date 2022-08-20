@@ -172,7 +172,8 @@ public class CTable extends CList {
 
 
                 //System.out.println(alignments);
-                String fline = Utilities.alignedString(arr.get(i).get(j), space, alignments.getOrDefault(j, null));
+
+                String fline= Utilities.alignedString(arr.get(i).get(j), space, alignments.getOrDefault(j, null));
 
                 line = line + fline +separator;
 

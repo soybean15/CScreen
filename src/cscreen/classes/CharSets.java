@@ -66,7 +66,7 @@ public class CharSets {
 
 
         }
-        if(!boxSetInstance().isCalled){
+        if(!charSetsInstance.isCalled){
             charSetsInstance.isBox =false;
             charSetsInstance.normalSets();
 

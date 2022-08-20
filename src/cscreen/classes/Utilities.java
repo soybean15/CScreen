@@ -18,8 +18,10 @@ public class Utilities {
     }
 
 
-    public static int[] getMaxByColumn(List<List<String>> arr) {
+    public static int[] getMaxByColumn(List<List<String>> arr){
         int[] arrMax = new int[arr.get(0).size()];
+
+
 
         for (int j = 0; j < arr.get(0).size(); j++) {
 
@@ -28,6 +30,7 @@ public class Utilities {
             for (int i = 0; i < arr.size(); i++) {
                 temp[i] = arr.get(i).get(j);
             }
+
             arrMax[j] = getMax(temp);
         }
         return arrMax;
