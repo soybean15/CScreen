@@ -121,11 +121,20 @@ public class CList {
             }
         }
         //corners
-        screen[0][0] =charSets.corners[0];
-        screen[0][screen[0].length-1] = charSets.corners[1];
-        screen[screen.length-1][0]=charSets.corners[2];
-        screen[screen.length-1][screen[0].length-1] =charSets.corners[3];
+        setCorners(
+                screen[0],
+                charSets.corners[0],
+                charSets.corners[1],
+                screen[screen.length-1],
+                charSets.corners[2], charSets.corners[3]
+        );
 
+    }
+    protected static void setCorners(char[] chars, char corner, char corner2, char[] chars2, char corner3, char corner4) {
+        chars[0] = corner;
+        chars[chars.length - 1] = corner2;
+        chars2[0] = corner3;
+        chars2[chars.length - 1] = corner4;
     }
 
     public void setTitle(String title,Position pos){
