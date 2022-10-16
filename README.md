@@ -27,7 +27,7 @@
 
 ![maven-central](https://img.shields.io/maven-central/v/io.github.pitzzahh/CScreen?color=blue)
 
-If you use Maven, add the following configuration to your project's `pom.xml` <br>
+If you use Maven or Gradle, add the following configuration to your project's `pom.xml` | `build.gradle` <br>
 
 Be sure to replace the **VERSION** key below with the one of the versions shown above
 
@@ -44,6 +44,11 @@ Be sure to replace the **VERSION** key below with the one of the versions shown 
 
 </dependencies>
 ```
+## For Gradle
+```gradle
+compile group: 'io.github.pitzzahh', name: 'CScreen', version: 'VERSION'
+```
+---
 
 <a name="how to use"></a>
 step1: download jar file on this link.
