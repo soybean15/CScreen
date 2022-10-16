@@ -101,15 +101,6 @@ public class Main {
 
             table.addRow(firstname+" "+lastname,dob,age,course);
             table.display();
-
-
-
         }
-
-
-
-
-
-
     }
 }
