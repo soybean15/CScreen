@@ -1,7 +1,4 @@
-package cscreen.components;
-
-import cscreen.classes.CharSets;
-import cscreen.classes.Symbol;
+package io.github.pitzzahh.cscreen.components;
 
 public class Box extends Components implements Resizable{
 

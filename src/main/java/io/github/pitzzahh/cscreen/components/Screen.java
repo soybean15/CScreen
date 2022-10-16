@@ -1,8 +1,8 @@
-package cscreen.components;
+package io.github.pitzzahh.cscreen.components;
 
-import cscreen.classes.CharSets;
-import cscreen.classes.Position;
-import cscreen.classes.Symbol;
+import io.github.pitzzahh.cscreen.classes.CharSets;
+import io.github.pitzzahh.cscreen.classes.Position;
+import io.github.pitzzahh.cscreen.classes.Symbol;
 
 public class Screen {
     char[][] screen;

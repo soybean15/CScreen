@@ -1,4 +1,4 @@
-package cscreen.classes;
+package io.github.pitzzahh.cscreen.classes;
 
 public enum Symbol {
     NORMAL,BOXDRAWING

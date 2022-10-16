@@ -1,9 +1,9 @@
-package cscreen.components;
+package io.github.pitzzahh.cscreen.components;
 
-import cscreen.classes.CharSets;
-import cscreen.classes.Position;
-import cscreen.classes.Symbol;
-import cscreen.classes.Utilities;
+import io.github.pitzzahh.cscreen.classes.CharSets;
+import io.github.pitzzahh.cscreen.classes.Position;
+import io.github.pitzzahh.cscreen.classes.Symbol;
+import io.github.pitzzahh.cscreen.classes.Utilities;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -71,7 +71,7 @@ public class CList {
 
         int start =0;
         if(!displayed){
-            if(width>Utilities.getMax(this.list.toArray(new String[0]))){
+            if(width> Utilities.getMax(this.list.toArray(new String[0]))){
                 width=width+2;
             }else {
 

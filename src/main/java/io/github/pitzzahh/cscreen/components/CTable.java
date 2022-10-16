@@ -1,12 +1,11 @@
-package cscreen.components;
+package io.github.pitzzahh.cscreen.components;
 
-import cscreen.classes.Position;
-import cscreen.classes.Utilities;
+import io.github.pitzzahh.cscreen.classes.Position;
+import io.github.pitzzahh.cscreen.classes.Utilities;
 
 import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
-import java.util.stream.Collectors;
 
 
 public class CTable extends CList {

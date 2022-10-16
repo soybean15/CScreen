@@ -1,4 +1,4 @@
-package cscreen.components;
+package io.github.pitzzahh.cscreen.components;
 
 public class Button extends Components implements Resizable{
 
