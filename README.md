@@ -22,6 +22,29 @@
 
 
 ## How to use
+
+### Add Maven Dependency
+
+![maven-central](https://img.shields.io/maven-central/v/io.github.pitzzahh/CScreen?color=blue)
+
+If you use Maven, add the following configuration to your project's `pom.xml` <br>
+
+Be sure to replace the **VERSION** key below with the one of the versions shown above
+
+```maven
+<dependencies>
+
+    <!-- other dependencies are there -->
+    <dependency>
+        <groupId>io.github.pitzzahh</groupId>
+        <artifactId>CScreen</artifactId>
+        <version>VERSION</version>
+    </dependency>
+    <!-- other dependencies are there -->
+
+</dependencies>
+```
+
 <a name="how to use"></a>
 step1: download jar file on this link.
 
