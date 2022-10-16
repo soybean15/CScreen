@@ -92,7 +92,7 @@
 
     </build>
 
-    <name>${artifactId}</name>
+    <name>CScreen</name>
     <description>Text-base UI on Console</description>
     <url>https://github.com/pitzzahh/CScreen</url>
 
