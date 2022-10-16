@@ -6,7 +6,7 @@
 
     <groupId>io.github.pitzzahh</groupId>
     <artifactId>CScreen</artifactId>
-    <version>2.3.1-SNAPSHOT</version>
+    <version>2.3.1</version>
     <packaging>jar</packaging>
 
     <properties>
