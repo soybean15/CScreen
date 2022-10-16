@@ -64,7 +64,7 @@ public class Screen {
     }
 
     public void useBoxSet(){
-        setCharSets(Symbol.BOXDRAWING);
+        setCharSets(Symbol.BOX_DRAWING);
         generateScreen();
     }
 

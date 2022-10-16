@@ -52,7 +52,7 @@ public class CList {
     }
 
     public void useBoxSet(){
-        setCharSets(Symbol.BOXDRAWING);
+        setCharSets(Symbol.BOX_DRAWING);
     }
 
     public void setWidth(int width){

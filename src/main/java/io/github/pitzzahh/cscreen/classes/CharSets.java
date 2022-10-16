@@ -47,7 +47,7 @@ public class CharSets {
             if (symbol == Symbol.NORMAL){
 
                 return normalSetInstance();
-            } else if (symbol==Symbol.BOXDRAWING) {
+            } else if (symbol==Symbol.BOX_DRAWING) {
 
                 return boxSetInstance();
             }
