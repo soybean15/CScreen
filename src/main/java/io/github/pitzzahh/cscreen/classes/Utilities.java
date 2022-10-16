@@ -2,19 +2,15 @@ package io.github.pitzzahh.cscreen.classes;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 public class Utilities {
     public static int getMax(String[] arr){
-        int max = arr[0].length();
-
-        for (String str:arr){
-            int len = str.length();
-            if(max<len){
-                max=len;
-            }
-        }
-        return max;
+        return Arrays.stream(arr)
+                .max(Comparator.comparingInt(String::length))
+                .map(String::length)
+                .orElse(arr[0].length());
     }
 
 
