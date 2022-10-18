@@ -1,11 +1,8 @@
-import cscreen.classes.Position;
+import io.github.pitzzahh.cscreen.components.CTable;
+import io.github.pitzzahh.cscreen.components.Label;
+import io.github.pitzzahh.cscreen.components.Screen;
+import io.github.pitzzahh.cscreen.components.TextBox;
 
-import cscreen.classes.Symbol;
-import cscreen.components.*;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
 
 
@@ -104,15 +101,6 @@ public class Main {
 
             table.addRow(firstname+" "+lastname,dob,age,course);
             table.display();
-
-
-
         }
-
-
-
-
-
-
     }
 }

@@ -1,4 +1,4 @@
-package cscreen.components;
+package io.github.pitzzahh.cscreen.components;
 
 public class Label extends Components{
     private String text="";

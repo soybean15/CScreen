@@ -1,9 +1,9 @@
-package cscreen.components;
+package io.github.pitzzahh.cscreen.components;
 
-import cscreen.classes.CharSets;
-import cscreen.classes.Position;
-import cscreen.classes.Symbol;
-import cscreen.classes.Utilities;
+import io.github.pitzzahh.cscreen.classes.CharSets;
+import io.github.pitzzahh.cscreen.classes.Position;
+import io.github.pitzzahh.cscreen.classes.Symbol;
+import io.github.pitzzahh.cscreen.classes.Utilities;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -52,7 +52,7 @@ public class CList {
     }
 
     public void useBoxSet(){
-        setCharSets(Symbol.BOXDRAWING);
+        setCharSets(Symbol.BOX_DRAWING);
     }
 
     public void setWidth(int width){
@@ -71,7 +71,7 @@ public class CList {
 
         int start =0;
         if(!displayed){
-            if(width>Utilities.getMax(this.list.toArray(new String[0]))){
+            if(width> Utilities.getMax(this.list.toArray(new String[0]))){
                 width=width+2;
             }else {
 
@@ -121,11 +121,20 @@ public class CList {
             }
         }
         //corners
-        screen[0][0] =charSets.corners[0];
-        screen[0][screen[0].length-1] = charSets.corners[1];
-        screen[screen.length-1][0]=charSets.corners[2];
-        screen[screen.length-1][screen[0].length-1] =charSets.corners[3];
+        setCorners(
+                screen[0],
+                charSets.corners[0],
+                charSets.corners[1],
+                screen[screen.length-1],
+                charSets.corners[2], charSets.corners[3]
+        );
 
+    }
+    protected static void setCorners(char[] chars, char corner, char corner2, char[] chars2, char corner3, char corner4) {
+        chars[0] = corner;
+        chars[chars.length - 1] = corner2;
+        chars2[0] = corner3;
+        chars2[chars.length - 1] = corner4;
     }
 
     public void setTitle(String title,Position pos){

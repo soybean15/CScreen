@@ -1,7 +1,6 @@
-package cscreen.components;
+package io.github.pitzzahh.cscreen.components;
 
-import cscreen.classes.CharSets;
-import cscreen.classes.Symbol;
+import io.github.pitzzahh.cscreen.classes.CharSets;
 
 abstract class Components{
 

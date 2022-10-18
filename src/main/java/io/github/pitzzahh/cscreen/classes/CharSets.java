@@ -1,4 +1,4 @@
-package cscreen.classes;
+package io.github.pitzzahh.cscreen.classes;
 
 import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
@@ -47,7 +47,7 @@ public class CharSets {
             if (symbol == Symbol.NORMAL){
 
                 return normalSetInstance();
-            } else if (symbol==Symbol.BOXDRAWING) {
+            } else if (symbol==Symbol.BOX_DRAWING) {
 
                 return boxSetInstance();
             }

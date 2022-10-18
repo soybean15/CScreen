@@ -1,11 +1,19 @@
+# CScreen
+## Text-based UI on Console
+
+![GitHub Issues](https://img.shields.io/github/issues/pitzzahh/CScreen)
+![Forks](https://img.shields.io/github/forks/pitzzahh/CScreen)
+![Stars](https://img.shields.io/github/stars/pitzzahh/CScreen)
+![License](https://img.shields.io/github/license/pitzzahh/CScreen)
+
 ## Table of Contents
-[How to use](#howtouse)<br/>
+[How to use](#how to use)<br/>
 [C-Screen](#cscreen)<br/>
-[Box-window and normal char](#boxwin)<br/>
+[Box-window and normal char](#box win)<br/>
 [Components](#components)
 - [Screen](#screen)
 - [Box](#box)
-- [TextBox](#textbox)
+- [TextBox](#text box)
 - [Label](#label)
 - [Button](#button)
 
@@ -13,12 +21,36 @@
 [CTable](#ctable)<br/>
 
 
-
-
-
-
 ## How to use
-<a name = "howtouse"/>
+
+### Add Maven Dependency
+
+![maven-central](https://img.shields.io/maven-central/v/io.github.pitzzahh/CScreen?color=blue)
+
+If you use Maven or Gradle, add the following configuration to your project's `pom.xml` | `build.gradle` <br>
+
+Be sure to replace the **VERSION** key below with the one of the versions shown above
+
+```maven
+<dependencies>
+
+    <!-- other dependencies are there -->
+    <dependency>
+        <groupId>io.github.pitzzahh</groupId>
+        <artifactId>CScreen</artifactId>
+        <version>VERSION</version>
+    </dependency>
+    <!-- other dependencies are there -->
+
+</dependencies>
+```
+## For Gradle
+```gradle
+compile group: 'io.github.pitzzahh', name: 'CScreen', version: 'VERSION'
+```
+---
+
+<a name="how to use"></a>
 step1: download jar file on this link.
 
 _download here:_ https://github.com/soybean15/CScreen/releases
@@ -31,16 +63,16 @@ step4: Finally create your first console UI. Enjoy!
 
 
 ## C-Screen
-<a name = "cscreen"/>
+<a name="cscreen"></a>
 
 **C-screen** is a text-base UI library on java console, you can now easily design your console program using c-screen with the help of cscreen components.
 
 
-_Update as of August 4 2022, 1:20pm_
+_Update as of August 4, 2022, 1:20pm_
 
 _Since Box-window is not working on default on some OS, I added a method where you can choose between normal character and box-window character_
 
-<a name = "boxwin"/>
+<a name="box win"></a>
 
 **Normal Characters:**
 ```java
@@ -76,10 +108,10 @@ _Since Box-window is not working on default on some OS, I added a method where y
 
 ### C-Screen components:
 
-<a name = "components"/>
-<a name = "screen"/>
+<a name="components"></a>
+<a name="screen"></a>
 
-**1. Screen**: a framelike interface where you can put multiple components.
+**1. Screen**: a frame-like interface where you can put multiple components.
         
 **Sample code:**
 
@@ -103,7 +135,7 @@ screen.display();
 
 
 
-<a name = "box"/>
+<a name="box"></a>
 
 **2. Box:** a rectangular component you can Put inside the Screen.
 
@@ -131,7 +163,7 @@ screen.display();
 
 ![image](https://user-images.githubusercontent.com/75112014/182512062-a3f041f9-9071-47e0-a934-bdf03e145f27.png)
 
-<a name = "textbox"/>
+<a name="text box"></a>
 
 **3.TextBox:** A box component with text inside
 
@@ -165,7 +197,7 @@ screen.display();
       
       
       
-<a name = "label"/> 
+<a name="label"></a> 
 
 **4. Label** : Text you can put inside the screen.
 
@@ -198,7 +230,7 @@ screen.display();
 
 
 
-<a name = "button"/>
+<a name="button"></a>
 
 **5. Button:** Buttonlike component which is good to have if you have multiple option in your code.
 
@@ -233,7 +265,7 @@ screen.display();
 
 
 ## CList
-<a name = "clist"/>
+<a name="clist"></a>
 
 **CList**: component to help your list looks more presentable
 
@@ -281,7 +313,7 @@ list.display();
 
 
 # CTable
-<a name = "ctable"/>
+<a name="ctable"></a>
 
 **CTable**: easiest way to output your data on console, just pass your 2d array and you got yourself a neat and instant table.
 
@@ -302,20 +334,20 @@ table.addRow("f011", "Fries", "10", "70.00");
 table.addRow("s930", "Sundae", "10", "30.00");
 
 //center third column
-table.setColumnAlignment(2,Position.CENTER);
+table.setColumnAlignment(2, Position.CENTER);
 //Aligned End fourth column
-table.setColumnAlignment(3,Position.END);
+table.setColumnAlignment(3, Position.END);
 
 //print table
 table.display();
 
 //get total of third column in int
-int qtyTotal = table.getIntTotal(2);
+int quantityTotal = table.getIntTotal(2);
 //get total of fourth column in float
 float priceTotal = table.getFloatTotal(3);
 
-System.out.println("Total Qty:"+qtyTotal);
-System.out.println("Total Price:"+priceTotal);
+System.out.println("Total Qty: "+ quantityTotal);
+System.out.println("Total Price: "+ priceTotal);
 
 
 ```
@@ -352,25 +384,5 @@ System.out.println("Total Price:"+priceTotal);
 >**getFloatTotal(int columnIndex)** - get float total value of a column 
 >
 >**findRows(int column, String text)** - find multiple rows inside the table. ```ex List<List<String>> findRows = tableName.findRows(column, "item to search");```
- 
- 
+
 _Hope you like it..enjoy._
-
-
-
-
-
-
-
-
-
-
-
-
-        
-        
-        
-
-
-
-        

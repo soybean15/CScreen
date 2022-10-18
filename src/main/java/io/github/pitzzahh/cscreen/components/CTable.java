@@ -1,12 +1,12 @@
-package cscreen.components;
+package io.github.pitzzahh.cscreen.components;
 
-import cscreen.classes.Position;
-import cscreen.classes.Utilities;
-
-import java.io.PrintStream;
+import io.github.pitzzahh.cscreen.classes.Position;
+import io.github.pitzzahh.cscreen.classes.Utilities;
 import java.nio.charset.StandardCharsets;
-import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.io.PrintStream;
+import java.util.*;
 
 
 public class CTable extends CList {
@@ -117,20 +117,15 @@ public class CTable extends CList {
 
 
     public void display() {
-
         generateScreen();
         PrintStream out = new PrintStream(System.out,true, StandardCharsets.UTF_8);
-
-        for (int i = 0; i < screen.length; i++) {
-            for (int j = 0; j < screen[0].length; j++) {
-                out.print(screen[i][j]);
-            }
-            out.println();
-        }
+        Arrays.stream(screen)
+                .forEach(value -> {
+                    IntStream.range(0, screen[0].length)
+                            .forEachOrdered(j -> out.print(value[j]));
+                    out.println();
+                });
     }
-
-
-
 
     private int combineRow(List<List<String>> arr) {
         list = new ArrayList<>();
@@ -274,10 +269,14 @@ public class CTable extends CList {
             }
         }
         //corners
-        screen[0][0] = charSets.corners[0];
-        screen[0][screen[0].length - 1] =  charSets.corners[1];
-        screen[screen.length - 1][0] =  charSets.corners[2];
-        screen[screen.length - 1][screen[0].length - 1] =  charSets.corners[3];
+        setCorners(
+                screen[0],
+                charSets.corners[0],
+                charSets.corners[1],
+                screen[screen.length - 1],
+                charSets.corners[2],
+                charSets.corners[3]
+        );
 
         if (columnHeader != null) {
             addColumnHeader(list.get(0) +" ");
@@ -302,12 +301,16 @@ public class CTable extends CList {
         return list2D.get(index);
     }
 
+    // TODO: Test method -> getColumn()
     public List<String> getColumn(int index){
-        List<String> newList = new ArrayList<>();
-        for (List<String> strings : list2D) {
-            newList.add(strings.get(index));
-        }
-        return newList;
+        return this.list2D.stream()
+                .map(value -> value.get(index))
+                .collect(Collectors.toList());
+//        List<String> newList = new ArrayList<>();
+//        for (List<String> strings : list2D) {
+//            newList.add(strings.get(index));
+//        }
+//        return newList;
     }
 
     public void removeRow(int index){
@@ -339,16 +342,19 @@ public class CTable extends CList {
         //this.list2D= arr;
     }
 
+    // TODO: Test method -> findRows()
+    public List<List<String>> findRows(int column, String text){
+        return this.list2D.stream()
+                .filter(row -> row.get(column).equals(text))
+                .collect(Collectors.toList());
 
-    public List<List<String>>  findRows(int column, String text){
-        List<List<String>> newArr = new ArrayList<>();
-        for (int i=0;i<this.list2D.size();i++){
-            if(list2D.get(i).get(column).equals(text)){
-                newArr.add(list2D.get(i));
-            }
-        }
-        return newArr;
-
+//        List<List<String>> newArr = new ArrayList<>();
+//        for (List<String> strings : this.list2D) {
+//            if (strings.get(column).equals(text)) {
+//                newArr.add(strings);
+//            }
+//        }
+//        return newArr;
     }
 //    public void searchRow(int column, String item){
 //
@@ -369,20 +375,27 @@ public class CTable extends CList {
         alignments.put(columnIndex,position);
     }
 
-
-    public int getIntTotal(int columnIndex){
-        int result = 0;
-        for (List<String> strings : list2D) {
-            result += Utilities.isNumeric(strings.get(columnIndex));
-        }
-       return result;
+    // TODO: Test method -> getTotal()
+    public int getTotal(int columnIndex){
+        return (int) list2D.stream()
+                .mapToInt(row -> (int) Utilities.isNumeric(row.get(columnIndex)))
+                .sum();
+//        int result = 0;
+//        for (List<String> strings : list2D) {
+//            result += Utilities.isNumeric(strings.get(columnIndex));
+//        }
+//       return result;
     }
 
+    // TODO: Test method -> getFloatTotal()
     public float getFloatTotal(int columnIndex){
-        float result = 0;
-        for (List<String> strings : list2D) {
-            result += Utilities.isNumeric(strings.get(columnIndex));
-        }
-        return result;
+        return (float) list2D.stream()
+                .mapToDouble(row -> Utilities.isNumeric(row.get(columnIndex)))
+                .sum();
+//        float result = 0;
+//        for (List<String> strings : list2D) {
+//            result += Utilities.isNumeric(strings.get(columnIndex));
+//        }
+//        return result;
     }
 }
