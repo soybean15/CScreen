@@ -7,13 +7,13 @@
 ![License](https://img.shields.io/github/license/pitzzahh/CScreen)
 
 ## Table of Contents
-[How to use](#how to use)<br/>
+[How to use](#howtouse)<br/>
 [C-Screen](#cscreen)<br/>
-[Box-window and normal char](#box win)<br/>
+[Box-window and normal char](#boxwin)<br/>
 [Components](#components)
 - [Screen](#screen)
 - [Box](#box)
-- [TextBox](#text box)
+- [TextBox](#textbox)
 - [Label](#label)
 - [Button](#button)
 
@@ -22,7 +22,7 @@
 
 
 ## How to use
-
+<a name="howtouse"></a>
 ### Add Maven Dependency
 
 ![maven-central](https://img.shields.io/maven-central/v/io.github.pitzzahh/CScreen?color=blue)
@@ -50,7 +50,7 @@ compile group: 'io.github.pitzzahh', name: 'CScreen', version: 'VERSION'
 ```
 ---
 
-<a name="how to use"></a>
+
 step1: download jar file on this link.
 
 _download here:_ https://github.com/soybean15/CScreen/releases
@@ -72,7 +72,7 @@ _Update as of August 4, 2022, 1:20pm_
 
 _Since Box-window is not working on default on some OS, I added a method where you can choose between normal character and box-window character_
 
-<a name="box win"></a>
+<a name="boxwin"></a>
 
 **Normal Characters:**
 ```java
@@ -163,7 +163,7 @@ screen.display();
 
 ![image](https://user-images.githubusercontent.com/75112014/182512062-a3f041f9-9071-47e0-a934-bdf03e145f27.png)
 
-<a name="text box"></a>
+<a name="textbox"></a>
 
 **3.TextBox:** A box component with text inside
 
