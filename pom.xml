@@ -30,11 +30,11 @@
         <developer>
             <name>Peter John Arao</name>
             <email>araopj2191@gmail.com</email>
-            <organizationUrl>https://github.com/pitzzahh/</organizationUrl>
+            <organizationUrl>https://github.com/pitzzahh</organizationUrl>
         </developer>
         <developer>
             <name>soybean15</name>
-            <organizationUrl>https://github.com/soybean15/</organizationUrl>
+            <organizationUrl>https://github.com/soybean15</organizationUrl>
         </developer>
     </developers>
 
@@ -42,7 +42,7 @@
         <repository>
             <id>github</id>
             <name>GitHub pitzzahh Apache Maven Packages</name>
-            <url>https://maven.pkg.github.com/pitzzahh/cscreen</url>
+            <url>https://maven.pkg.github.com/pitzzahh/CScreen</url>
         </repository>
     </distributionManagement>
 
