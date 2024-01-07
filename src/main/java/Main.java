@@ -2,21 +2,18 @@ import io.github.pitzzahh.cscreen.components.CTable;
 import io.github.pitzzahh.cscreen.components.Label;
 import io.github.pitzzahh.cscreen.components.Screen;
 import io.github.pitzzahh.cscreen.components.TextBox;
-
+import java.io.UnsupportedEncodingException;
 import java.util.Scanner;
-
 
 public class Main {
 
-
-    public static void main(String[] args) {
+    public static void main(String[] args) throws UnsupportedEncodingException {
 
         Scanner sc = new Scanner(System.in);
 
         Screen screen = new Screen(20, 40, true);//20 rows, 40column, hasBorder
-        //screen.useBoxSet();//use box-window char
+        screen.useBoxSet();//use box-window char
         screen.setTitle("Student Info");
-
 
         Label label1 = new Label(4, 3);
         label1.setText("FirstName:");
@@ -62,17 +59,14 @@ public class Main {
 
         CTable table = new CTable("Full Name", "DOB", "Age", "Course");
 
-
-
-
-        while (true){
+        //noinspection InfiniteLoopStatement
+        while (true) {
             //clear textbox
             txtFirstName.clear();
             txtLastName.clear();
             txtAge.clear();
             txtDOB.clear();
             txtCourse.clear();
-
 
             System.out.println("FirstName:");
             String firstname = sc.nextLine();
@@ -99,7 +93,7 @@ public class Main {
             txtCourse.setText(course);
             screen.display();
 
-            table.addRow(firstname+" "+lastname,dob,age,course);
+            table.addRow(firstname + " " + lastname, dob, age, course);
             table.display();
         }
     }
