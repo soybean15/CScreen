@@ -2,17 +2,15 @@ package io.github.pitzzahh.cscreen.components;
 
 import io.github.pitzzahh.cscreen.classes.CharSets;
 
-abstract class Components{
+abstract class Components {
 
     protected int r;
     protected int c;
-
     protected CharSets charSets;
 
     Components() {
 
     }
-
 
 
 //    protected char horizontal = '┈';
