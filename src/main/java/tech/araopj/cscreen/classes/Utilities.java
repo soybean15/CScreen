@@ -1,4 +1,4 @@
-package io.github.pitzzahh.cscreen.classes;
+package tech.araopj.cscreen.classes;
 
 import java.util.ArrayList;
 import java.util.Arrays;

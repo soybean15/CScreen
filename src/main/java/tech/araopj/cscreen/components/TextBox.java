@@ -1,4 +1,4 @@
-package io.github.pitzzahh.cscreen.components;
+package tech.araopj.cscreen.components;
 
 public class TextBox extends Box {
     String text = "";

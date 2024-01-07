@@ -1,9 +1,9 @@
-package io.github.pitzzahh.cscreen.components;
+package tech.araopj.cscreen.components;
 
-import io.github.pitzzahh.cscreen.classes.CharSets;
-import io.github.pitzzahh.cscreen.classes.Position;
-import io.github.pitzzahh.cscreen.classes.Symbol;
-import io.github.pitzzahh.cscreen.classes.Utilities;
+import tech.araopj.cscreen.classes.CharSets;
+import tech.araopj.cscreen.classes.Position;
+import tech.araopj.cscreen.classes.Symbol;
+import tech.araopj.cscreen.classes.Utilities;
 
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;

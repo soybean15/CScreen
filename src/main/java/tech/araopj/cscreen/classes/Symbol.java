@@ -1,4 +1,4 @@
-package io.github.pitzzahh.cscreen.classes;
+package tech.araopj.cscreen.classes;
 
 public enum Symbol {
     NORMAL,

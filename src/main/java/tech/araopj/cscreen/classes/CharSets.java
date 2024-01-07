@@ -1,4 +1,4 @@
-package io.github.pitzzahh.cscreen.classes;
+package tech.araopj.cscreen.classes;
 
 import java.io.PrintStream;
 import java.io.UnsupportedEncodingException;
