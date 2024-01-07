@@ -38,13 +38,13 @@ Be sure to replace the **VERSION** key below with the one of the versions shown 
 ```maven
 <dependencies>
 
-<!-- other dependencies are there -->
-<dependency>
-<groupId>io.github.pitzzahh</groupId>
-<artifactId>CScreen</artifactId>
-<version>VERSION</version>
-</dependency>
-<!-- other dependencies are there -->
+    <!-- other dependencies are there -->
+    <dependency>
+        <groupId>io.github.pitzzahh</groupId>
+        <artifactId>CScreen</artifactId>
+        <version>VERSION</version>
+    </dependency>
+    <!-- other dependencies are there -->
 
 </dependencies>
 ```
