@@ -1,24 +1,35 @@
 package tech.araopj.cscreen.components;
 
+/**
+ * The `TextBox` class represents a box containing text that can be displayed on a screen.
+ * It extends the `Box` class and includes methods for setting and clearing text.
+ */
 public class TextBox extends Box {
+
+    // Properties of the TextBox class
     String text = "";
-
     Screen sc;
-
     char[][] screen;
 
-    //┌,┐,└,┘
+    // ┌,┐,└,┘
 
     private int height = 3;
-    // char[] corners ={'┌','┐','└','┘'};
-//    public TextBox(int r, int c, int width, int height) {
-//        super(r, c, width, height);
-//    }
 
+    /**
+     * Constructs a `TextBox` with the specified position.
+     *
+     * @param r The row position of the TextBox.
+     * @param c The column position of the TextBox.
+     */
     public TextBox(int r, int c) {
         super(r, c);
     }
 
+    /**
+     * Sets the text content of the TextBox.
+     *
+     * @param text The text to be set in the TextBox.
+     */
     public void setText(String text) {
         this.text = text;
         if (sc != null) {
@@ -27,6 +38,11 @@ public class TextBox extends Box {
         }
     }
 
+    /**
+     * Sets the height of the TextBox.
+     *
+     * @param height The height to be set for the TextBox.
+     */
     @Override
     public void setHeight(int height) {
         if (height < 4) {
@@ -35,6 +51,9 @@ public class TextBox extends Box {
         this.height = height;
     }
 
+    /**
+     * Clears the text content of the TextBox.
+     */
     public void clear() {
         int start = c;
         int end = 0;
@@ -51,7 +70,11 @@ public class TextBox extends Box {
         }
     }
 
-
+    /**
+     * Places the TextBox on the specified screen.
+     *
+     * @param sc The Screen on which the TextBox is to be placed.
+     */
     @Override
     public void place(Screen sc) {
         this.sc = sc;
@@ -90,7 +113,7 @@ public class TextBox extends Box {
                 }
             }
         }
-        //corners
+        // Corners
         screen[r][start] = charSets.corners[0];
         screen[r][end - 1] = charSets.corners[1];
         screen[r + (height - 1)][start] = charSets.corners[2];

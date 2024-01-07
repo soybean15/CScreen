@@ -4,22 +4,32 @@ import tech.araopj.cscreen.classes.CharSets;
 import tech.araopj.cscreen.classes.Position;
 import tech.araopj.cscreen.classes.Symbol;
 import tech.araopj.cscreen.classes.Utilities;
-
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * The `CList` class represents a customizable list for displaying information on a screen.
+ */
 public class CList {
+
+    // Properties of the CList class
     protected char[][] screen;
     protected List<String> list;
     private String title = "";
     Position pos;
     protected int width;
-    boolean displayed;//check if display() has already called
+    boolean displayed; // Check if display() has already been called
 
     CharSets charSets;
 
+    /**
+     * Constructs a `CList` with an array of items and a specified width.
+     *
+     * @param arr   Array of items to initialize the list.
+     * @param width The width of the list.
+     */
     public CList(String[] arr, int width) {
         setCharSets(null);
         List<String> temp = Arrays.asList(arr);
@@ -27,31 +37,54 @@ public class CList {
         this.width = width;
     }
 
+    /**
+     * Constructs an empty `CList`.
+     */
     public CList() {
         this.list = new ArrayList<>();
-        list.add("");
+        list.add(""); // Add an empty item to the list
         setCharSets(null);
     }
 
+    /**
+     * Constructs a `CList` with an array of items.
+     *
+     * @param arr Array of items to initialize the list.
+     */
     public CList(String[] arr) {
         List<String> temp = Arrays.asList(arr);
         this.list = new ArrayList<>(temp);
         setCharSets(null);
     }
 
+    /**
+     * Sets the character sets used for drawing the list.
+     *
+     * @param symbol The symbol to be used for drawing.
+     */
     protected void setCharSets(Symbol symbol) {
         charSets = CharSets.getInstance(symbol);
     }
 
+    /**
+     * Sets the character sets to use box drawing characters for the list.
+     */
     public void useBoxSet() {
         setCharSets(Symbol.BOX_DRAWING);
     }
 
+    /**
+     * Sets the width of the list.
+     *
+     * @param width The new width of the list.
+     */
     public void setWidth(int width) {
         this.width = width;
     }
 
-
+    /**
+     * Generates the screen representation of the list.
+     */
     private void generateScreen() {
         if (this.title.length() > 0 && this.width <= title.length()) {
             this.width = title.length();
@@ -62,7 +95,6 @@ public class CList {
             if (width > Utilities.getMax(this.list.toArray(new String[0]))) {
                 width = width + 2;
             } else {
-
                 width = Utilities.getMax(this.list.toArray(new String[0])) + 2;
             }
             displayed = true;
@@ -104,6 +136,16 @@ public class CList {
         setCorners(screen[0], charSets.corners[0], charSets.corners[1], screen[screen.length - 1], charSets.corners[2], charSets.corners[3]);
     }
 
+    /**
+     * Sets the corner characters for the screen borders.
+     *
+     * @param chars   The array of characters representing the top or bottom border.
+     * @param corner  The character for the top-left corner.
+     * @param corner2 The character for the top-right corner.
+     * @param chars2  The array of characters representing the bottom border.
+     * @param corner3 The character for the bottom-left corner.
+     * @param corner4 The character for the bottom-right corner.
+     */
     protected static void setCorners(char[] chars, char corner, char corner2, char[] chars2, char corner3, char corner4) {
         chars[0] = corner;
         chars[chars.length - 1] = corner2;
@@ -111,11 +153,20 @@ public class CList {
         chars2[chars.length - 1] = corner4;
     }
 
+    /**
+     * Sets the title of the list and its position.
+     *
+     * @param title The title to be set.
+     * @param pos   The position of the title (START, CENTER, or END).
+     */
     public void setTitle(String title, Position pos) {
         this.title = title;
         this.pos = pos;
     }
 
+    /**
+     * Adds the title to the screen representation of the list.
+     */
     private void addTitle() {
         int start = 0;
         int end = 0;
@@ -151,6 +202,11 @@ public class CList {
         }
     }
 
+    /**
+     * Displays the screen representation of the list.
+     *
+     * @throws UnsupportedEncodingException If an unsupported encoding is encountered.
+     */
     public void display() throws UnsupportedEncodingException {
         generateScreen();
         if (title.length() > 0) addTitle();
@@ -162,6 +218,9 @@ public class CList {
         }
     }
 
+    /**
+     * Adds a counter to each item in the list.
+     */
     public void addCounter() {
         int count = 1;
         for (int i = 0; i < list.size(); i++) {
@@ -170,6 +229,11 @@ public class CList {
         }
     }
 
+    /**
+     * Adds an item to the list.
+     *
+     * @param item The item to be added.
+     */
     public void addItem(String item) {
         if (this.list.get(0).equals("")) {
             this.list.remove(0);
@@ -177,10 +241,21 @@ public class CList {
         this.list.add(item);
     }
 
+    /**
+     * Gets the item at the specified index.
+     *
+     * @param index The index of the item to retrieve.
+     * @return The item at the specified index.
+     */
     public String getItem(int index) {
         return this.list.get(index);
     }
 
+    /**
+     * Removes the item at the specified index.
+     *
+     * @param index The index of the item to be removed.
+     */
     public void remove(int index) {
         this.list.remove(index);
         if (list.isEmpty()) {
@@ -188,6 +263,12 @@ public class CList {
         }
     }
 
+    /**
+     * Sets the item at the specified index.
+     *
+     * @param index The index of the item to be set.
+     * @param item  The new value for the item.
+     */
     public void set(int index, String item) {
         this.list.set(index, item);
     }

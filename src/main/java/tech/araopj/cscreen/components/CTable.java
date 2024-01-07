@@ -10,10 +10,14 @@ import java.util.stream.IntStream;
 import java.io.PrintStream;
 import java.util.*;
 
+/**
+ * The `CTable` class represents a customizable table for displaying tabular data on a screen.
+ * It extends the `CList` class to inherit basic list functionality.
+ */
 public class CTable extends CList {
 
+    // Properties specific to CTable
     private String[] columnHeader;
-
     private final HashMap<Integer, Position> alignments = new HashMap<>();
     int[] spaces;
 
@@ -21,11 +25,13 @@ public class CTable extends CList {
     private List<List<String>> tempList2D;
 
     private boolean onSearch;
-
-
     private boolean hasSeparator;
 
-
+    /**
+     * Constructs a `CTable` with the specified column headers.
+     *
+     * @param columnHeader The headers for each column.
+     */
     public CTable(String... columnHeader) {
         super();
         this.columnHeader = columnHeader;
@@ -37,23 +43,28 @@ public class CTable extends CList {
             this.list2D.add(Arrays.asList(Utilities.createEmptyList(columnHeader)));
         }
 
-
         this.list = new ArrayList<>();
-
     }
 
-
+    /**
+     * Constructs a `CTable` with the specified 2D list and column headers.
+     *
+     * @param arr          The 2D list representing the table data.
+     * @param columnHeader The headers for each column.
+     */
     public CTable(List<List<String>> arr, String... columnHeader) {
         super();
-
         this.columnHeader = columnHeader;
-
         this.list2D = arr;
-
         this.list = new ArrayList<>();
-
     }
 
+    /**
+     * Constructs a `CTable` with the specified 2D array and column headers.
+     *
+     * @param arr          The 2D array representing the table data.
+     * @param columnHeader The headers for each column.
+     */
     public CTable(String[][] arr, String... columnHeader) {
         super();
         this.columnHeader = columnHeader;
@@ -61,7 +72,14 @@ public class CTable extends CList {
         this.list = new ArrayList<>();
     }
 
-
+    /**
+     * Constructs a `CTable` with the specified 2D list, column headers, position, and separator option.
+     *
+     * @param arr          The 2D list representing the table data.
+     * @param pos          The position of the table title.
+     * @param hasSeparator Indicates whether to use a separator between columns.
+     * @param columnHeader The headers for each column.
+     */
     public CTable(List<List<String>> arr, Position pos, boolean hasSeparator, String... columnHeader) {
         super();
         this.columnHeader = columnHeader;
@@ -71,7 +89,9 @@ public class CTable extends CList {
         this.list = new ArrayList<>();
     }
 
-
+    /**
+     * Initializes the table, preparing it for display.
+     */
     void init() {
         if (!onSearch) {
             tempList2D = new ArrayList<>(this.list2D);
@@ -92,9 +112,13 @@ public class CTable extends CList {
 
         int colSize = combineRow(tempList2D) + 1;
         this.screen = new char[len][colSize];
-
     }
 
+    /**
+     * Displays the table on the screen.
+     *
+     * @throws UnsupportedEncodingException If an unsupported encoding is encountered.
+     */
     public void display() throws UnsupportedEncodingException {
         generateScreen();
         PrintStream out = new PrintStream(System.out, true, StandardCharsets.UTF_8.name());
@@ -104,6 +128,12 @@ public class CTable extends CList {
         });
     }
 
+    /**
+     * Combines rows and prepares the list for display.
+     *
+     * @param arr The 2D list representing the table data.
+     * @return The total width of the combined rows.
+     */
     private int combineRow(List<List<String>> arr) {
         list = new ArrayList<>();
 
@@ -126,13 +156,11 @@ public class CTable extends CList {
             list.add(header);
         }
 
-
         for (int i = 0; i < arr.size(); i++) {
             String line = "";
             max = Math.max(max, Utilities.getMax(arr.get(i).toArray(new String[0])));
             for (int j = 0; j < arr.get(i).size(); j++) {
                 int space = spaces[j];
-                //System.out.println(alignments);
                 String fline = Utilities.alignedString(arr.get(i).get(j), space, alignments.getOrDefault(j, null));
                 line = line + fline + separator;
             }
@@ -142,10 +170,20 @@ public class CTable extends CList {
         return list.get(0).length();
     }
 
+    /**
+     * Sets whether the table has a separator between columns.
+     *
+     * @param hasSeparator Indicates whether to use a separator.
+     */
     public void hasSeparator(boolean hasSeparator) {
         this.hasSeparator = hasSeparator;
     }
 
+    /**
+     * Adds a column header to the screen.
+     *
+     * @param str The column header text.
+     */
     private void addColumnHeader(String str) {
         for (int i = 0, j = 0; i < str.length(); i++) {
             if (i == 0 || i == str.length() - 1) {
@@ -167,6 +205,9 @@ public class CTable extends CList {
         }
     }
 
+    /**
+     * Generates the screen for displaying the table.
+     */
     private void generateScreen() {
         init();
 
@@ -215,7 +256,11 @@ public class CTable extends CList {
         }
     }
 
-
+    /**
+     * Adds a row to the table.
+     *
+     * @param row The values to be added as a row.
+     */
     public void addRow(String... row) {
         if (this.list2D.get(0).get(0).equals(" ")) {
             this.list2D.remove(0);
@@ -223,21 +268,31 @@ public class CTable extends CList {
         this.list2D.add(Arrays.asList(row));
     }
 
-
+    /**
+     * Retrieves the values of a specific row.
+     *
+     * @param index The index of the row to retrieve.
+     * @return The values of the specified row.
+     */
     public List<String> getRow(int index) {
         return list2D.get(index);
     }
 
-    // TODO: Test method -> getColumn()
+    /**
+     * Retrieves the values of a specific column.
+     *
+     * @param index The index of the column to retrieve.
+     * @return The values of the specified column.
+     */
     public List<String> getColumn(int index) {
         return this.list2D.stream().map(value -> value.get(index)).collect(Collectors.toList());
-//        List<String> newList = new ArrayList<>();
-//        for (List<String> strings : list2D) {
-//            newList.add(strings.get(index));
-//        }
-//        return newList;
     }
 
+    /**
+     * Removes a row from the table.
+     *
+     * @param index The index of the row to be removed.
+     */
     public void removeRow(int index) {
         this.list2D.remove(index);
         if (this.list2D.isEmpty()) {
@@ -249,72 +304,80 @@ public class CTable extends CList {
         }
     }
 
+    /**
+     * Retrieves the value of a specific cell in the table.
+     *
+     * @param row    The row index of the cell.
+     * @param column The column index of the cell.
+     * @return The value of the specified cell.
+     */
     public String getCell(int row, int column) {
         return list2D.get(row).get(column);
     }
 
+    /**
+     * Sets the value of a specific cell in the table.
+     *
+     * @param row    The row index of the cell.
+     * @param column The column index of the cell.
+     * @param str    The new value for the cell.
+     */
     public void setCell(int row, int column, String str) {
         list2D.get(row).set(column, str);
     }
 
+    /**
+     * Adds a list of rows to the table.
+     *
+     * @param arr The 2D list representing the rows to be added.
+     */
     public void addList(List<List<String>> arr) {
         if (this.list2D.get(0).get(0).equals(" ")) {
             this.list2D.remove(0);
         }
         this.list2D.addAll(arr);
-        //this.list2D= arr;
     }
 
-    // TODO: Test method -> findRows()
+    /**
+     * Finds and retrieves rows based on a specified column and text.
+     *
+     * @param column The index of the column to search.
+     * @param text   The text to search for in the specified column.
+     * @return The list of rows matching the search criteria.
+     */
     public List<List<String>> findRows(int column, String text) {
         return this.list2D.stream().filter(row -> row.get(column).equals(text)).collect(Collectors.toList());
-
-//        List<List<String>> newArr = new ArrayList<>();
-//        for (List<String> strings : this.list2D) {
-//            if (strings.get(column).equals(text)) {
-//                newArr.add(strings);
-//            }
-//        }
-//        return newArr;
     }
-//    public void searchRow(int column, String item){
-//
-//       List<List<String>> newList = new ArrayList<>(findItem( column,  item));
-//        if(!newList.isEmpty()){
-//            tempList2D = new ArrayList<>(newList);
-//            System.out.println(tempList2D.size()+" item(s) out of "+list2D.size()+" row(s) Found");
-//            if (columnHeader != null) {
-//                tempList2D = Utilities.addHeader(tempList2D,this.columnHeader);
-//            }
-//            onSearch=true;
-//        }else{
-//            System.out.println("No item found");
-//        }
-//    }
 
+    /**
+     * Sets the alignment for a specific column in the table.
+     *
+     * @param columnIndex The index of the column.
+     * @param position    The alignment position for the column.
+     */
     public void setColumnAlignment(int columnIndex, Position position) {
         alignments.put(columnIndex, position);
     }
 
-    // TODO: Test method -> getTotal()
+    /**
+     * Calculates the total sum of numeric values in a specific column.
+     *
+     * @param columnIndex The index of the column.
+     * @return The total sum of numeric values in the specified column.
+     */
     public int getTotal(int columnIndex) {
         return list2D.stream()
                 .filter(i -> i.stream().filter(Utilities::isNumeric).isParallel()).mapToInt(row -> columnIndex).sum();
-//        int result = 0;
-//        for (List<String> strings : list2D) {
-//            result += Utilities.isNumeric(strings.get(columnIndex));
-//        }
-//       return result;
     }
 
-    // TODO: Test method -> getFloatTotal()
+    /**
+     * Calculates the total sum of floating-point values in a specific column.
+     *
+     * @param columnIndex The index of the column.
+     * @return The total sum of floating-point values in the specified column.
+     */
     public double getFloatTotal(int columnIndex) {
         return list2D.stream()
                 .filter(i -> i.stream().filter(Utilities::isNumeric).isParallel()).mapToDouble(row -> columnIndex).sum();
-//        float result = 0;
-//        for (List<String> strings : list2D) {
-//            result += Utilities.isNumeric(strings.get(columnIndex));
-//        }
-//        return result;
     }
 }
