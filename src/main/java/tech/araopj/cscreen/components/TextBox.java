@@ -56,7 +56,7 @@ public class TextBox extends Box {
      */
     public void clear() {
         int start = c;
-        int end = 0;
+        int end;
         if (this.width == 0) {
             end = (c + text.length()) + 2;
         } else {
@@ -65,8 +65,10 @@ public class TextBox extends Box {
             }
             end = (c + width) + 2;
         }
-        for (int i = start + 1; i < end - 1; i++) {
-            screen[r + 1][i] = ' ';
+        if (screen != null) {
+            for (int i = start + 1; i < end - 1; i++) {
+                screen[r + 1][i] = ' ';
+            }
         }
     }
 
@@ -80,10 +82,11 @@ public class TextBox extends Box {
         this.sc = sc;
         screen = sc.screen;
 
+        //noinspection DuplicatedCode
         charSets = sc.charSets;
 
         int start = c;
-        int end = 0;
+        int end;
         if (this.width == 0) {
             end = (c + text.length()) + 2;
         } else {
@@ -92,6 +95,7 @@ public class TextBox extends Box {
             }
             end = (c + width) + 2;
         }
+
         for (int i = r; i < r + height; i++) {
             for (int j = start, k = 0; j < end; j++) {
                 if (i == r || i == r + (height - 1)) {
@@ -103,7 +107,7 @@ public class TextBox extends Box {
                 }
                 if (i == (r + 1)) {
                     if (j > start && j < end - 1) {
-                        if (this.text.length() > 0) {
+                        if (!this.text.isEmpty()) {
                             if (k >= text.length()) {
                                 continue;
                             }
@@ -114,6 +118,7 @@ public class TextBox extends Box {
             }
         }
         // Corners
+        //noinspection DuplicatedCode
         screen[r][start] = charSets.corners[0];
         screen[r][end - 1] = charSets.corners[1];
         screen[r + (height - 1)][start] = charSets.corners[2];

@@ -33,8 +33,6 @@ public class Label extends Components {
         super();
         this.r = r;
         this.c = c;
-        // Note: The 'text' property is not initialized in this constructor. Consider updating it.
-        this.text = text;
     }
 
     /**

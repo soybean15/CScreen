@@ -9,7 +9,6 @@ public class Button extends Components implements Resizable {
     // Properties specific to the Button class
     private String text = ""; // Text displayed on the button
     private int width; // Width of the button
-    private int height; // Height of the button (not used in the current implementation)
 
     /**
      * Constructs a `Button` with specified row, column, and text.
@@ -67,7 +66,7 @@ public class Button extends Components implements Resizable {
         charSets = sc.charSets;
 
         int start = c;
-        int end = 0;
+        int end;
         if (this.width == 0) {
             end = (c + text.length()) + 2;
         } else {
@@ -84,7 +83,7 @@ public class Button extends Components implements Resizable {
                 }
                 if (i == (r + 1)) {
                     if (j > start && j < end - 1) {
-                        if (this.text.length() > 0) {
+                        if (!this.text.isEmpty()) {
                             if (k >= text.length()) {
                                 continue;
                             }
@@ -123,7 +122,7 @@ public class Button extends Components implements Resizable {
      */
     @Override
     public void setHeight(int height) {
-        this.height = height; // Set the height
+        // Height of the button (not used in the current implementation)
     }
 
 }

@@ -17,11 +17,11 @@ import java.util.*;
 public class CTable extends CList {
 
     // Properties specific to CTable
-    private String[] columnHeader;
+    private final String[] columnHeader;
     private final HashMap<Integer, Position> alignments = new HashMap<>();
     int[] spaces;
 
-    private List<List<String>> list2D;
+    private final List<List<String>> list2D;
     private List<List<String>> tempList2D;
 
     private boolean onSearch;
@@ -116,16 +116,18 @@ public class CTable extends CList {
 
     /**
      * Displays the table on the screen.
-     *
-     * @throws UnsupportedEncodingException If an unsupported encoding is encountered.
      */
-    public void display() throws UnsupportedEncodingException {
-        generateScreen();
-        PrintStream out = new PrintStream(System.out, true, StandardCharsets.UTF_8.name());
-        Arrays.stream(screen).forEach(value -> {
-            IntStream.range(0, screen[0].length).forEachOrdered(j -> out.print(value[j]));
-            out.println();
-        });
+    public void display() {
+        try {
+            generateScreen();
+            PrintStream out = new PrintStream(System.out, true, StandardCharsets.UTF_8.name());
+            Arrays.stream(screen).forEach(value -> {
+                IntStream.range(0, screen[0].length).forEachOrdered(j -> out.print(value[j]));
+                out.println();
+            });
+        } catch (UnsupportedEncodingException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     /**
@@ -144,28 +146,26 @@ public class CTable extends CList {
         spaces = Utilities.getMaxByColumn(arr);
 
         int max = 0;
-        int idx = 0;
 
         if (columnHeader != null) {
-            String header = "";
+            StringBuilder header = new StringBuilder();
             for (int i = 0; i < columnHeader.length; i++) {
                 int space = spaces[i];
-                String fline = Utilities.alignedString(columnHeader[i], space, Position.CENTER);
-                header = header + fline + separator;
+                String firstLine = Utilities.alignedString(columnHeader[i], space, Position.CENTER);
+                header.append(firstLine).append(separator);
             }
-            list.add(header);
+            list.add(header.toString());
         }
 
-        for (int i = 0; i < arr.size(); i++) {
-            String line = "";
-            max = Math.max(max, Utilities.getMax(arr.get(i).toArray(new String[0])));
-            for (int j = 0; j < arr.get(i).size(); j++) {
+        for (List<String> strings : arr) {
+            StringBuilder line = new StringBuilder();
+            max = Math.max(max, Utilities.getMax(strings.toArray(new String[0])));
+            for (int j = 0; j < strings.size(); j++) {
                 int space = spaces[j];
-                String fline = Utilities.alignedString(arr.get(i).get(j), space, alignments.getOrDefault(j, null));
-                line = line + fline + separator;
+                String firstLine = Utilities.alignedString(strings.get(j), space, alignments.getOrDefault(j, null));
+                line.append(firstLine).append(separator);
             }
-            list.add(line);
-            idx++;
+            list.add(line.toString());
         }
         return list.get(0).length();
     }
