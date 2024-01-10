@@ -62,7 +62,7 @@ public class Label extends Components {
      *
      * @return The text content of the label.
      */
-    String getText() {
+    public String getText() {
         return this.text;
     }
 }
