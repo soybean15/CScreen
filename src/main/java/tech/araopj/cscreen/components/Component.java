@@ -16,14 +16,6 @@ abstract class Components {
     protected CharSets charSets;
 
     /**
-     * Default constructor for the `Components` class.
-     * It initializes the component's properties.
-     */
-    Components() {
-        // Empty constructor
-    }
-
-    /**
      * Abstract method to place the component on the screen.
      * Subclasses must implement this method to define their specific placement logic.
      *
