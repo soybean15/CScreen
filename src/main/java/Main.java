@@ -2,7 +2,6 @@ import tech.araopj.cscreen.components.CTable;
 import tech.araopj.cscreen.components.Label;
 import tech.araopj.cscreen.components.Screen;
 import tech.araopj.cscreen.components.TextBox;
-import java.io.UnsupportedEncodingException;
 import java.util.Scanner;
 
 public class Main {
