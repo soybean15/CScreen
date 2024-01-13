@@ -2,6 +2,7 @@ import me.araopj.cscreen.components.CTable;
 import me.araopj.cscreen.components.Label;
 import me.araopj.cscreen.components.Screen;
 import me.araopj.cscreen.components.TextBox;
+
 import java.util.Scanner;
 
 public class Main {
@@ -11,7 +12,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
 
         Screen screen = new Screen(20, 40, true);//20 rows, 40column, hasBorder
-        screen.useBoxSet();//use box-window char
+        screen.useBoxSet(); //use box-window char
         screen.setTitle("Student Info");
 
         Label label1 = new Label(4, 3);
@@ -50,13 +51,13 @@ public class Main {
         label5.setText("Course: ");
         label5.place(screen);
 
-        TextBox txtCourse = new TextBox(15, 13);
-        txtCourse.setWidth(23);
-        txtCourse.place(screen);
+        TextBox txtProgram = new TextBox(15, 13);
+        txtProgram.setWidth(23);
+        txtProgram.place(screen);
 
         screen.display();
 
-        CTable table = new CTable("Full Name", "DOB", "Age", "Course");
+        CTable table = new CTable("Full Name", "DOB", "Age", "Program");
 
         //noinspection InfiniteLoopStatement
         while (true) {
@@ -65,7 +66,7 @@ public class Main {
             txtLastName.clear();
             txtAge.clear();
             txtDOB.clear();
-            txtCourse.clear();
+            txtProgram.clear();
 
             System.out.print("FirstName: ");
             String firstname = sc.nextLine();
@@ -88,11 +89,11 @@ public class Main {
             screen.display();
 
             System.out.print("Program: ");
-            String course = sc.nextLine();
-            txtCourse.setText(course);
+            String program = sc.nextLine();
+            txtProgram.setText(program);
             screen.display();
 
-            table.addRow(firstname + " " + lastname, dob, age, course);
+            table.addRow(String.format("%s %s", firstname, lastname), dob, age, program);
             table.display();
         }
     }
