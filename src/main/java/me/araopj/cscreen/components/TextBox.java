@@ -1,4 +1,4 @@
-package tech.araopj.cscreen.components;
+package me.araopj.cscreen.components;
 
 /**
  * The `TextBox` class represents a box containing text that can be displayed on a screen.

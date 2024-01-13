@@ -1,7 +1,7 @@
-import tech.araopj.cscreen.components.CTable;
-import tech.araopj.cscreen.components.Label;
-import tech.araopj.cscreen.components.Screen;
-import tech.araopj.cscreen.components.TextBox;
+import me.araopj.cscreen.components.CTable;
+import me.araopj.cscreen.components.Label;
+import me.araopj.cscreen.components.Screen;
+import me.araopj.cscreen.components.TextBox;
 import java.util.Scanner;
 
 public class Main {

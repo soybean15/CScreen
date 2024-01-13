@@ -1,4 +1,4 @@
-package tech.araopj.cscreen.components;
+package me.araopj.cscreen.components;
 
 /**
  * The `Label` class represents a simple label component that displays text on a screen.

@@ -1,4 +1,4 @@
-package tech.araopj.cscreen.components;
+package me.araopj.cscreen.components;
 
 /**
  * The `Resizable` interface defines methods for setting width and height.

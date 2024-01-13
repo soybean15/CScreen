@@ -1,4 +1,4 @@
-package tech.araopj.cscreen.classes;
+package me.araopj.cscreen.classes;
 
 import java.util.ArrayList;
 import java.util.Arrays;

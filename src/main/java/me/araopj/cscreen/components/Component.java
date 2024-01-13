@@ -1,6 +1,6 @@
-package tech.araopj.cscreen.components;
+package me.araopj.cscreen.components;
 
-import tech.araopj.cscreen.classes.CharSets;
+import me.araopj.cscreen.classes.CharSets;
 
 /**
  * The abstract class `Components` serves as a base class for screen components.

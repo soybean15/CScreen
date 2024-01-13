@@ -1,4 +1,4 @@
-package tech.araopj.cscreen.components;
+package me.araopj.cscreen.components;
 
 /**
  * The `Box` class represents a rectangular box on a screen.
