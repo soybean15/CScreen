@@ -29,7 +29,7 @@
 
 ### Add Maven Dependency
 
-![github-packages](https://img.shields.io/github/v/release/pitzzahh/Cscreen?color=blue)
+![maven-central](https://img.shields.io/maven-central/v/me.araopj/cscreen?color=blue)
 
 If you use Maven or Gradle, add the following configuration to your project's `pom.xml` | `build.gradle` <br>
 
