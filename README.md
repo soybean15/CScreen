@@ -40,7 +40,7 @@ Be sure to replace the **VERSION** key below with the one of the versions shown 
 
     <!-- other dependencies are there -->
     <dependency>
-        <groupId>tech.araopj</groupId>
+        <groupId>me.araopj</groupId>
         <artifactId>cscreen</artifactId>
         <version>VERSION</version>
     </dependency>
@@ -52,7 +52,7 @@ Be sure to replace the **VERSION** key below with the one of the versions shown 
 ## For Gradle
 
 ```gradle
-compile group: 'tech.araopj', name: 'cscreen', version: 'VERSION'
+compile group: 'me.araopj', name: 'cscreen', version: 'VERSION'
 ```
 
 ---
