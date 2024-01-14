@@ -1,11 +1,12 @@
+package me.araopj.cscreen;
+
 import me.araopj.cscreen.components.CTable;
 import me.araopj.cscreen.components.Label;
 import me.araopj.cscreen.components.Screen;
 import me.araopj.cscreen.components.TextBox;
-
 import java.util.Scanner;
 
-public class Main {
+public class CScreenSample {
 
     public static void main(String[] args) {
 
