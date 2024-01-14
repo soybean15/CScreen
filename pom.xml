@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>araopj.tech</groupId>
+    <groupId>me.araopj</groupId>
     <artifactId>cscreen</artifactId>
     <version>3.3.2</version>
     <packaging>jar</packaging>
@@ -43,14 +43,6 @@
             <organizationUrl>https://github.com/soybean15</organizationUrl>
         </developer>
     </developers>
-
-    <distributionManagement>
-        <repository>
-            <id>github</id>
-            <name>GitHub pitzzahh Apache Maven Packages</name>
-            <url>https://maven.pkg.github.com/pitzzahh/CScreen</url>
-        </repository>
-    </distributionManagement>
 
     <build>
         <plugins>
