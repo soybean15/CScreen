@@ -1,6 +1,6 @@
-package tech.araopj.cscreen.components;
+package me.araopj.cscreen.components;
 
-import tech.araopj.cscreen.classes.CharSets;
+import me.araopj.cscreen.classes.CharSets;
 
 /**
  * The abstract class `Components` serves as a base class for screen components.
@@ -14,14 +14,6 @@ abstract class Components {
 
     // Character sets used for drawing components
     protected CharSets charSets;
-
-    /**
-     * Default constructor for the `Components` class.
-     * It initializes the component's properties.
-     */
-    Components() {
-        // Empty constructor
-    }
 
     /**
      * Abstract method to place the component on the screen.

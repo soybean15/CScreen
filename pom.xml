@@ -4,18 +4,19 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>araopj.tech</groupId>
-    <artifactId>CScreen</artifactId>
-    <version>3.3.2</version>
+    <groupId>me.araopj</groupId>
+    <artifactId>cscreen</artifactId>
+    <version>${revision}</version>
     <packaging>jar</packaging>
 
     <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
+        <revision>3.3.3</revision>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
-    <name>CScreen</name>
+    <name>${project.groupId}:${project.artifactId}</name>
     <description>Text-based UI on Console</description>
     <url>https://github.com/soybean15/CScreen</url>
 
@@ -26,10 +27,16 @@
         </license>
     </licenses>
 
+    <scm>
+        <connection>scm:git:git://github.com/pitzzahh/CScreen.git</connection>
+        <developerConnection>scm:git:ssh://github.com:pitzzahh/CScreen.git</developerConnection>
+        <url>https://github.com/pitzzahh/CScreen</url>
+    </scm>
+
     <developers>
         <developer>
             <name>Peter John Arao</name>
-            <email>araopj2191@gmail.com</email>
+            <email>pitzzahh@gmail.com</email>
             <organizationUrl>https://github.com/pitzzahh</organizationUrl>
         </developer>
         <developer>
@@ -38,20 +45,24 @@
         </developer>
     </developers>
 
-    <distributionManagement>
-        <repository>
-            <id>github</id>
-            <name>GitHub pitzzahh Apache Maven Packages</name>
-            <url>https://maven.pkg.github.com/pitzzahh/CScreen</url>
-        </repository>
-    </distributionManagement>
-
     <build>
         <plugins>
+
+            <plugin>
+                <groupId>org.sonatype.central</groupId>
+                <artifactId>central-publishing-maven-plugin</artifactId>
+                <version>0.1.2</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <publishingServerId>central</publishingServerId>
+                    <tokenEnabled>true</tokenEnabled>
+                </configuration>
+            </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
-                <version>3.2.1</version>
+                <version>3.3.0</version>
                 <executions>
                     <execution>
                         <id>attach-sources</id>
@@ -65,7 +76,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>3.4.1</version>
+                <version>3.6.3</version>
                 <executions>
                     <execution>
                         <id>attach-javadocs</id>
@@ -75,6 +86,22 @@
                     </execution>
                 </executions>
             </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>1.5</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
         </plugins>
     </build>
 </project>

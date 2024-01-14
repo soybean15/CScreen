@@ -1,9 +1,9 @@
-package tech.araopj.cscreen.components;
+package me.araopj.cscreen.components;
 
-import tech.araopj.cscreen.classes.CharSets;
-import tech.araopj.cscreen.classes.Position;
-import tech.araopj.cscreen.classes.Symbol;
-import tech.araopj.cscreen.classes.Utilities;
+import me.araopj.cscreen.classes.CharSets;
+import me.araopj.cscreen.classes.Position;
+import me.araopj.cscreen.classes.Symbol;
+import me.araopj.cscreen.classes.Utilities;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -29,7 +29,7 @@
 
 ### Add Maven Dependency
 
-![maven-central](https://img.shields.io/maven-central/v/io.github.pitzzahh/CScreen?color=blue)
+![maven-central](https://img.shields.io/maven-central/v/me.araopj/cscreen?color=blue)
 
 If you use Maven or Gradle, add the following configuration to your project's `pom.xml` | `build.gradle` <br>
 
@@ -40,8 +40,8 @@ Be sure to replace the **VERSION** key below with the one of the versions shown 
 
     <!-- other dependencies are there -->
     <dependency>
-        <groupId>tech.araopj</groupId>
-        <artifactId>CScreen</artifactId>
+        <groupId>me.araopj</groupId>
+        <artifactId>cscreen</artifactId>
         <version>VERSION</version>
     </dependency>
     <!-- other dependencies are there -->
@@ -52,7 +52,7 @@ Be sure to replace the **VERSION** key below with the one of the versions shown 
 ## For Gradle
 
 ```gradle
-compile group: 'tech.araopj', name: 'CScreen', version: 'VERSION'
+compile group: 'me.araopj', name: 'cscreen', version: 'VERSION'
 ```
 
 ---

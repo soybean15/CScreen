@@ -1,0 +1,25 @@
+name: Java CI - build, test and release to Maven Central
+
+on:
+  workflow_dispatch:
+  release:
+    types: [ created ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          java-version: '11.0.20'
+          distribution: 'graalvm-ce-11'
+          cache: maven
+          server-id: central
+          server-username: ${{ secrets.MAVEN_USERNAME }}
+          server-password: ${{ secrets.MAVEN_PASSWORD }}
+      - name: Build with Maven
+        run: mvn -B package --file pom.xml
+      - name: Deploy to Maven Central
+        run: mvn clean -Dgpg.passphrase="${{ secrets.GPG_PASSPHRASE }}" -Drevision=${{ github.event.release.tag_name }} deploy

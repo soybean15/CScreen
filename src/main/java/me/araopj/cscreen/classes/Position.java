@@ -1,4 +1,4 @@
-package tech.araopj.cscreen.classes;
+package me.araopj.cscreen.classes;
 
 public enum Position {
     START,

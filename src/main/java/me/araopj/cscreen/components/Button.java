@@ -1,4 +1,4 @@
-package tech.araopj.cscreen.components;
+package me.araopj.cscreen.components;
 
 /**
  * The `Button` class represents a button component on a screen.

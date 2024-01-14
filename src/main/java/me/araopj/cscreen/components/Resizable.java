@@ -1,4 +1,4 @@
-package tech.araopj.cscreen.components;
+package me.araopj.cscreen.components;
 
 /**
  * The `Resizable` interface defines methods for setting width and height.
@@ -11,12 +11,12 @@ public interface Resizable {
      *
      * @param width The new width to be set.
      */
-    public void setWidth(int width);
+    void setWidth(int width);
 
     /**
      * Sets the height of the resizable object.
      *
      * @param height The new height to be set.
      */
-    public void setHeight(int height);
+    void setHeight(int height);
 }

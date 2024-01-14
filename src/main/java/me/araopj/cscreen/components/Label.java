@@ -1,4 +1,4 @@
-package tech.araopj.cscreen.components;
+package me.araopj.cscreen.components;
 
 /**
  * The `Label` class represents a simple label component that displays text on a screen.
@@ -62,7 +62,7 @@ public class Label extends Components {
      *
      * @return The text content of the label.
      */
-    String getText() {
+    public String getText() {
         return this.text;
     }
 }
