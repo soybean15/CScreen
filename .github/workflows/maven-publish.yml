@@ -22,4 +22,4 @@ jobs:
       - name: Build with Maven
         run: mvn -B package --file pom.xml
       - name: Deploy to Maven Central
-        run: mvn clean -P release -Dgpg.passphrase="${{ secrets.GPG_PASSPHRASE }}" -Drevision=${{ github.event.release.tag_name }} deploy
+        run: mvn clean -Dgpg.passphrase="${{ secrets.GPG_PASSPHRASE }}" -Drevision=${{ github.event.release.tag_name }} deploy
