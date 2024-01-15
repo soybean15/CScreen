@@ -4,51 +4,65 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>io.github.pitzzahh</groupId>
-    <artifactId>CScreen</artifactId>
-    <version>2.3.1</version>
+    <groupId>me.araopj</groupId>
+    <artifactId>cscreen</artifactId>
+    <version>${revision}</version>
     <packaging>jar</packaging>
 
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+        <revision>3.3.3</revision>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
-    <dependencies>
-        <dependency>
-            <groupId>io.github.pitzzahh</groupId>
-            <artifactId>util-classes</artifactId>
-            <version>1.0.13</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>io.github.pitzzahh</groupId>
-                    <artifactId>util-classes</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-    </dependencies>
+    <name>${project.groupId}:${project.artifactId}</name>
+    <description>Text-based UI on Console</description>
+    <url>https://github.com/soybean15/CScreen</url>
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>https://www.opensource.org/licenses/mit-license.php</url>
+        </license>
+    </licenses>
+
+    <scm>
+        <connection>scm:git:git://github.com/pitzzahh/CScreen.git</connection>
+        <developerConnection>scm:git:ssh://github.com:pitzzahh/CScreen.git</developerConnection>
+        <url>https://github.com/pitzzahh/CScreen</url>
+    </scm>
+
+    <developers>
+        <developer>
+            <name>Peter John Arao</name>
+            <email>pitzzahh@gmail.com</email>
+            <organizationUrl>https://github.com/pitzzahh</organizationUrl>
+        </developer>
+        <developer>
+            <name>soybean15</name>
+            <organizationUrl>https://github.com/soybean15</organizationUrl>
+        </developer>
+    </developers>
 
     <build>
-
         <plugins>
 
             <plugin>
-                <groupId>org.sonatype.plugins</groupId>
-                <artifactId>nexus-staging-maven-plugin</artifactId>
-                <version>1.6.13</version>
+                <groupId>org.sonatype.central</groupId>
+                <artifactId>central-publishing-maven-plugin</artifactId>
+                <version>0.1.6</version>
                 <extensions>true</extensions>
                 <configuration>
-                    <serverId>ossrh</serverId>
-                    <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
-                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                    <publishingServerId>central</publishingServerId>
+                    <tokenEnabled>true</tokenEnabled>
                 </configuration>
             </plugin>
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
-                <version>3.2.1</version>
+                <version>3.3.0</version>
                 <executions>
                     <execution>
                         <id>attach-sources</id>
@@ -62,7 +76,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>3.5.0</version>
+                <version>3.6.3</version>
                 <executions>
                     <execution>
                         <id>attach-javadocs</id>
@@ -89,48 +103,5 @@
             </plugin>
 
         </plugins>
-
     </build>
-
-    <name>CScreen</name>
-    <description>Text-base UI on Console</description>
-    <url>https://github.com/pitzzahh/CScreen</url>
-
-    <licenses>
-        <license>
-            <name>MIT License</name>
-            <url>https://www.opensource.org/licenses/mit-license.php</url>
-        </license>
-    </licenses>
-
-    <developers>
-        <developer>
-            <name>Peter John Arao</name>
-            <email>araopj2191@gmail.com</email>
-            <organization>io.github.pitzzahh</organization>
-            <organizationUrl>https://github.com/pitzzahh/</organizationUrl>
-        </developer>
-        <developer>
-            <name>soybean15</name>
-            <organizationUrl>https://github.com/soybean15/</organizationUrl>
-        </developer>
-    </developers>
-
-    <scm>
-        <connection>scm:git:git://github.com/pitzzahh/CScreen.git</connection>
-        <developerConnection>scm:git:ssh://github.com:pitzzahh/CScreen.git</developerConnection>
-        <url>https://github.com/pitzzahh/CScreen</url>
-    </scm>
-
-    <distributionManagement>
-        <snapshotRepository>
-            <id>ossrh</id>
-            <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
-        <repository>
-            <id>ossrh</id>
-            <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-        </repository>
-    </distributionManagement>
-
 </project>
