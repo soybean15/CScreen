@@ -6,11 +6,10 @@
 
     <groupId>me.araopj</groupId>
     <artifactId>cscreen</artifactId>
-    <version>${revision}</version>
+    <version>3.3.4</version>
     <packaging>jar</packaging>
 
     <properties>
-        <revision>3.3.3</revision>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
