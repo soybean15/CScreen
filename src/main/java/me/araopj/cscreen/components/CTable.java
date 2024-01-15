@@ -2,12 +2,9 @@ package me.araopj.cscreen.components;
 
 import me.araopj.cscreen.classes.Position;
 import me.araopj.cscreen.classes.Utilities;
-
-import java.io.UnsupportedEncodingException;
-import java.nio.charset.StandardCharsets;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-import java.io.PrintStream;
+import static java.lang.System.out;
 import java.util.*;
 
 /**
@@ -118,16 +115,11 @@ public class CTable extends CList {
      * Displays the table on the screen.
      */
     public void display() {
-        try {
-            generateScreen();
-            PrintStream out = new PrintStream(System.out, true, StandardCharsets.UTF_8.name());
-            Arrays.stream(screen).forEach(value -> {
-                IntStream.range(0, screen[0].length).forEachOrdered(j -> out.print(value[j]));
-                out.println();
-            });
-        } catch (UnsupportedEncodingException e) {
-            throw new RuntimeException(e);
-        }
+        generateScreen();
+        Arrays.stream(screen).forEach(value -> {
+            IntStream.range(0, screen[0].length).forEachOrdered(j -> out.print(value[j]));
+            out.println();
+        });
     }
 
     /**
@@ -360,6 +352,16 @@ public class CTable extends CList {
     }
 
     /**
+     * Sets the alignment for all columns in the table.
+     * @param position    The alignment position for all the columns.
+     */
+    public void setColumnAlignment(Position position) {
+        for (int i = 0; i < this.columnHeader.length; i++) {
+            alignments.put(i, position);
+        }
+    }
+
+    /**
      * Calculates the total sum of numeric values in a specific column.
      *
      * @param columnIndex The index of the column.
@@ -376,7 +378,7 @@ public class CTable extends CList {
      * @param columnIndex The index of the column.
      * @return The total sum of floating-point values in the specified column.
      */
-    public double getFloatTotal(int columnIndex) {
+    public double getDoubleTotal(int columnIndex) {
         return list2D.stream()
                 .filter(i -> i.stream().filter(Utilities::isNumeric).isParallel()).mapToDouble(row -> columnIndex).sum();
     }
