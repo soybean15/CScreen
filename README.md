@@ -14,7 +14,7 @@
 3. [Box-window and normal char](#normal-characters)
 4. [Components](#c-screen-components)
     - [Screen](#screen)
-    - [Box](#box-window-characters)
+    - [Box](#box)
     - [TextBox](#text-box)
     - [Label](#label)
     - [Button](#button)
@@ -150,7 +150,7 @@ public class Main {
 
 ![image](https://user-images.githubusercontent.com/75112014/182511031-ec59293c-8cd0-4297-8e9a-47abb9dfba84.png)
 
-### Screen
+### Box
 A rectangular component you can Put inside the Screen.
 
 ***Sample code:***
