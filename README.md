@@ -9,33 +9,27 @@
 
 ## Table of Contents
 
-[How to use](#howtouse)<br/>
-[C-Screen](#cscreen)<br/>
-[Box-window and normal char](#boxwin)<br/>
-[Components](#components)
-
-- [Screen](#screen)
-- [Box](#box)
-- [TextBox](#textbox)
-- [Label](#label)
-- [Button](#button)
-
-[CList](#clist)<br/>
-[CTable](#ctable)<br/>
+1. [How to use](#how-to-use)
+2. [C-Screen](#c-screen)
+3. [Box-window and normal char](#normal-characters)
+4. [Components](#c-screen-components)
+    - [Screen](#screen)
+    - [Box](#box)
+    - [TextBox](#text-box)
+    - [Label](#label)
+    - [Button](#button)
+5. [CList](#clist)
+6. [CTable](#ctable)
 
 ## How to use
-
-<a name="howtouse"></a>
-
 ### Add Maven Dependency
-
 ![maven-central](https://img.shields.io/maven-central/v/me.araopj/cscreen?color=blue)
 
 If you use Maven or Gradle, add the following configuration to your project's `pom.xml` | `build.gradle` <br>
 
 Be sure to replace the **VERSION** key below with the one of the versions shown above
 
-```maven
+```xml
 <dependencies>
 
     <!-- other dependencies are there -->
@@ -51,12 +45,11 @@ Be sure to replace the **VERSION** key below with the one of the versions shown 
 
 ## For Gradle
 
-```gradle
+```groovy
 compile group: 'me.araopj', name: 'cscreen', version: 'VERSION'
 ```
 
 ---
-
 
 step1: download jar file on this link.
 
@@ -70,9 +63,7 @@ step4: Finally create your first console UI. Enjoy!
 
 ## C-Screen
 
-<a name="screen"></a>
-
-**C-screen** is a text-base UI library on java console, you can now easily design your console program using c-screen
+**C-screen** is A text-base UI library on java console, you can now easily design your console program using c-screen
 with the help of cscreen components.
 
 _Update as of August 4, 2022, 1:20pm_
@@ -80,16 +71,21 @@ _Update as of August 4, 2022, 1:20pm_
 _Since Box-window is not working on default on some OS, I added a method where you can choose between normal character
 and box-window character_
 
-<a name="boxwin"></a>
-
-**Normal Characters:**
+### Normal Characters
 
 ```java
 //normal character
-Screen screen=new Screen(20,40,true);
-//screen.useBoxSet();
-screen.addTitle("Sample Screen",Position.START);
-screen.display();
+import me.araopj.cscreen.classes.Position;
+import me.araopj.cscreen.components.Screen;
+
+public class Main {
+    public static void main(String[] args) {
+        Screen screen = new Screen(20, 40, true);
+        //screen.useBoxSet();
+        screen.addTitle("Sample Screen", Position.START);
+        screen.display();
+    }
+}
 
 /*
 sample output
@@ -99,14 +95,21 @@ sample output
 */
 ```
 
-**Box-Window Characters:**
+#### Box-Window Characters
 
 ```java
 //box-window character
-Screen screen = new Screen(20,40,true);
-screen.useBoxSet();
-screen.addTitle("Sample Screen",Position.START);
-screen.display();
+import me.araopj.cscreen.classes.Position;
+import me.araopj.cscreen.components.Screen;
+
+public class Main {
+    public static void main(String[] args) {
+        Screen screen = new Screen(20, 40, true);
+        screen.useBoxSet();
+        screen.addTitle("Sample Screen", Position.START);
+        screen.display();
+    }
+}
 
 /*
 sample output
@@ -117,19 +120,24 @@ sample output
 */
 ```
 
-### C-Screen components:
+## C-Screen components:
 
-<a name="components"></a>
-<a name="screen"></a>
+### Screen
+A frame-like interface where you can put multiple components.
 
-**1. Screen**: a frame-like interface where you can put multiple components.
-
-**Sample code:**
+***Sample code:***
 
 ```java
-Screen screen = new Screen(20,40,true);
-screen.addTitle("Sample Screen",Position.START);
-screen.display();
+import me.araopj.cscreen.classes.Position;
+import me.araopj.cscreen.components.Screen;
+
+public class Main {
+    public static void main(String[] args) {
+        Screen screen = new Screen(20, 40, true);
+        screen.addTitle("Sample Screen", Position.START);
+        screen.display();
+    }
+}
 
 /*the 3 parameters on the constructor are the following:
 -width - width of screen
@@ -142,103 +150,131 @@ screen.display();
 
 ![image](https://user-images.githubusercontent.com/75112014/182511031-ec59293c-8cd0-4297-8e9a-47abb9dfba84.png)
 
-<a name="box"></a>
+### Box
+A rectangular component you can Put inside the Screen.
 
-**2. Box:** a rectangular component you can Put inside the Screen.
-
-**Sample code:**
+***Sample code:***
 
 ```java
-Screen screen=new Screen(20,40,true);
-screen.addTitle("Sample Screen",Position.START);
+import me.araopj.cscreen.classes.Position;
+import me.araopj.cscreen.components.Box;
+import me.araopj.cscreen.components.Screen;
 
-Box box=new Box(3,3);
-box.setHeight(5);
-box.setWidth(30);
+public class Main {
+    public static void main(String[] args) {
+        Screen screen = new Screen(20, 40, true);
+        screen.addTitle("Sample Screen", Position.START);
 
-//place component inside the screen
-box.place(screen);
+        Box box = new Box(3, 3);
+        box.setHeight(5);
+        box.setWidth(30);
 
-//display screen
-screen.display();
+        //place component inside the screen
+        box.place(screen);
+
+        //display screen
+        screen.display();
+    }
+}
 ```
 
 **Sample output:**
 
 ![image](https://user-images.githubusercontent.com/75112014/182512062-a3f041f9-9071-47e0-a934-bdf03e145f27.png)
 
-<a name="textbox"></a>
 
-**3.TextBox:** A box component with text inside
+### Text Box
+A box component with text inside
 
-**Sample code:**
+***Sample code:***
 
 ```java
-Screen screen=new Screen(20,40,true);
-screen.addTitle("Sample Screen",Position.START);
+import me.araopj.cscreen.classes.Position;
+import me.araopj.cscreen.components.Screen;
+import me.araopj.cscreen.components.TextBox;
 
+public class Main {
+    public static void main(String[] args) {
+        Screen screen = new Screen(20, 40, true);
+        screen.addTitle("Sample Screen", Position.START);
 
-TextBox textBox=new TextBox(3,3);
-textBox.setText("Sample text");
-textBox.setHeight(5);
-textBox.setWidth(30);
+        TextBox textBox = new TextBox(3, 3);
+        textBox.setText("Sample text");
+        textBox.setHeight(5);
+        textBox.setWidth(30);
 
-//place component inside the screen
-textBox.place(screen);
+        //place component inside the screen
+        textBox.place(screen);
 
-//display screen
-screen.display();
+        //display screen
+        screen.display();
+    }
+}
 ```
 
 **Sample output:**
 
 ![image](https://user-images.githubusercontent.com/75112014/182512666-f2a78982-07ca-43b7-baee-4b997efb1afc.png)
 
-<a name="label"></a>
+### Label
+Text you can put inside the screen.
 
-**4. Label** : Text you can put inside the screen.
-
-**Sample code:**
+***Sample code:***
 
 ```java
-Screen screen=new Screen(20,40,true);
-screen.addTitle("Sample Screen",Position.START);
+import me.araopj.cscreen.classes.Position;
+import me.araopj.cscreen.components.Label;
+import me.araopj.cscreen.components.Screen;
 
-Label label=new Label(3,3);
-label.setText("Sample Label");
+public class Main {
+    public static void main(String[] args) {
+        Screen screen = new Screen(20, 40, true);
+        screen.addTitle("Sample Screen", Position.START);
 
-//place component inside the screen
-label.place(screen);
+        Label label = new Label(3, 3);
+        label.setText("Sample Label");
 
-//display screen
-screen.display();
+        //place component inside the screen
+        label.place(screen);
+
+        //display screen
+        screen.display();
+    }
+}
 ```
 
 **Sample output:**
 
 ![image](https://user-images.githubusercontent.com/75112014/182512590-daee429e-7923-496c-9374-8b92a2e0f0e4.png)
 
-<a name="button"></a>
-
-**5. Button:** Buttonlike component which is good to have if you have multiple option in your code.
+### Button
+Button-like component which is good to have if you have multiple option in your code.
 
 **Sample code:**
 
 ```java
-Screen screen=new Screen(20,40,true);
-screen.addTitle("Sample Screen",Position.START);
+import me.araopj.cscreen.classes.Position;
+import me.araopj.cscreen.components.Button;
+import me.araopj.cscreen.components.Screen;
 
-Button button1=new Button(3,3);
-button1.setText("Button1");
-//place component inside the screen
-button1.place(screen);
+public class Main {
+    public static void main(String[] args) {
+        Screen screen = new Screen(20, 40, true);
+        screen.addTitle("Sample Screen", Position.START);
 
-Button button2=new Button(6,3,"Button2");
-//place component inside the screen
-button2.place(screen);
+        Button button1 = new Button(3, 3);
+        button1.setText("Button1");
+        //place component inside the screen
+        button1.place(screen);
 
-//display screen
-screen.display();
+        Button button2 = new Button(6, 3, "Button2");
+        //place component inside the screen
+        button2.place(screen);
+
+        //display screen
+        screen.display();
+    }
+}
 ```
 
 **Sample output:**
@@ -254,17 +290,24 @@ screen.display();
 **Sample code:**
 
 ```java
-CList list=new CList();
-list.useBoxSet();
-list.setWidth(20);
-list.setTitle("Fruits",Position.CENTER);
+import me.araopj.cscreen.classes.Position;
+import me.araopj.cscreen.components.CList;
 
-list.addItem("Apple");
-list.addItem("Banana");
-list.addItem("Mango");
-list.addItem("Banana");
+public class Main {
+    public static void main(String[] args) {
+        CList list = new CList();
+        list.useBoxSet();
+        list.setWidth(20);
+        list.setTitle("Fruits", Position.CENTER);
 
-list.display();
+        list.addItem("Apple");
+        list.addItem("Banana");
+        list.addItem("Mango");
+        list.addItem("Banana");
+
+        list.display();
+    }
+}
 ```
 
 **Sample output:**
@@ -292,34 +335,41 @@ table.
 **Sample code:**
 
 ```java
-String[]header={"Id","Product Name","Quantity","Price"};
-//can also add 2d array/list on argument ex: new CTable(your2dArrayOrList, Header);
-CTable table=new CTable(header);
-table.useBoxSet();
-table.hasSeparator(true);
+import me.araopj.cscreen.classes.Position;
+import me.araopj.cscreen.components.CTable;
 
-//add row
-table.addRow("f011","Fries","10","70.00");
-table.addRow("b212","Burger","10","30.00");
-table.addRow("fc11","Fried Chicken","10","110.50");
-table.addRow("f011","Fries","10","70.00");
-table.addRow("s930","Sundae","10","30.00");
+public class Main {
+    public static void main(String[] args) {
+        String[] header = {"Id", "Product Name", "Quantity", "Price"};
+        //can also add 2d array/list on argument ex: new CTable(your2dArrayOrList, Header);
+        CTable table = new CTable(header);
+        table.useBoxSet();
+        table.hasSeparator(true);
 
-//center third column
-table.setColumnAlignment(2,Position.CENTER);
-//Aligned End fourth column
-table.setColumnAlignment(3,Position.END);
+        //add row
+        table.addRow("f011", "Fries", "10", "70.00");
+        table.addRow("b212", "Burger", "10", "30.00");
+        table.addRow("fc11", "Fried Chicken", "10", "110.50");
+        table.addRow("f011", "Fries", "10", "70.00");
+        table.addRow("s930", "Sundae", "10", "30.00");
 
-//print table
-table.display();
+        //center third column
+        table.setColumnAlignment(2, Position.CENTER);
+        //Aligned End fourth column
+        table.setColumnAlignment(3, Position.END);
 
-//get total of third column in int
-int quantityTotal=table.getIntTotal(2);
-//get total of fourth column in float
-float priceTotal=table.getFloatTotal(3);
+        //print table
+        table.display();
 
-System.out.println("Total Qty: "+quantityTotal);
-System.out.println("Total Price: "+priceTotal);
+        //get total of third column in int
+        int quantityTotal = table.getTotal(2);
+        //get total of fourth column in float
+        double priceTotal = table.getFloatTotal(3);
+
+        System.out.println("Total Qty: " + quantityTotal);
+        System.out.println("Total Price: " + priceTotal);
+    }
+}
 ```
 
 **Sample output:**
@@ -342,4 +392,4 @@ System.out.println("Total Price: "+priceTotal);
 | `getFloatTotal(int columnIndex)`                         | Get the float total value of a column.                                                                                       |
 | `findRows(int column, String text)`                      | Find multiple rows inside the table. Example: `List<List<String>> findRows = tableName.findRows(column, "item to search");`. |
 
-_Hope you like it..enjoy._
+_Hope you like it….enjoy._

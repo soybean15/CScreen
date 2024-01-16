@@ -4,7 +4,6 @@ import me.araopj.cscreen.classes.CharSets;
 import me.araopj.cscreen.classes.Position;
 import me.araopj.cscreen.classes.Symbol;
 import me.araopj.cscreen.classes.Utilities;
-import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -86,7 +85,7 @@ public class CList {
      * Generates the screen representation of the list.
      */
     private void generateScreen() {
-        if (this.title.length() > 0 && this.width <= title.length()) {
+        if (!this.title.isEmpty() && this.width <= title.length()) {
             this.width = title.length();
         }
 
@@ -101,7 +100,7 @@ public class CList {
         }
 
         int r = this.list.size() + 2;
-        if (title.length() > 0) {
+        if (!title.isEmpty()) {
             r += 2;
             start = 2;
         }
@@ -171,7 +170,7 @@ public class CList {
         int start = 0;
         int end = 0;
 
-        if (this.title.length() > 0) {
+        if (!this.title.isEmpty()) {
             if (width - 4 < this.title.length()) {
                 this.title = this.title.substring(0, screen[0].length - 2);
             }
@@ -205,14 +204,13 @@ public class CList {
     /**
      * Displays the screen representation of the list.
      *
-     * @throws UnsupportedEncodingException If an unsupported encoding is encountered.
      */
-    public void display() throws UnsupportedEncodingException {
+    public void display() {
         generateScreen();
-        if (title.length() > 0) addTitle();
-        for (int i = 0; i < screen.length; i++) {
+        if (!title.isEmpty()) addTitle();
+        for (char[] chars : screen) {
             for (int j = 0; j < screen[0].length; j++) {
-                charSets.printChar(screen[i][j]);
+                charSets.printChar(chars[j]);
             }
             System.out.println();
         }
@@ -224,7 +222,7 @@ public class CList {
     public void addCounter() {
         int count = 1;
         for (int i = 0; i < list.size(); i++) {
-            this.list.set(i, String.valueOf(count) + "." + this.list.get(i));
+            this.list.set(i, count + "." + this.list.get(i));
             count++;
         }
     }
@@ -235,7 +233,7 @@ public class CList {
      * @param item The item to be added.
      */
     public void addItem(String item) {
-        if (this.list.get(0).equals("")) {
+        if (this.list.get(0).isEmpty()) {
             this.list.remove(0);
         }
         this.list.add(item);
@@ -261,6 +259,14 @@ public class CList {
         if (list.isEmpty()) {
             list.add("");
         }
+    }
+
+    /**
+     * Removes all items from the list.
+     */
+    public void removeAll() {
+        this.list.clear();
+        list.add("");
     }
 
     /**
